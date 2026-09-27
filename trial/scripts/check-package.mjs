@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
-import { readFile, access } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { access, readFile } from 'node:fs/promises';
+import { join } from 'node:path';
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 const entry = await readFile('dist/index.js', 'utf8');
 assert.ok(/^['"]use client['"];\s/.test(entry), 'Compiled React entry needs a preserved client-component directive');
@@ -8,4 +10,29 @@ for (const target of Object.values(pkg.exports).flatMap(value => typeof value ==
 assert.deepEqual(pkg.sideEffects, ['**/*.css'], 'Styles must survive tree shaking');
 assert.ok(pkg.peerDependencies.react && pkg.peerDependencies['react-dom'], 'React must remain a peer dependency');
 assert.ok(!pkg.dependencies.react && !pkg.dependencies['react-dom'], 'Do not ship another React instance');
-console.log('Package entry, client boundary, exports, CSS side effects and React peers verified.');
+assert.equal(pkg.private, true, 'The release candidate must remain private');
+assert.equal(pkg.license, 'UNLICENSED', 'A public license requires owner approval before publication');
+assert.ok(pkg.description && pkg.repository?.url && pkg.homepage && pkg.bugs?.url, 'Package metadata needs description, repository, homepage, and issue URL');
+assert.equal(pkg.engines?.node, '>=24 <25', 'The package must declare the supported Node 24 release policy');
+
+const npmCli = process.env.npm_execpath;
+assert.ok(npmCli, 'Run package verification through npm so npm_execpath is available.');
+const packed = JSON.parse(execFileSync(process.execPath, [npmCli, 'pack', '--dry-run', '--json'], {
+  encoding: 'utf8',
+  env: { ...process.env, npm_config_cache: join(process.cwd(), '.npm-cache') },
+}));
+const files = packed[0]?.files?.map(file => file.path) ?? [];
+assert.ok(files.length > 0, 'npm pack did not return a package manifest');
+const requiredFiles = ['README.md', 'package.json', 'dist/index.js', 'dist/index.d.ts', 'dist/styles.css', 'dist/styles.d.ts', 'ai/contract.json', 'ai/llms-full.txt', 'docs/ACCESSIBILITY.md'];
+for (const file of requiredFiles) assert.ok(files.includes(file), `Package is missing required public file: ${file}`);
+const publicFile = file => file === 'README.md' || file === 'package.json'
+  || /^dist\/(?:index\.js|styles\.css|[A-Za-z][A-Za-z0-9-]*\.d\.ts)$/.test(file)
+  || /^ai\/(?:[A-Za-z0-9_.-]+\.(?:md|json|txt)|examples\/[A-Za-z0-9_.-]+\.(?:md|ts|tsx|css))$/.test(file)
+  || /^docs\/[A-Za-z0-9_.-]+\.md$/.test(file);
+const unexpected = files.filter(file => !publicFile(file));
+assert.deepEqual(unexpected, [], `Unexpected package file(s): ${unexpected.join(', ')}`);
+for (const file of files.filter(file => /\.(?:js|json|md|txt|css|ts|tsx)$/i.test(file))) {
+  const contents = await readFile(file, 'utf8');
+  assert.ok(!/(?:Deepak UI|Deepak \/ UI)/.test(contents), `Stale brand name found in package file: ${file}`);
+}
+console.log('Package entry, exports, contents manifest, CSS side effects and React peers verified.');

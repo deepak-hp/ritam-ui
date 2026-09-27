@@ -11,6 +11,11 @@ The default Flame & Ink identity uses orange primary actions, light and dark neu
 - [Composition recipes](trial/ai/COMPOSITION.md)
 - [Comparison pilot and its limits](trial/docs/COMPOSITION-PILOT.md)
 - [Accessibility scope](trial/docs/ACCESSIBILITY.md)
+- [Release and verification guide](docs/RELEASING.md)
+- [Release readiness evidence](docs/RELEASE-READINESS.md)
+- [Contributing and maintenance](CONTRIBUTING.md)
 - [Repository handoff](docs/REPOSITORY-HANDOFF.md)
 
 The current implementation supports React web. Native platform adapters are not implemented. Automated accessibility tests are not a conformance certification. The package is private and unpublished; no public registry installation is available yet.
+
+The repository is not licensed for public reuse today. [The proposed MIT terms](docs/LICENSING.md) require the owner's explicit approval and application before any public release.

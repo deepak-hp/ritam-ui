@@ -11,6 +11,10 @@ const sourceDirectory = join(root, 'src');
 const outputDirectory = join(root, 'dist');
 const temporaryDirectory = await mkdtemp(join(tmpdir(), 'ritam-ui-stylex-'));
 
+function isExactBuildOutput(path) {
+  return relative(root, path) === 'dist' && resolve(path) === outputDirectory;
+}
+
 async function sourceFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const files = await Promise.all(entries.map(async (entry) => {
@@ -23,6 +27,8 @@ async function sourceFiles(directory) {
 }
 
 try {
+  if (!isExactBuildOutput(outputDirectory)) throw new Error('Refusing to clean a path outside this package dist directory');
+  await rm(outputDirectory, { recursive: true, force: true });
   const rules = [];
   const files = await sourceFiles(sourceDirectory);
 

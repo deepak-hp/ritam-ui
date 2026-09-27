@@ -57,7 +57,8 @@
     "check:starter": "node scripts/check-starter.mjs",
     "check:materials": "node scripts/check-materials.mjs",
     "check:composition": "node scripts/check-composition.mjs",
-    "check:catalogue": "node scripts/check-catalogue.mjs"
+    "check:catalogue": "node scripts/check-catalogue.mjs",
+    "check:workflows": "node scripts/check-workflows.mjs"
   },
   "peerDependencies": {
     "react": "^19.3.0",

@@ -1,12 +1,14 @@
-import { StrictMode } from 'react';
+import { lazy, StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@fontsource-variable/plus-jakarta-sans';
 import '@ritam-ui/react/styles.css';
-import App from './App';
-import CompositionLab from './CompositionLab';
-import Catalogue from './catalogue/Catalogue';
 import './app.css';
-
+const App = lazy(() => import('./App'));
+const CompositionLab = lazy(() => import('./CompositionLab'));
+const Catalogue = lazy(() => import('./catalogue/Catalogue'));
+const Invoices = lazy(() => import('./workflows/Invoices'));
+const Settings = lazy(() => import('./workflows/Settings'));
+const Onboarding = lazy(() => import('./workflows/Onboarding'));
 const view = new URLSearchParams(window.location.search).get('view');
-const Screen = view === 'catalogue' ? Catalogue : view === 'composition' ? CompositionLab : App;
-createRoot(document.getElementById('root')!).render(<StrictMode><Screen /></StrictMode>);
+const Screen = view === 'catalogue' ? Catalogue : view === 'composition' ? CompositionLab : view === 'invoices' ? Invoices : view === 'settings' ? Settings : view === 'onboarding' ? Onboarding : App;
+createRoot(document.getElementById('root')!).render(<StrictMode><Suspense fallback={<p role="status">Loading example…</p>}><Screen /></Suspense></StrictMode>);

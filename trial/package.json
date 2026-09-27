@@ -56,7 +56,8 @@
     "test:starter": "node --test scripts/create-app.test.mjs",
     "check:starter": "node scripts/check-starter.mjs",
     "check:materials": "node scripts/check-materials.mjs",
-    "check:composition": "node scripts/check-composition.mjs"
+    "check:composition": "node scripts/check-composition.mjs",
+    "check:catalogue": "node scripts/check-catalogue.mjs"
   },
   "peerDependencies": {
     "react": "^19.3.0",

@@ -17,3 +17,9 @@ A public-web check found other uses of Ritam, including an unrelated Kotlin proj
 - Public release still requires an explicit license choice, package/name ownership and release accessibility review. This local milestone does not publish a package or certify accessibility.
 
 The repository is a source handoff. No npm package is published by pushing it to GitHub.
+
+## Release candidate handoff — 28 September 2026
+
+The reviewed work is pushed on [codex/release-readiness](https://github.com/deepak-hp/ritam-ui/tree/codex/release-readiness). The complete local release command passed. See the [master checklist](RELEASE-CHECKLIST.md) and [verification record](RELEASE-READINESS.md) for delivered scope and remaining gates.
+
+The GitHub connector returned HTTP 404 when asked to create a draft pull request, although Git transport successfully pushed the branch. No pull request was created and no hosted CI result was observed. The branch can be reviewed through [GitHub's comparison page](https://github.com/deepak-hp/ritam-ui/compare/main...codex/release-readiness). Main was not merged or force-pushed.

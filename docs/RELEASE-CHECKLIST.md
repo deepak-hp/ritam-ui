@@ -46,6 +46,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Keep generated documentation fresh with build/CI checks.
 - [x] Document supported integration paths and validate artifact access without requiring a particular assistant.
 - [x] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
+- [ ] Run that evaluation with independent human review and publish reproducible results before claiming improved AI-generated design quality.
 
 ## 5. Accessibility and inclusion
 

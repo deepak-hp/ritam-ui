@@ -13,56 +13,57 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Orange filled primary actions, dark button text, white/near-black canvases, Plus Jakarta Sans, restrained success green.
 - [x] Subtle meaningful status motion and reduced-motion support implemented.
 - [x] Apple-informed optional navigation materials with opaque accessibility fallbacks implemented.
-- [ ] Catalogue documents these foundations and their correct roles with live examples.
-- [ ] Review new surfaces in light/dark and mobile/desktop without introducing a competing visual identity.
+- [x] Catalogue documents these foundations and their correct roles with live examples (846eb1d).
+- [x] Review new surfaces in light/dark and mobile/desktop without introducing a competing visual identity (independent catalogue/workflow reviews).
 
 ## 2. Component and installation quality
 
 - [x] 42 React components and 2 hooks implemented with typed contracts.
 - [x] Compiled CSS, local tarball installation, starter generator and SSR/hydration checks exist.
-- [ ] Rerun full component, package, consumer and SSR checks on the release candidate.
-- [ ] Verify a fresh generated app, installed-package reference and static documentation build.
-- [ ] Add package metadata, repeatable release checks and CI.
-- [ ] Audit direct/transitive dependency findings and document actionable residual risks.
-- [ ] Establish versioning, changelog, supported environments and upgrade policy.
+- [x] Rerun full component, package, consumer and SSR checks on the release candidate.
+- [x] Verify a fresh generated app, installed-package reference and static documentation build.
+- [x] Add package metadata, repeatable release checks and CI.
+- [ ] Observe the hosted Linux CI job passing on the reviewed branch or pull request.
+- [x] Audit direct/transitive dependency findings and document actionable residual risks.
+- [x] Establish versioning, changelog, supported environments and upgrade policy.
 - [ ] Publish a versioned npm package after ownership/authentication and release gates are satisfied.
 
 ## 3. Professional discovery and examples
 
-- [ ] Searchable catalogue covering every public component, with preview, source/API access and usage guidance.
-- [ ] Clear installation, foundations, AI integration and accessibility entry points.
-- [ ] Complete invoice workflow: filtering, details, explicit simulated follow-up, pending/failure/retry/success.
-- [ ] Complete settings workflow: meaningful groups, validation, save/reset, persisted local data and failure recovery.
-- [ ] Complete onboarding workflow: steps, validation, review, completion, restart and honest local-only behavior.
-- [ ] Verify all three flows with keyboard, responsive layouts, both themes and automated accessibility checks.
+- [x] Searchable catalogue covering every public component, with preview, source/API access and usage guidance (846eb1d; 84 component/theme browser audits).
+- [x] Clear installation, foundations, AI integration and accessibility entry points (catalogue; nested static-path checks passed).
+- [x] Complete invoice workflow: filtering, details, explicit simulated follow-up, pending/failure/retry/success.
+- [x] Complete settings workflow: meaningful groups, validation, save/reset, persisted local data and failure recovery.
+- [x] Complete onboarding workflow: steps, validation, review, completion, restart and honest local-only behavior.
+- [x] Verify all three flows with keyboard, responsive layouts, both themes and automated accessibility checks (26 browser audits; 15 reference tests).
 - [ ] Publish catalogue/Storybook hosting after deployment configuration and repository settings are available.
 
 ## 4. AI integration that improves composition
 
 - [x] Versioned generated component contract, offline AI text, starter instructions and Storybook MCP integration exist.
 - [x] Composition brief, recipes and honest A/B pilot exist; no demonstrated general improvement claimed.
-- [ ] Connect reviewed workflow source and guidance to the catalogue and AI documentation.
-- [ ] Keep generated documentation fresh with build/CI checks.
-- [ ] Document supported integration paths and validate artifact access without requiring a particular assistant.
-- [ ] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
+- [x] Connect reviewed workflow source and guidance to the catalogue and AI documentation.
+- [x] Keep generated documentation fresh with build/CI checks.
+- [x] Document supported integration paths and validate artifact access without requiring a particular assistant.
+- [x] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
 
 ## 5. Accessibility and inclusion
 
 - [x] WCAG 2.2 AA target and application-level/EAA responsibilities documented.
 - [x] Automated keyboard, axe, contrast, reflow, reduced-motion and forced-colour checks exist.
-- [ ] Record fresh release-candidate automated results and unresolved limitations.
-- [ ] Publish a criterion/evidence matrix and practical manual test protocol.
+- [x] Record fresh release-candidate automated results and unresolved limitations.
+- [x] Publish a criterion/evidence matrix and practical manual test protocol.
 - [ ] Native NVDA + Firefox and VoiceOver + Safari evaluation of complete flows.
 - [ ] Actual browser zoom, text spacing, focus-obscuration and supported-browser review.
 - [ ] Evaluation with disabled users and applicable product/service EAA review before any conformance claim.
 
 ## 6. Open-source and launch readiness
 
-- [ ] Contribution guide, security reporting instructions, issue/PR templates, CI and maintenance policy.
-- [ ] Prepare a proposed permissive license and third-party attribution; owner must approve final grant before public release.
+- [x] Contribution guide, security reporting instructions, issue/PR templates, CI and maintenance policy.
+- [x] Prepare a proposed permissive license and third-party attribution; owner must approve final grant before public release.
 - [ ] Confirm repository visibility, package scope ownership and release permissions without exposing private research.
-- [ ] Release notes, installation guide and rollback/release procedure.
-- [ ] Prepare truthful README pitch, launch post drafts and demonstration outline.
+- [x] Release notes, installation guide and rollback/release procedure.
+- [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
 - [ ] Owner approves/applies license and authorizes public package/site publication when release gates are met.
 - [ ] Publish announcements only with explicit authorization; never invent users, benchmarks or endorsements.
 
@@ -73,11 +74,12 @@ This is the durable source of scope and progress. Checked items require evidence
 - [ ] Desktop integration examples and supported-host matrix.
 - [ ] Figma parity with maintained components/tokens and version mapping.
 - [ ] Localization/RTL coverage and broader framework integrations backed by tests.
+- [ ] Evaluate advanced modules against real needs: charts, tree view, rich-text editing, upload transport and virtualized/editable data grids; current component docs explicitly exclude them.
 - [ ] More complete workflows driven by real usage, contribution feedback and accessibility review.
 
 ## Status and evidence
 
-Active implementation plan: [release readiness](superpowers/plans/2026-09-28-release-readiness.md).
-Existing evidence: [verification](../trial/docs/VERIFICATION.md). The existing results predate this release effort and are not a substitute for fresh verification.
+Completed local implementation plan: [release readiness](superpowers/plans/2026-09-28-release-readiness.md).
+Fresh evidence: [release candidate record](RELEASE-READINESS.md). Historical and current results: [verification](../trial/docs/VERIFICATION.md).
 
-Release status: **in development; not a public production release**. External/manual gates stay open even when all local engineering tasks pass.
+Release status: **locally verified React-web release candidate; unpublished**. External/manual gates remain open. No accessibility conformance or public production-release claim is made.

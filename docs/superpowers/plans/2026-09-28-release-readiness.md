@@ -26,10 +26,10 @@
 
 **Interfaces:** `Catalogue` default React component at `?view=catalogue`; workflow links use `?view=invoices`, `?view=settings`, `?view=onboarding`; all 42 component names remain discoverable. Current workspace is `?view=workspace` or no view; composition is unchanged.
 
-- [ ] Build categorized search, no-results recovery, selected component URL/deep link, keyboard-operable controls, live typed specimen and source/API/usage guidance for each export.
-- [ ] Add foundations, practical clone/tarball installation and AI/accessibility links; no unworking npm install instructions.
-- [ ] Verify search/filter/deep link/theme/no-results/copy fallback and document assets in browser at 1440/390/320px, both themes, with axe and no page overflow.
-- [ ] Build reference, review screenshots, run scoped independent code/design review and resolve material findings.
+- [x] Build categorized search, no-results recovery, selected component URL/deep link, keyboard-operable controls, live typed specimen and source/API/usage guidance for each export.
+- [x] Add foundations, practical clone/tarball installation and AI/accessibility links; no unworking npm install instructions.
+- [x] Verify search/filter/deep link/theme/no-results/copy fallback and document assets in browser at 1440/390/320px, both themes, with axe and no page overflow.
+- [x] Build reference, review screenshots, run scoped independent code/design review and resolve material findings.
 
 ### Task 2: Three complete reviewed workflows
 
@@ -37,11 +37,11 @@
 
 **Interfaces:** routes named in Task 1, links back to catalogue; all import package controls from `@ritam-ui/react`. Storage keys under `ritam-ui.examples.*`; reject invalid stored shapes and do not overwrite corrupt data silently.
 
-- [ ] Invoice workflow: fixture records, search/status filters, meaningful empty state/reset, accessible detail surface, simulated reminder with pending/failure/retry/success and duplicate-submit prevention.
-- [ ] Settings workflow: grouped name/timezone/notification fields, explicit validation/save/reset, browser persistence, unsaved feedback and simulated/actual storage failure preserving edits.
-- [ ] Onboarding workflow: workspace details, preferences, review, explicit local completion/restart, back navigation preserving valid edits and field-error focus.
-- [ ] Test meaningful state transitions first, then implement; check complete flows and failure recovery in browser, both themes, narrow/desktop, keyboard and axe.
-- [ ] Inspect screenshots and resolve independent code/design review findings.
+- [x] Invoice workflow: fixture records, search/status filters, meaningful empty state/reset, accessible detail surface, simulated reminder with pending/failure/retry/success and duplicate-submit prevention.
+- [x] Settings workflow: grouped name/timezone/notification fields, explicit validation/save/reset, browser persistence, unsaved feedback and simulated/actual storage failure preserving edits.
+- [x] Onboarding workflow: workspace details, preferences, review, explicit local completion/restart, back navigation preserving valid edits and field-error focus.
+- [x] Test meaningful state transitions first, then implement; check complete flows and failure recovery in browser, both themes, narrow/desktop, keyboard and axe.
+- [x] Inspect screenshots and resolve independent code/design review findings.
 
 ### Task 3: AI recipes, accessibility evidence and integration docs
 
@@ -49,11 +49,11 @@
 
 **Interfaces:** source references target shipped workflow files; keep contract generator/fingerprint freshness guarantees. Catalogue should expose current AI assets produced by Task 1.
 
-- [ ] Add usable workflow recipes with when-to-use/avoid, source paths, state obligations and visual-review rubric.
-- [ ] Document assistant-neutral offline integration and existing Storybook MCP; no unsupported universal compatibility claims.
-- [ ] Define reproducible multi-task AI comparison protocol with human review and no invented scores.
-- [ ] Add WCAG 2.2 evidence/manual-review matrix and complete-process accessibility test instructions; retain EAA scope limits.
-- [ ] Regenerate AI artifacts, check freshness and test links/asset availability.
+- [x] Add usable workflow recipes with when-to-use/avoid, source paths, state obligations and visual-review rubric.
+- [x] Document assistant-neutral offline integration and existing Storybook MCP; no unsupported universal compatibility claims.
+- [x] Define reproducible multi-task AI comparison protocol with human review and no invented scores.
+- [x] Add WCAG 2.2 evidence/manual-review matrix and complete-process accessibility test instructions; retain EAA scope limits.
+- [x] Regenerate AI artifacts, check freshness and test links/asset availability.
 
 ### Task 4: Repository governance and release pipeline
 
@@ -61,21 +61,21 @@
 
 **Interfaces:** existing `trial` npm commands and new catalogue/workflow checks. All CI processes must clean up their own servers. Use least-privilege workflow permissions; no auto-publish or secrets embedded.
 
-- [ ] Add owner-reviewable MIT proposal, attribution and concise contribution/security/maintenance documents.
-- [ ] Add accurate package metadata/contents verification, release/versioning checklist and safe CI jobs for source/build/browser checks.
-- [ ] Inspect dependency audit output; fix supported low-risk issues or record concrete residual findings.
-- [ ] Improve README setup/navigation and prepare truthful promotion drafts/demo outline; keep publication gated.
-- [ ] Validate configuration, package contents and clean clone/setup procedure as far as available credentials/network permit.
+- [x] Add owner-reviewable MIT proposal, attribution and concise contribution/security/maintenance documents.
+- [x] Add accurate package metadata/contents verification, release/versioning checklist and safe CI jobs for source/build/browser checks.
+- [x] Inspect dependency audit output; fix supported low-risk issues or record concrete residual findings.
+- [x] Improve README setup/navigation and prepare truthful promotion drafts/demo outline; keep publication gated.
+- [x] Validate configuration, package contents and clean clone/setup procedure as far as available credentials/network permit.
 
 ### Task 5: Final integrated release-candidate verification
 
 **Files:** verification/release checklist/plan status, fixes identified by review only.
 
-- [ ] Run full unit/type/build/AI/package/consumer/SSR and starter checks.
-- [ ] Build Storybook and run browser interaction/theme/motion matrix; run reference/catalogue/workflow and accessibility checks.
-- [ ] Independently review complete change set, preserve reviewed design evidence, fix material findings and rerun affected checks.
-- [ ] Update all master checklist statuses with evidence and list external/manual release gates without claiming completion of them.
-- [ ] Commit verified work and prepare repository handoff; no force push or public announcements.
+- [x] Run full unit/type/build/AI/package/consumer/SSR and starter checks.
+- [x] Build Storybook and run browser interaction/theme/motion matrix; run reference/catalogue/workflow and accessibility checks.
+- [x] Independently review complete change set, preserve reviewed design evidence, fix material findings and rerun affected checks.
+- [x] Update all master checklist statuses with evidence and list external/manual release gates without claiming completion of them.
+- [x] Commit verified work and prepare repository handoff; no force push or public announcements.
 
 ## Execution decisions
 

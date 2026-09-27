@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve('.playwright');
+const base = process.env.STORYBOOK_URL ?? 'http://127.0.0.1:6006';
 const { chromium } = await import('playwright');
 await mkdir('.review', { recursive: true });
 const browser = await chromium.launch();
@@ -11,7 +12,7 @@ try {
   for (const theme of ['light', 'dark']) {
     for (const component of ['calendar', 'datepicker', 'daterangepicker']) {
       await page.setViewportSize({ width: 320, height: 640 });
-      await page.goto(`http://127.0.0.1:6006/iframe.html?id=components-${component}--${component==='calendar'?'default':'open'}&viewMode=story&globals=theme:${theme}`);
+      await page.goto(`${base}/iframe.html?id=components-${component}--${component==='calendar'?'default':'open'}&viewMode=story&globals=theme:${theme}`);
       await page.getByRole('grid').waitFor();
       await page.evaluate(() => document.fonts.ready);
       await page.screenshot({ path: `.review/dates-${component}-${theme}.png` });

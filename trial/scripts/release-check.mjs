@@ -87,7 +87,7 @@ try {
   const storybookUrl = `http://127.0.0.1:${storybookPort}`;
   await waitFor(`${storybookUrl}/index.json`, storybook, 'Storybook');
   const storybookEnv = { STORYBOOK_URL: storybookUrl };
-  for (const check of ['check:docs', 'check:storybook-ui', 'check:layout', 'check:search-layout', 'check:menu-select', 'check:date-layout']) run(['run', check], storybookEnv);
+  for (const check of ['check:docs', 'check:storybook-ui', 'ai:check-mcp', 'check:layout', 'check:search-layout', 'check:menu-select', 'check:date-layout']) run(['run', check], storybookEnv);
 
   const referencePort = await availablePort();
   reference = start(process.execPath, [join(root, 'reference/node_modules/vite/bin/vite.js'), 'preview', '--host', '127.0.0.1', '--port', String(referencePort), '--strictPort'], 'reference preview', join(root, 'reference'));

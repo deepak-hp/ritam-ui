@@ -6,6 +6,7 @@ The default Flame & Ink identity uses orange primary actions, light and dark neu
 
 ## Start here
 
+- [End goal and master checklist](docs/RELEASE-CHECKLIST.md)
 - [Library setup and commands](trial/README.md)
 - [AI integration](trial/ai/README.md)
 - [Composition recipes](trial/ai/COMPOSITION.md)

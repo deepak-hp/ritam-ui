@@ -60,6 +60,14 @@ Renamed the unpublished package to `@ritam-ui/react` throughout manifests, impor
 
 Passed: renamed library build and reference package install; type check and AI contract; 8 starter unit tests; a fresh generated app's tarball install, build, browser behavior and accessibility checks; 10 reference unit tests; reference production build and workflow/browser checks; 16 composition responsive/theme/accessibility cases; Storybook production build; legacy/current theme preference and non-destructive save checks. The reference dev server was restarted to clear the old package's dependency cache. Existing non-blocking build warnings remain.
 
+## Release candidate — 28 September 2026
+
+The complete `npm run check:release` command passed with exit code 0 on Windows using Node 24.19.0, npm 10.8.1 and Chromium. It covered 84 library unit tests, 15 reference tests, 8 starter tests, 560 Storybook theme/motion cases, package and AI freshness regressions, strict packed consumer and SSR/hydration, a fresh generated app, static Storybook, live documentation and MCP metadata for all 42 components, existing workspace/material/composition checks, 84 catalogue component/theme audits and 26 workflow accessibility/overflow audits.
+
+An independent Git source export also passed a clean lockfile install, build, package/AI checks, fresh reference setup and reference build. The dependency audit reported zero known vulnerabilities across 401 resolved dependencies. Independent task and whole-branch reviews have no unresolved material findings. Integration repaired test readiness for popup closure and lazy pages, dynamic server addresses, and equivalent minified hex colours; assertions still check the actual interaction and colour values.
+
+The final verification log is a local ignored artifact at `trial/release-final-pass.log`; captures are under `.review`. Existing Storybook annotation/docgen and documentation chunk warnings remain non-blocking. Hosted Linux CI has been configured but not observed running. Publication, final licensing, native-platform support and the manual accessibility gates below remain incomplete.
+
 ## Release work still required
 
 - [ ] NVDA/Firefox and VoiceOver/Safari testing of actual app flows.

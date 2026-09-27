@@ -49,10 +49,11 @@ try {
       const style = getComputedStyle(document.documentElement);
       return Object.fromEntries(['--dp-orange', '--dp-on-orange', '--dp-canvas', '--dp-success', '--dp-font'].map(name => [name, style.getPropertyValue(name).trim()]));
     });
-    assert.equal(identity['--dp-orange'], '#FF681F');
-    assert.equal(identity['--dp-on-orange'], '#141414');
-    assert.equal(identity['--dp-canvas'], theme === 'light' ? '#FFFFFF' : '#090A0C');
-    assert.equal(identity['--dp-success'], theme === 'light' ? '#28694F' : '#8AD3AC');
+    const hex = value => value.toUpperCase().replace(/^#([0-9A-F])([0-9A-F])([0-9A-F])$/, '#$1$1$2$2$3$3');
+    assert.equal(hex(identity['--dp-orange']), '#FF681F');
+    assert.equal(hex(identity['--dp-on-orange']), '#141414');
+    assert.equal(hex(identity['--dp-canvas']), theme === 'light' ? '#FFFFFF' : '#090A0C');
+    assert.equal(hex(identity['--dp-success']), theme === 'light' ? '#28694F' : '#8AD3AC');
     assert.ok(identity['--dp-font'].includes('Plus Jakarta Sans'));
 
     for (const material of ['Subtle', 'Expressive', 'Solid']) {

@@ -1,6 +1,6 @@
 import { useId, useRef, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Button, Popover, RadioGroup } from '../src/index';
 import './navigation-material.css';
 
@@ -77,7 +77,8 @@ export const Subtle: Story = {
     await userEvent.click(within(dialog).getByRole('radio', { name: 'Subtle' }));
     await expect(canvas.getByRole('banner')).toHaveAttribute('data-dp-material', 'subtle');
     await userEvent.keyboard('{Escape}');
-    await expect(trigger).toHaveFocus();
+    await waitFor(() => expect(dialog).not.toBeInTheDocument());
+    await waitFor(() => expect(trigger).toHaveFocus());
   },
 };
 

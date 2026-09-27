@@ -75,7 +75,7 @@ try {
   await editor.getByRole('button', { name: 'Save changes', exact: true }).click();
   await editor.getByText('Save not complete', { exact: true }).waitFor();
   assert.equal(await editor.getByRole('textbox', { name: 'Project name', exact: true }).inputValue(), 'Reference edited project');
-  const storedBeforeRetry = await page.evaluate(() => JSON.parse(localStorage.getItem('deepak-ui.reference.projects.v1')));
+  const storedBeforeRetry = await page.evaluate(() => JSON.parse(localStorage.getItem('ritam-ui.reference.projects.v1')));
   assert.ok(storedBeforeRetry.projects.some(p => p.name === 'Reference acceptance project'));
   assert.ok(!storedBeforeRetry.projects.some(p => p.name === 'Reference edited project'));
   await page.addScriptTag({ content: axeSource });
@@ -112,13 +112,16 @@ try {
   await edited.waitFor();
 
   const corruptContext = await browser.newContext();
-  await corruptContext.addInitScript(() => localStorage.setItem('deepak-ui.reference.projects.v1', '{broken'));
+  await corruptContext.addInitScript(() => {
+    localStorage.setItem('deepak-ui.reference.projects.v1', JSON.stringify({ version: 1, projects: [] }));
+    localStorage.setItem('ritam-ui.reference.projects.v1', '{broken');
+  });
   const corruptPage = await corruptContext.newPage();
   await corruptPage.goto(base);
   await corruptPage.getByText('Storage needs attention', { exact: true }).waitFor();
   await corruptPage.getByRole('button', { name: 'Create project', exact: true }).click();
   assert.ok(await corruptPage.getByRole('dialog', { name: 'Create project', exact: true }).getByRole('button', { name: 'Create project', exact: true }).isDisabled());
-  assert.equal(await corruptPage.evaluate(() => localStorage.getItem('deepak-ui.reference.projects.v1')), '{broken');
+  assert.equal(await corruptPage.evaluate(() => localStorage.getItem('ritam-ui.reference.projects.v1')), '{broken');
   await corruptContext.close();
   assert.deepEqual(errors, []);
   console.log('Reference app: search/status/date filters, validation, create/reload, failed save/retry, keyboard focus, archive/reload, corrupt storage, both themes, responsive layout and axe passed.');

@@ -13,7 +13,7 @@ export function MaterialPreview() {
             <span>Flame &amp; Ink</span><span>Flame &amp; Ink</span><span>Flame &amp; Ink</span>
           </div>
           <div className="material-preview__surface" data-material={material}>
-            <strong>Deepak UI</strong><span>Projects</span>
+            <strong>Ritam UI</strong><span>Projects</span>
           </div>
         </div>
         <figcaption>{material === 'solid' ? 'Solid — hides the backdrop' : 'Glass — softly reveals and blurs it'}</figcaption>

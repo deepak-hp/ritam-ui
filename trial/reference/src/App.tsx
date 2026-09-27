@@ -22,12 +22,13 @@ import {
   useToast,
   type DateRangeValue,
   type TableSort,
-} from '@deepak-ui/react';
+} from '@ritam-ui/react';
 import {
   PROJECT_STORAGE_KEY,
   createProject,
   filterAndSortProjects,
   parseStoredProjects,
+  readStoredProjects,
   seededProjects,
   serializeProjects,
   type Project,
@@ -105,7 +106,7 @@ function ReferenceWorkspace() {
 
   const loadProjects = () => {
     try {
-      const raw = window.localStorage.getItem(PROJECT_STORAGE_KEY);
+      const raw = readStoredProjects(window.localStorage);
       if (!raw) {
         setStorageBlocked(false);
         setStorageError(null);
@@ -324,7 +325,7 @@ function ReferenceWorkspace() {
     <div className="workspace-shell" data-preview-glass={previewGlass}>
       <a className="skip-link" href="#project-workspace">Skip to project workspace</a>
       <header className="topbar dp-navigation-surface" data-dp-material={navigationFinish}>
-        <a className="wordmark" href="#project-workspace" aria-label="Deepak UI projects home">Deepak UI</a>
+        <a className="wordmark" href="#project-workspace" aria-label="Ritam UI projects home">Ritam UI</a>
         <div className="topbar-actions">
           <a className="wordmark" href="/?view=composition">Composition lab</a>
           <span className="local-note">Local-only sample</span>

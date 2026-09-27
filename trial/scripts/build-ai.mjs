@@ -17,7 +17,7 @@ const components = Object.values(families).flatMap(family => Object.keys(family)
 const hooks = Object.keys(api).filter(name => name.startsWith('use')).sort();
 assert.deepEqual([...components, ...hooks].sort(), Object.keys(api).sort(), 'Every public export must appear in the catalogue');
 await writeFile('ai/contract.json', JSON.stringify({ schemaVersion: 1, package: pkg.name, version: pkg.version, platform: 'react-web', components, hooks, families, declarations, tokens, fingerprint, accessibility: { target: 'WCAG 2.2 AA', conformanceClaim: false, guidance: 'docs/ACCESSIBILITY.md' } }, null, 2) + '\n');
-await writeFile('ai/llms.txt', '# Deepak UI\n\nReact web component library; unpublished.\n\n- [Full integration guide and API](./llms-full.txt)\n- [Composition recipes](./COMPOSITION.md)\n- [Machine-readable contract](./contract.json)\n- [Agent guidance](./AGENTS.md)\n- [Setup](./README.md)\n');
+await writeFile('ai/llms.txt', '# Ritam UI\n\nReact web component library; unpublished.\n\n- [Full integration guide and API](./llms-full.txt)\n- [Composition recipes](./COMPOSITION.md)\n- [Machine-readable contract](./contract.json)\n- [Agent guidance](./AGENTS.md)\n- [Setup](./README.md)\n');
 await writeFile('ai/llms-full.txt', `${guide}\n\n${composition}\n\n# Exact public TypeScript declarations\n\n${Object.entries(declarations).map(([name, body]) => `## ${name}\n\n\`\`\`tsx\n${body}\`\`\`\n`).join('\n')}\n# Theme tokens\n\n\`\`\`css\n${tokens}\`\`\`\n`);
 // Keep Vite raw-module imports outside the /ai static-file mount.
 await writeFile('docs/agent-api.generated.md', await readFile('ai/llms-full.txt', 'utf8'));

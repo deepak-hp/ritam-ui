@@ -1,6 +1,7 @@
-import type { DateRangeValue, TableSort } from '@deepak-ui/react';
+import type { DateRangeValue, TableSort } from '@ritam-ui/react';
 
-export const PROJECT_STORAGE_KEY = 'deepak-ui.reference.projects.v1';
+export const PROJECT_STORAGE_KEY = 'ritam-ui.reference.projects.v1';
+const LEGACY_PROJECT_STORAGE_KEY = 'deepak-ui.reference.projects.v1';
 
 export type ProjectStatus = 'planning' | 'active' | 'complete' | 'on-hold';
 
@@ -27,6 +28,10 @@ export type ProjectFilters = {
 type StoredProjects = { version: 1; projects: Project[] };
 
 const statuses: ProjectStatus[] = ['planning', 'active', 'complete', 'on-hold'];
+
+export function readStoredProjects(storage: Pick<Storage, 'getItem'>): string | null {
+  return storage.getItem(PROJECT_STORAGE_KEY) ?? storage.getItem(LEGACY_PROJECT_STORAGE_KEY);
+}
 
 function isCalendarDate(value: string): boolean {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;

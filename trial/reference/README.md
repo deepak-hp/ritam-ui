@@ -1,6 +1,6 @@
 # Reference workspace
 
-A local project workspace built from the actual `@deepak-ui/react` npm tarball. It exercises the library's public API and precompiled CSS without source aliases or a StyleX compiler.
+A local project workspace built from the actual `@ritam-ui/react` npm tarball. It exercises the library's public API and precompiled CSS without source aliases or a StyleX compiler.
 
 ## Run
 
@@ -14,7 +14,7 @@ npm run reference:dev
 
 Open http://127.0.0.1:5174. Setup builds the library, packs it into a content-addressed archive in `reference/vendor`, and installs the archive and app dependencies. Run setup again after changing library code. The vendor archive is generated locally and ignored by Git; run setup before installing this app from a fresh checkout.
 
-The app itself is ordinary React/Vite. Its `src` imports components and types from `@deepak-ui/react`, imports CSS/font once in `main.tsx`, and sets document-wide theme attributes so portals inherit the theme. There is no custom build transform for library styles.
+The app itself is ordinary React/Vite. Its `src` imports components and types from `@ritam-ui/react`, imports CSS/font once in `main.tsx`, and sets document-wide theme attributes so portals inherit the theme. There is no custom build transform for library styles.
 
 Setup deliberately updates this app's package manifest and lockfile to the generated tarball hash. This makes a changed local library install as a new artifact even when its unpublished version number stays the same. Generated archives remain in the ignored vendor directory.
 
@@ -28,7 +28,7 @@ Setup deliberately updates this app's package manifest and lockfile to the gener
 
 ## Data boundaries
 
-Projects are fictional samples. Changes are stored only in localStorage under `deepak-ui.reference.projects.v1` for this browser and origin. There is no backend, authentication or cross-device sync. Avoid sensitive data. Clearing browser storage removes saved changes. A malformed or unsupported storage envelope is reported rather than overwritten with samples.
+Projects are fictional samples. Changes are stored only in localStorage under `ritam-ui.reference.projects.v1` for this browser and origin. Existing pre-rename data is read from its legacy key only when the Ritam key is absent; new saves use the Ritam key. There is no backend, authentication or cross-device sync. Avoid sensitive data. Clearing browser storage removes saved changes. A malformed or unsupported storage envelope is reported rather than overwritten with samples.
 
 Loading/saving delay and the failure switch are explicitly demo behaviour. A successful save means the browser storage write succeeded. Storage access failures remain visible and can be retried.
 

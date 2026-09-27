@@ -4,7 +4,7 @@ Display name: **Ritam UI**. Repository: [deepak-hp/ritam-ui](https://github.com/
 
 The name alludes to ṛta, the Indian idea of order and right arrangement, as a symbolic connection to the founder's astrology-inspired identity. It is not a claim that a birth chart prescribes this name. Meaning references: [Rta / Ritam](https://asivanayoga.com/blogs/sanskrit/rta) and [University of Calicut Sanskrit material](https://sde.uoc.ac.in/sites/default/files/sde_videos/VI_Sem-BA_SanskritCore_Course-Culture_and_environmental_science_in_sanskrit.pdf).
 
-A public-web check found other uses of Ritam, including an unrelated Kotlin project. No trademark, domain or package availability is guaranteed. The current unpublished npm package remains `@deepak-ui/react` so existing imports and examples continue working.
+A public-web check found other uses of Ritam, including an unrelated Kotlin project. No trademark, domain or registry-package availability is guaranteed. The local unpublished package is now `@ritam-ui/react`; imports, examples and generated apps use that scope.
 
 ## Ready before push
 

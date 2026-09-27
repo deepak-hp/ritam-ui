@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const sourceDirectory = join(root, 'src');
 const outputDirectory = join(root, 'dist');
-const temporaryDirectory = await mkdtemp(join(tmpdir(), 'deepak-ui-stylex-'));
+const temporaryDirectory = await mkdtemp(join(tmpdir(), 'ritam-ui-stylex-'));
 
 async function sourceFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

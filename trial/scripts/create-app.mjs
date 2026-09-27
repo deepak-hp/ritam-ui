@@ -16,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const defaultRepositoryRoot = dirname(scriptDirectory);
-const stableArchiveName = 'deepak-ui-react.tgz';
+const stableArchiveName = 'ritam-ui-react.tgz';
 
 export function parseArguments(argumentsList) {
   if (argumentsList.includes('--help') || argumentsList.includes('-h')) {
@@ -101,7 +101,7 @@ function updatePackageManifest(contents, name) {
   manifest.name = name;
   manifest.dependencies = {
     ...manifest.dependencies,
-    '@deepak-ui/react': `file:vendor/${stableArchiveName}`,
+    '@ritam-ui/react': `file:vendor/${stableArchiveName}`,
   };
   return `${JSON.stringify(manifest, null, 2)}\n`;
 }

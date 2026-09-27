@@ -1,7 +1,7 @@
-import * as library from '@deepak-ui/react';
-import { Button, Dialog, IconButton, StatusIcon, DataTable, Slider, MultiSelect, CommandPalette, Calendar, DatePicker, DateRangePicker } from '@deepak-ui/react';
-import type { StatusIconProps, AsyncVisualState, StatusIconKind, AsyncActionController, RadioOption, DataTableColumn, MultiSelectOption, CommandItem } from '@deepak-ui/react';
-import '@deepak-ui/react/styles.css';
+import * as library from '@ritam-ui/react';
+import { Button, Dialog, IconButton, StatusIcon, DataTable, Slider, MultiSelect, CommandPalette, Calendar, DatePicker, DateRangePicker } from '@ritam-ui/react';
+import type { StatusIconProps, AsyncVisualState, StatusIconKind, AsyncActionController, RadioOption, DataTableColumn, MultiSelectOption, CommandItem } from '@ritam-ui/react';
+import '@ritam-ui/react/styles.css';
 
 const state: AsyncVisualState = 'pending';
 const kind: StatusIconKind = 'send';

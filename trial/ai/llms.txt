@@ -1,4 +1,4 @@
-# Deepak UI
+# Ritam UI
 
 React web component library; unpublished.
 

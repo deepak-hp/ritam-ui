@@ -1,15 +1,15 @@
 # UI library integration
 
-Package: `@deepak-ui/react`, installed from `vendor/deepak-ui-react.tgz`. This is an unpublished React web library with precompiled styles, not a native component package.
+Package: `@ritam-ui/react`, installed from `vendor/ritam-ui-react.tgz`. This is an unpublished React web library with precompiled styles, not a native component package.
 
 ## Read before generating UI
 
 After installation, these local files are the source of truth for any coding assistant:
 
-- `node_modules/@deepak-ui/react/ai/llms-full.txt`: usage guide, all public declarations and tokens.
-- `node_modules/@deepak-ui/react/ai/contract.json`: machine-readable inventory and API fingerprint.
-- `node_modules/@deepak-ui/react/docs/API-CONTRACTS.md`: controlled values, overlays, forms and package boundaries.
-- `node_modules/@deepak-ui/react/docs/ACCESSIBILITY.md`: implementation and application responsibilities.
+- `node_modules/@ritam-ui/react/ai/llms-full.txt`: usage guide, all public declarations and tokens.
+- `node_modules/@ritam-ui/react/ai/contract.json`: machine-readable inventory and API fingerprint.
+- `node_modules/@ritam-ui/react/docs/API-CONTRACTS.md`: controlled values, overlays, forms and package boundaries.
+- `node_modules/@ritam-ui/react/docs/ACCESSIBILITY.md`: implementation and application responsibilities.
 
 Give an assistant this prompt: “Read AGENTS.md and UI-LIBRARY.md, then the installed library contract. Build this feature with exported components, preserve the tokens and keyboard behaviour, and verify the result. Identify missing capabilities instead of inventing props.”
 

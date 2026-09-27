@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button, RadioGroup } from '@deepak-ui/react';
+import { Button, RadioGroup } from '@ritam-ui/react';
 import { InvoiceBaseline } from './InvoiceBaseline';
 import { InvoiceGuided } from './InvoiceGuided';
 import { formatAmount, formatDue, invoiceFixture, selectInvoices, type Invoice, type InvoiceFilter, type InvoiceViewProps } from './comparison-types';

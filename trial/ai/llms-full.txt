@@ -1,12 +1,12 @@
-# Deepak UI — AI integration
+# Ritam UI — AI integration
 
-Status: local unpublished React web library, package `@deepak-ui/react`. The product name is under review. Do not substitute a speculative package name or claim native mobile support.
+Status: Ritam UI is a local unpublished React web library, package `@ritam-ui/react`. Use this exact package name and do not claim native mobile support.
 
 ## Quick start for any coding assistant
 
 Read `llms-full.txt` and `contract.json` in this directory. These are generated from the installed package's TypeScript declarations and CSS tokens on every build. Read stories for usage and `docs/ACCESSIBILITY.md` for obligations and known limits. Never invent props or components.
 
-For a local checkout, run `npm ci`, `npm run build`, then `npm run storybook` from `trial`. To use the unpublished package in another React 19 app, run `npm pack` here and install that tarball in the app. Import `@deepak-ui/react/styles.css` once. Import `@fontsource-variable/plus-jakarta-sans` if using the bundled brand font. The consumer does not need a StyleX compiler.
+For a local checkout, run `npm ci`, `npm run build`, then `npm run storybook` from `trial`. To use the unpublished package in another React 19 app, run `npm pack` here and install that tarball in the app. Import `@ritam-ui/react/styles.css` once. Import `@fontsource-variable/plus-jakarta-sans` if using the bundled brand font. The consumer does not need a StyleX compiler.
 
 Set `data-dp-theme="light"` or `"dark"` on `<html>` and class `dp-theme` on `<body>`. The theme is document-wide, including portals. Do not apply the theme solely to a nested wrapper. Only use supported, documented props.
 
@@ -14,7 +14,7 @@ Set `data-dp-theme="light"` or `"dark"` on `<html>` and class `dp-theme` on `<bo
 
 Start Storybook, then add an HTTP MCP server to your AI client's project settings:
 
-- Name: `deepak-ui`
+- Name: `ritam-ui`
 - Transport: Streamable HTTP
 - URL: `http://127.0.0.1:6006/mcp`
 
@@ -59,7 +59,7 @@ Use `MultiSelect` for controlled string-array choices with search, selected chip
 
 ## Example prompt
 
-“Read the Deepak UI contract and accessibility guidance. Build a settings form using the documented components, preserve the theme and keyboard behaviour, add stories for errors and disabled states, and run the relevant checks. If a requested capability is missing, identify it instead of inventing a prop.”
+“Read the Ritam UI contract and accessibility guidance. Build a settings form using the documented components, preserve the theme and keyboard behaviour, add stories for errors and disabled states, and run the relevant checks. If a requested capability is missing, identify it instead of inventing a prop.”
 
 ## Verification
 
@@ -70,7 +70,7 @@ Use `MultiSelect` for controlled string-array choices with search, selected chip
 References: [Storybook MCP](https://storybook.js.org/docs/ai/mcp/overview), [Storybook manifests](https://storybook.js.org/docs/ai/manifests), [WCAG 2.2](https://www.w3.org/TR/WCAG22/).
 
 
-# Composing screens with Deepak UI
+# Composing screens with Ritam UI
 
 Use this guide with the installed version's contract and examples. These recipes guide composition; they are not additional exported components. Preserve the approved Flame & Ink identity. A screen's purpose determines its structure.
 

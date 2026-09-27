@@ -1,5 +1,5 @@
 {
-  "name": "deepak-ui-reference-workspace",
+  "name": "ritam-ui-reference-workspace",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -9,8 +9,8 @@
     "test": "node ../node_modules/vitest/vitest.mjs run --config vitest.config.ts"
   },
   "dependencies": {
-    "@deepak-ui/react": "file:vendor/deepak-ui-react-6cad5c267320.tgz",
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
+    "@ritam-ui/react": "file:vendor/ritam-ui-react-07c685320a6a.tgz",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },

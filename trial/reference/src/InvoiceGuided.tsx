@@ -1,4 +1,4 @@
-import { Badge, Button, DataTable, Select, TextField } from '@deepak-ui/react';
+import { Badge, Button, DataTable, Select, TextField } from '@ritam-ui/react';
 import { formatAmount, formatDue, type Invoice, type InvoiceFilter, type InvoiceViewProps } from './comparison-types';
 import './invoice-guided.css';
 

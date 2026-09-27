@@ -4,6 +4,7 @@ import {
   createProject,
   filterAndSortProjects,
   parseStoredProjects,
+  readStoredProjects,
   serializeProjects,
   type Project,
 } from './projects';
@@ -40,7 +41,7 @@ const projects: Project[] = [
 
 describe('project persistence contract', () => {
   it('uses a stable, versioned storage envelope', () => {
-    expect(PROJECT_STORAGE_KEY).toBe('deepak-ui.reference.projects.v1');
+    expect(PROJECT_STORAGE_KEY).toBe('ritam-ui.reference.projects.v1');
     expect(JSON.parse(serializeProjects(projects))).toEqual({ version: 1, projects });
   });
 
@@ -63,6 +64,19 @@ describe('project persistence contract', () => {
       ok: false,
       reason: 'corrupt',
     });
+  });
+
+  it('uses legacy projects only when the current storage key is absent', () => {
+    const legacy = serializeProjects(projects);
+    const current = serializeProjects([projects[0]]);
+
+    const values = new Map<string, string>([['deepak-ui.reference.projects.v1', legacy]]);
+    const storage = { getItem: (key: string) => values.get(key) ?? null };
+    expect(readStoredProjects(storage)).toBe(legacy);
+    values.set(PROJECT_STORAGE_KEY, current);
+    expect(readStoredProjects(storage)).toBe(current);
+    values.set(PROJECT_STORAGE_KEY, '{broken');
+    expect(readStoredProjects(storage)).toBe('{broken');
   });
 });
 

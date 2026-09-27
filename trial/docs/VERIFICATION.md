@@ -54,6 +54,12 @@ Existing non-blocking large-chunk and Storybook preview-docgen warnings remain. 
 
 The design detector flagged a thick accent border in the guided output. That generated visual choice is retained and documented as a pilot finding, not presented as a recommended pattern. These checks validate the demo's mechanics; they do not prove that the guided design is preferable.
 
+## Ritam package rename — 28 September 2026
+
+Renamed the unpublished package to `@ritam-ui/react` throughout manifests, imports, fixtures, AI documentation, Storybook, visible demo labels, archive generation and starter instructions. The only previous-name strings kept in active code are explicit legacy browser-storage keys and their tests, preserving existing projects and theme preferences. New saves use the Ritam keys. A package-name/version freshness assertion now prevents stale AI contracts; it failed before regeneration and passed after rebuilding.
+
+Passed: renamed library build and reference package install; type check and AI contract; 8 starter unit tests; a fresh generated app's tarball install, build, browser behavior and accessibility checks; 10 reference unit tests; reference production build and workflow/browser checks; 16 composition responsive/theme/accessibility cases; Storybook production build; legacy/current theme preference and non-destructive save checks. The reference dev server was restarted to clear the old package's dependency cache. Existing non-blocking build warnings remain.
+
 ## Release work still required
 
 - [ ] NVDA/Firefox and VoiceOver/Safari testing of actual app flows.

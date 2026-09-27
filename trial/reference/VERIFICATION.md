@@ -2,7 +2,7 @@
 
 Scope: the local app installed from the library tarball, not a backend or a released product.
 
-- Actual tarball installed in `reference/node_modules/@deepak-ui/react`; no source aliases or StyleX compiler dependency.
+- Actual tarball installed in `reference/node_modules/@ritam-ui/react`; no source aliases or StyleX compiler dependency.
 - Six model tests pass: storage envelope, corrupt/invalid records, unique IDs, filtering, inclusive date bounds, sorting and draft normalization.
 - Strict TypeScript and Vite production build pass. Vite reports a non-blocking approximately 505 kB JavaScript chunk advisory (approximately 158 kB compressed).
 - Chromium acceptance checks pass for search, status/date filters, empty recovery, validation focus, create/save/reload, failed edit/retry, dirty-draft protection, Escape focus return, archive failure/retry and archive persistence.

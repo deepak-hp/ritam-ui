@@ -1,6 +1,6 @@
 # Ritam UI
 
-A React component library and composition guide for building purposeful interfaces with coding assistants. The current unpublished package is named `@deepak-ui/react`; existing imports and tools retain that name.
+A React component library and composition guide for building purposeful interfaces with coding assistants. The current unpublished package is `@ritam-ui/react`.
 
 The default Flame & Ink identity uses orange primary actions, light and dark neutral surfaces, Plus Jakarta Sans and restrained success green. It draws on the founder's Indian astrology-inspired design direction; personal chart research is kept outside version control.
 

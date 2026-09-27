@@ -24,6 +24,8 @@ The installed-package reference workspace has an additional `npm run check:refer
 
 Current evidence is recorded in [VERIFICATION.md](VERIFICATION.md). Storybook runs real-browser interaction and axe checks in both themes, including open overlays; violations fail the run. Token contrast regression tests check supported text and enabled-control boundaries. These checks supplement, rather than replace, the manual evaluation below.
 
+The criterion-by-criterion evidence map, explicit manual gates, and the limits of the automated checks are in [ACCESSIBILITY-EVIDENCE.md](ACCESSIBILITY-EVIDENCE.md).
+
 The expanded library also tests open combobox naming and search, slider validation on the actual range input, destructive-dialog cancellation focus, nested dropdown hit testing inside a Drawer, table sorting semantics, pagination boundaries, toast dismissal and image fallback. Toasts use Base UI's notification lifecycle; keep important errors inline and use `timeout: 0` for persistent notifications. Date and file inputs use browser-native interfaces, so their platform-specific picker interaction still needs manual evaluation.
 
 - Test each real end-to-end flow with keyboard only, including dialogs, validation, error recovery, menus, and dynamic updates.

@@ -13,6 +13,10 @@ function catalogueAssets(): Plugin {
         if (/\.(md|txt|json)$/.test(name)) files.set(`${dir}/${name}`, readFileSync(resolve(root, dir, name), 'utf8'));
       }
     }
+    // Explicitly expose only generated, reviewed client examples.
+    for (const name of ['README.md', 'Invoices.tsx', 'Settings.tsx', 'Onboarding.tsx', 'Shell.tsx', 'model.ts', 'workflows.css']) {
+      files.set(`ai/examples/${name}`, readFileSync(resolve(root, 'ai', 'examples', name), 'utf8'));
+    }
     const contract = JSON.parse(files.get('ai/contract.json')!);
     for (const [name, content] of Object.entries(contract.declarations)) files.set(`api/${name}`, content as string);
     for (const name of readdirSync(resolve(root, 'src'))) {

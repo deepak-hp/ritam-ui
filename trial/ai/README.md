@@ -4,7 +4,7 @@ Status: Ritam UI is a local unpublished React web library, package `@ritam-ui/re
 
 ## Quick start for any coding assistant
 
-Read `llms-full.txt` and `contract.json` in this directory. These are generated from the installed package's TypeScript declarations and CSS tokens on every build. Read stories for usage and `docs/ACCESSIBILITY.md` for obligations and known limits. Never invent props or components.
+Read `llms-full.txt` and `contract.json` in this directory. These are generated from the installed package's TypeScript declarations and CSS tokens on every build. Read `examples/README.md` when a local workflow recipe fits the task; those reviewed files are client-side demonstrations, not package exports or backend integrations. Read stories for usage, `docs/FOUNDATIONS.md` for the implemented visual system, and `docs/ACCESSIBILITY.md` for obligations and known limits. Never invent props or components.
 
 For a local checkout, run `npm ci`, `npm run build`, then `npm run storybook` from `trial`. To use the unpublished package in another React 19 app, run `npm pack` here and install that tarball in the app. Import `@ritam-ui/react/styles.css` once. Import `@fontsource-variable/plus-jakarta-sans` if using the bundled brand font. The consumer does not need a StyleX compiler.
 
@@ -26,7 +26,7 @@ Storybook provides `/manifests/components.json` and `/manifests/docs.json`; this
 
 ## Design and accessibility rules
 
-Before composing a screen, read `ai/COMPOSITION.md` (also included in `llms-full.txt`). Identify the user's task, choose an appropriate layout recipe, and inspect the rendered result. Component reuse alone does not establish good hierarchy or task fit. The recipes describe composition, not additional exports.
+Before composing a screen, read `ai/COMPOSITION.md` (also included in `llms-full.txt`). Identify the user's task, choose an appropriate layout recipe, and inspect the rendered result. Component reuse alone does not establish good hierarchy or task fit. The recipes describe composition, not additional exports. For repeatable comparison of assistant outputs, use `docs/AI-EVALUATION.md`; it requires human review and does not yield a universal quality score.
 
 - Reuse exported components before writing custom controls. Keep Plus Jakarta Sans, token colours and the established geometry.
 - Use dark text on the orange primary fill. White text on that orange is not an approved text pairing.

@@ -38,6 +38,7 @@
     "build:storybook": "npm run build && storybook build --disable-telemetry",
     "test:stories": "npm run build && node scripts/test-stories.mjs",
     "ai:check": "node scripts/check-ai.mjs",
+    "test:ai-freshness": "node --test scripts/ai-freshness.test.mjs",
     "ai:check-mcp": "node scripts/check-mcp.mjs",
     "test:browser-install": "node scripts/install-browser.mjs",
     "check:docs": "node scripts/check-storybook-docs.mjs",

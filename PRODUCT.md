@@ -8,7 +8,7 @@ web
 An unpublished React UI library for Deepak's future apps, with shared design foundations intended to extend to mobile and desktop later. Developers and coding assistants need reliable components, readable contracts and realistic examples.
 
 ## Capabilities and constraints
-The current package provides 42 components and two hooks, compiled CSS, Storybook and offline/live AI documentation. Native platform adapters are future work. The reference app exercises the installed package through project search, date/status filters and editable forms. Its sample data is local to the browser; it has no backend or accounts.
+The current package provides 42 components and two hooks, compiled CSS, Storybook and offline/live AI documentation. Native platform adapters are future work. The reference app exercises the installed package through a component catalogue, project search, date/status filters, editable forms, and local invoice, settings, and onboarding demonstrations. Its sample data and saved preferences are local to the browser; it has no backend or accounts. The AI materials include source-fresh reviewed client-side workflow examples and a human-reviewed comparison protocol; they remain an illustrative pilot, not evidence of general AI improvement.
 
 ## Brand commitments
 Preserve the user-approved Flame & Ink identity: Plus Jakarta Sans, orange primary fills with dark text, white light canvas and near-black dark canvas, restrained green, crisp controls. The user requested astrology-informed foundations; this task does not revise or make new claims about that basis.

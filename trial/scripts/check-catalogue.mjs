@@ -95,7 +95,7 @@ try {
       await page.screenshot({ path: `${output}/${theme}-${width}.png`, fullPage: true });
     }
   }
-  for (const label of ['AI reference', 'Accessibility notes', 'All theme tokens', 'Agent instructions', 'Composition recipes']) {
+  for (const label of ['Foundation reference', 'AI reference', 'Accessibility notes', 'All theme tokens', 'Agent instructions', 'Composition recipes', 'Workflow source recipes']) {
     const href = await page.getByRole('link', { name: label, exact: true }).getAttribute('href');
     const response = await page.request.get(new URL(href, page.url()).href);
     assert.equal(response.status(), 200, label);

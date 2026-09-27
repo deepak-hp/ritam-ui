@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Skeleton } from '../src/index';
+const meta={title:'Components/Skeleton',component:Skeleton,tags:['autodocs'],args:{width:240,height:18,label:'Loading account name'},parameters:{docs:{description:{component:'Decorative loading geometry; provide a label when the loading state needs text for assistive technology.'}}}} satisfies Meta<typeof Skeleton>; export default meta; type Story=StoryObj<typeof meta>; export const Default:Story={};

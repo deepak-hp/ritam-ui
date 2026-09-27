@@ -1,0 +1,68 @@
+:root,[data-dp-theme="light"]{
+ color-scheme:light;
+ --dp-canvas:#FFFFFF;--dp-surface:#F4F4F6;--dp-selected:#FFEEE7;
+ --dp-text:#111216;--dp-muted:#5B5D66;--dp-border:#858B95;--dp-divider:#E3E4E8;
+ --dp-orange:#FF681F;--dp-orange-hover:#F45C14;--dp-orange-border:#A83A0A;--dp-on-orange:#141414;--dp-orange-text:#A83A0A;
+ --dp-success:#28694F;--dp-error:#B4233C;--dp-focus:#111216;
+ --dp-font:'Plus Jakarta Sans Variable','Plus Jakarta Sans',sans-serif;
+ --dp-navigation-subtle-fill:color-mix(in srgb,var(--dp-canvas) 94%,transparent);
+ --dp-navigation-expressive-fill:color-mix(in srgb,var(--dp-canvas) 88%,transparent);
+ --dp-navigation-shadow:0 4px 16px #1112160A;
+ --dp-navigation-expressive-shadow:0 12px 32px #11121618;
+}
+[data-dp-theme="dark"]{
+ color-scheme:dark;--dp-canvas:#090A0C;--dp-surface:#14161B;--dp-selected:#1C1E23;
+ --dp-text:#F6F7F9;--dp-muted:#BEC0C7;--dp-border:#788292;--dp-divider:#34373E;
+ --dp-orange-text:#FF874D;--dp-success:#8AD3AC;--dp-error:#FF9CAF;--dp-focus:#F6F7F9;
+ --dp-navigation-subtle-fill:color-mix(in srgb,var(--dp-canvas) 94%,transparent);
+ --dp-navigation-expressive-fill:color-mix(in srgb,var(--dp-canvas) 88%,transparent);
+ --dp-navigation-shadow:0 4px 16px #00000040;
+ --dp-navigation-expressive-shadow:0 12px 32px #00000066;
+}
+.dp-theme{font-family:var(--dp-font);background:var(--dp-canvas);color:var(--dp-text)}
+.dp-theme *, .dp-theme *::before,.dp-theme *::after{box-sizing:border-box}
+.dp-theme :where(button,input,textarea,[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="option"],a):focus-visible{outline:2px solid var(--dp-focus);outline-offset:3px}
+.dp-theme :is(input,textarea)::placeholder{color:var(--dp-muted);opacity:1}
+.dp-theme :is(input,textarea){caret-color:var(--dp-orange-text)}
+.dp-theme input:disabled{opacity:.5;cursor:not-allowed}
+.dp-theme ::selection{background:var(--dp-orange);color:var(--dp-on-orange)}
+@media(prefers-reduced-motion:reduce){.dp-theme button{transition:none!important;transform:none!important}}
+@media(forced-colors:active){.dp-theme{--dp-canvas:Canvas;--dp-surface:Canvas;--dp-selected:ButtonFace;--dp-text:CanvasText;--dp-muted:CanvasText;--dp-border:CanvasText;--dp-divider:CanvasText;--dp-orange:ButtonFace;--dp-orange-hover:ButtonFace;--dp-orange-border:CanvasText;--dp-on-orange:ButtonText;--dp-orange-text:CanvasText;--dp-success:CanvasText;--dp-error:CanvasText;--dp-focus:CanvasText}.dp-theme :where(button,input,textarea,[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="option"],a):focus-visible{outline-color:CanvasText}.dp-theme :where(button,input,textarea,[role="combobox"],[role="checkbox"],[role="switch"],[role="radio"]){forced-color-adjust:auto}}
+
+@media(forced-colors:active){.dp-theme button[aria-current="page"],.dp-theme .rdp-selected .rdp-day_button{outline:2px solid ButtonText;outline-offset:-4px}}
+
+/* Opt in on one navigation plane; keep content and nested controls opaque/plain.
+   Layout, position and corner geometry belong to the consuming app. */
+.dp-navigation-surface {
+ background:var(--dp-canvas);color:var(--dp-text);
+ border:1px solid var(--dp-divider);
+ box-shadow:var(--dp-navigation-shadow);
+}
+.dp-navigation-surface[data-dp-material="expressive"] {
+ box-shadow:var(--dp-navigation-expressive-shadow);
+}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) and (background:color-mix(in srgb,white 94%,transparent)) {
+ .dp-navigation-surface {
+  background:var(--dp-navigation-subtle-fill);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+ }
+ .dp-navigation-surface[data-dp-material="expressive"] {
+  background:var(--dp-navigation-expressive-fill);
+  -webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
+ }
+}
+.dp-navigation-surface[data-dp-material="solid"] {
+ background:var(--dp-canvas);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;
+}
+/* Media-query support varies; always offer the explicit Solid choice too. */
+@media (prefers-reduced-transparency:reduce), (prefers-contrast:more), (forced-colors:active) {
+ .dp-navigation-surface,.dp-navigation-surface[data-dp-material] {
+  background:var(--dp-canvas);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:none;
+  border-color:var(--dp-border);
+ }
+}
+@media (forced-colors:active) {
+ .dp-navigation-surface,.dp-navigation-surface[data-dp-material] {
+  background:Canvas;color:CanvasText;border-color:CanvasText;
+ }
+}

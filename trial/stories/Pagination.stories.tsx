@@ -1,0 +1,10 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
+import { Pagination } from '../src/index';
+import { PaginationExample } from './NavigationExamples';
+const meta = { title: 'Components/Pagination', component: Pagination, tags: ['autodocs'], args: { page: 1, pageCount: 24, onPageChange: fn() }, render: args => <PaginationExample {...args} /> } satisfies Meta<typeof Pagination>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const Default: Story = { play: async ({ canvasElement }) => { const canvas = within(canvasElement); await userEvent.click(canvas.getByRole('button', { name: 'Next page' })); await expect(canvas.getByRole('button', { name: 'Page 2' })).toHaveAttribute('aria-current', 'page'); } };
+export const LastPage: Story = { args: { page: 24 } };
+export const Disabled: Story = { args: { disabled: true } };

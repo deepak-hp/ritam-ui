@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Separator } from '../src/index';
+const meta={title:'Components/Separator',component:Separator,tags:['autodocs'],parameters:{docs:{description:{component:'A semantic horizontal thematic break between related sections.'}}}} satisfies Meta<typeof Separator>; export default meta; type Story=StoryObj<typeof meta>; export const Default:Story={render:()=> <><p>Account</p><Separator/><p>Preferences</p></>};

@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { EmptyState, Button } from '../src/index';
+const meta={title:'Components/EmptyState',component:EmptyState,tags:['autodocs'],args:{title:'No projects yet',description:'Create a project to collect work in one place.',action:<Button>Create project</Button>},parameters:{docs:{description:{component:'Explain the empty result and offer a relevant next action when one is available.'}}}} satisfies Meta<typeof EmptyState>; export default meta; type Story=StoryObj<typeof meta>; export const Default:Story={};

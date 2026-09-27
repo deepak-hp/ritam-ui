@@ -1,0 +1,3 @@
+import { defineConfig } from 'vitest/config';
+import { transformAsync } from '@babel/core';
+export default defineConfig({ plugins: [{ name: 'stylex-tests', enforce: 'pre', async transform(code, id) { if (!id.includes('/src/') || !/\.tsx?$/.test(id)) return; const result = await transformAsync(code, { filename: id, presets: [['@babel/preset-typescript', { allExtensions: true, isTSX: true }], ['@babel/preset-react', { runtime: 'automatic' }]], plugins: [['@stylexjs/babel-plugin', { dev: false, runtimeInjection: false }]] }); return { code: result!.code!, map: null }; } }], test: { environment: 'jsdom', globals: true, setupFiles: ['./tests/setup.ts'], include: ['tests/**/*.test.{ts,tsx}'] } });

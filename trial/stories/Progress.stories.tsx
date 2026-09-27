@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Progress } from '../src/index';
+const meta={title:'Components/Progress',component:Progress,tags:['autodocs'],args:{label:'Uploading files',value:64,max:100},parameters:{docs:{description:{component:'Native progress semantics with a visible label and bounded value.'}}}} satisfies Meta<typeof Progress>; export default meta; type Story=StoryObj<typeof meta>; export const Determinate:Story={}; export const Indeterminate:Story={args:{value:undefined}};

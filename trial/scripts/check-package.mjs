@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import { readFile, access } from 'node:fs/promises';
+const pkg = JSON.parse(await readFile('package.json', 'utf8'));
+const entry = await readFile('dist/index.js', 'utf8');
+assert.ok(/^['"]use client['"];\s/.test(entry), 'Compiled React entry needs a preserved client-component directive');
+assert.ok(!entry.includes('stylex.create('), 'Published entry must contain compiled styles');
+for (const target of Object.values(pkg.exports).flatMap(value => typeof value === 'string' ? [value] : Object.values(value))) await access(target);
+assert.deepEqual(pkg.sideEffects, ['**/*.css'], 'Styles must survive tree shaking');
+assert.ok(pkg.peerDependencies.react && pkg.peerDependencies['react-dom'], 'React must remain a peer dependency');
+assert.ok(!pkg.dependencies.react && !pkg.dependencies['react-dom'], 'Do not ship another React instance');
+console.log('Package entry, client boundary, exports, CSS side effects and React peers verified.');

@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Badge } from '../src/index';
+const meta={title:'Components/Badge',component:Badge,tags:['autodocs'],args:{children:'Active',tone:'success'},parameters:{docs:{description:{component:'Compact text status; pair the tone with its visible label.'}}}} satisfies Meta<typeof Badge>; export default meta; type Story=StoryObj<typeof meta>; export const Default:Story={}; export const Warning:Story={args:{children:'Needs review',tone:'warning'}};

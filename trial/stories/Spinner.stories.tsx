@@ -1,0 +1,2 @@
+import type { Meta, StoryObj } from '@storybook/react-vite'; import { Spinner } from '../src/index';
+const meta={title:'Components/Spinner',component:Spinner,tags:['autodocs'],args:{label:'Saving changes'},parameters:{docs:{description:{component:'A named status indicator. Motion is removed when reduced motion is requested.'}}}} satisfies Meta<typeof Spinner>; export default meta; type Story=StoryObj<typeof meta>; export const Default:Story={};

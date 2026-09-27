@@ -1,0 +1,6 @@
+import { spawnSync } from 'node:child_process';
+import { resolve } from 'node:path';
+const run = spawnSync(process.execPath, ['node_modules/playwright/cli.js', 'install', 'chromium'], {
+  stdio: 'inherit', env: { ...process.env, PLAYWRIGHT_BROWSERS_PATH: process.env.PLAYWRIGHT_BROWSERS_PATH || resolve('.playwright') },
+});
+process.exit(run.status ?? 1);

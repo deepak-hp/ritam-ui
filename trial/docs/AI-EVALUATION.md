@@ -23,3 +23,7 @@ Record observations and disagreements rather than converting taste into invented
 ## Reporting
 
 Report the task set, conditions, number of runs, source fingerprint, human review notes, concrete defects, fixes, and limits. State only what the evidence supports for these runs. Do not generalize a local pilot into improved AI quality, WCAG conformance, or cross-assistant compatibility.
+
+## Separate whole-library pilot
+
+`../evaluation/README.md` describes a separate 12-attempt comparison of plain React/CSS with Ritam UI plus its guidance. Unlike the composition-only pilot, candidates implement their own state and interactions against a common simulated service. The three tasks all overlap existing canonical recipes, so this is explicitly in-domain evidence. Frozen prompts/materials and uncorrected generated outputs are retained; compile failures count as outcomes. Automated checks and a label-blinded browser packet support independent human review but do not substitute for it. The comparison evaluates the combined package/guidance offering, not the isolated effect of composition guidance or a universal improvement claim.

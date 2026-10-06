@@ -46,7 +46,8 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Keep generated documentation fresh with build/CI checks.
 - [x] Document supported integration paths and validate artifact access without requiring a particular assistant.
 - [x] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
-- [ ] Run that evaluation with independent human review and publish reproducible results before claiming improved AI-generated design quality.
+- [x] Generate and retain twelve independent in-domain attempts comparing plain React/CSS with Ritam plus guidance, with compiler records, original and supplemental browser results, and a label-hidden review packet. See [pilot observations](../trial/evaluation/RESULTS.md).
+- [ ] Obtain independent human review and evaluate fresh tasks before claiming improved AI-generated design quality. The pilot's overlapping examples, small sample and corrected harness do not establish general superiority.
 
 ## 5. Accessibility and inclusion
 
@@ -83,4 +84,4 @@ This is the durable source of scope and progress. Checked items require evidence
 Completed local implementation plan: [release readiness](superpowers/plans/2026-09-28-release-readiness.md).
 Fresh evidence: [release candidate record](RELEASE-READINESS.md). Historical and current results: [verification](../trial/docs/VERIFICATION.md).
 
-Release status: **locally verified React-web release candidate; unpublished**. External/manual gates remain open. No accessibility conformance or public production-release claim is made.
+Release status: **MIT-licensed React-web beta prepared; unpublished**. Local verification and hosted Linux checks are recorded in the evidence document. Publication access and manual/human gates remain open. No accessibility conformance or public production-release claim is made.

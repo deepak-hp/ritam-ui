@@ -7,14 +7,15 @@
 **Architecture:** Keep the current reviewed React package and reference app. Put experimental generated output in a separate evaluation harness; don't replace production components with experiment output. Reuse the existing release gate. Remain on the existing release branch and preserve local review evidence.
 
 - [x] Verify GitHub access and create/attach the release PR.
-- [ ] Observe hosted Linux checks and fix concrete failures.
-- [ ] Apply MIT license and prepare a distributable beta package, including license/attribution in the archive and accurate installation guidance.
-- [ ] Run matched AI generations on three tasks, repeated per condition, keeping prompts/output/conditions; render and test outputs without silently improving them. Prepare anonymized human review, separating automated/AI observations from human results.
-- [ ] Extend browser/accessibility evidence and prepare actual native/human audit records. Mark tests unavailable on this device honestly.
+- [x] Observe hosted Linux checks and fix concrete failures (`cd7280a`, run 37526475891). Final-head checks still required below.
+- [x] Apply MIT license and prepare a distributable beta package, including license/attribution in the archive and accurate installation guidance.
+- [x] Run matched AI generations on three tasks, repeated per condition, keeping prompts/output/conditions; render and test outputs without silently improving them. Prepare condition-label-hidden human review, separating automated/AI observations from human results. All twelve attempts retained; see `trial/evaluation/RESULTS.md` and `AMENDMENTS.md`.
+- [x] Extend browser/accessibility evidence in Chromium, Firefox and WebKit; retain concrete native/human test protocols and mark those unperformed gates honestly.
 - [ ] Verify the final package and complete review, commit and push; merge only after the relevant hosted checks pass.
 - [ ] Publish the catalogue and beta package where authenticated access permits. Verify live installation/site after publication.
-- [ ] Prepare/update truthful launch material and collect real early-user feedback before claiming validated outcomes. Do not invent an audience or impersonate testers.
-- [ ] Update master checklist with completed work, exact evidence and external requirements.
+- [x] Prepare/update truthful launch drafts and a concrete early-feedback protocol.
+- [ ] Collect actual early-user feedback before claiming validated outcomes. No audience or testers have been invented.
+- [x] Update master checklist with completed work, exact evidence and external requirements.
 
 ## Known access findings
 

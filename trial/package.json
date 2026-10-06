@@ -1,12 +1,30 @@
 {
   "name": "@ritam-ui/react",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.1.0-beta.1",
+  "description": "React web component library with typed components, compiled CSS, accessibility guidance, and AI integration materials.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepak-hp/ritam-ui.git"
+  },
+  "homepage": "https://github.com/deepak-hp/ritam-ui#readme",
+  "bugs": {
+    "url": "https://github.com/deepak-hp/ritam-ui/issues"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
   "type": "module",
   "files": [
     "dist",
     "ai",
-    "docs"
+    "docs",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "exports": {
     ".": {
@@ -31,13 +49,15 @@
     "typecheck": "tsc --noEmit",
     "check:consumer": "node scripts/consumer-check.mjs",
     "check:package": "node scripts/check-package.mjs",
+    "test:package": "node --test scripts/check-package.test.mjs",
     "check:ssr": "node scripts/check-ssr.mjs",
     "check:production": "npm run check && npm run check:package && npm run ai:check && npm run check:ssr && npm run check:consumer",
-    "check": "npm run test && npm run typecheck && npm run build && npm run build:playground",
+    "check": "npm run test && npm run build && npm run typecheck && npm run build:playground",
     "storybook": "npm run build && storybook dev -p 6006 --host 127.0.0.1 --no-open --disable-telemetry",
     "build:storybook": "npm run build && storybook build --disable-telemetry",
     "test:stories": "npm run build && node scripts/test-stories.mjs",
     "ai:check": "node scripts/check-ai.mjs",
+    "test:ai-freshness": "node --test scripts/ai-freshness.test.mjs",
     "ai:check-mcp": "node scripts/check-mcp.mjs",
     "test:browser-install": "node scripts/install-browser.mjs",
     "check:docs": "node scripts/check-storybook-docs.mjs",
@@ -56,7 +76,10 @@
     "test:starter": "node --test scripts/create-app.test.mjs",
     "check:starter": "node scripts/check-starter.mjs",
     "check:materials": "node scripts/check-materials.mjs",
-    "check:composition": "node scripts/check-composition.mjs"
+    "check:composition": "node scripts/check-composition.mjs",
+    "check:catalogue": "node scripts/check-catalogue.mjs",
+    "check:workflows": "node scripts/check-workflows.mjs",
+    "check:release": "node scripts/release-check.mjs"
   },
   "peerDependencies": {
     "react": "^19.3.0",

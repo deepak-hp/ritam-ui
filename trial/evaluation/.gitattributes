@@ -1,0 +1,2 @@
+# Preserve experiment input/output bytes so archived SHA-256 values survive checkout.
+* -text

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-const endpoint = 'http://127.0.0.1:6006/mcp';
+const base = process.env.STORYBOOK_URL ?? 'http://127.0.0.1:6006';
+const endpoint = `${base}/mcp`;
 let session;
 let id = 0;
 async function call(method, params = {}) {
@@ -28,7 +29,7 @@ assert.ok(JSON.stringify(listing).includes('Button'), 'Documentation should list
 const details = await call('tools/call', { name: 'docs-show', arguments: { id: 'components-checkbox' } });
 assert.ok(!details.isError, JSON.stringify(details));
 assert.ok(JSON.stringify(details).includes('onCheckedChange'), 'Documentation tool must supply the actual control API');
-const manifest = await (await fetch('http://127.0.0.1:6006/manifests/components.json')).json();
+const manifest = await (await fetch(`${base}/manifests/components.json`)).json();
 const contract = JSON.parse(await readFile('ai/contract.json', 'utf8'));
 for (const name of contract.components) {
   const component = Object.values(manifest.components).find(entry => entry.name === name);

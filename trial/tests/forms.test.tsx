@@ -85,10 +85,20 @@ test('open combobox retains an accessible label while showing empty search resul
   render(<main><Combobox label="Workspace" value={null} onValueChange={() => {}} options={[{ value: 'personal', label: 'Personal' }]} /></main>);
   const input = screen.getByRole('combobox', { name: 'Workspace' });
   await user.click(input);
+  const listbox = await screen.findByRole('listbox', { name: 'Workspace' });
+  expect(listbox).toBeVisible();
   await user.type(input, 'unavailable');
   expect(await screen.findByText('No matching options.')).toBeVisible();
-  const results = await axe.run(document.body, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'] } });
-  expect(results.violations).toEqual([]);
+  // Keep the body-mounted popup inside this isolated page fixture's landmark for the broad axe scan.
+  const portal = listbox.closest('[data-base-ui-portal]')!;
+  const portalParent = portal.parentNode!;
+  screen.getByRole('main').append(portal);
+  try {
+    const results = await axe.run(document.body, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'] } });
+    expect(results.violations).toEqual([]);
+  } finally {
+    portalParent.append(portal);
+  }
 });
 
 test('toggle group supports arrow-key focus and selection', async () => {

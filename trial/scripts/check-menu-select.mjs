@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve('.playwright');
+const base = process.env.STORYBOOK_URL ?? 'http://127.0.0.1:6006';
 const { chromium } = await import('playwright');
 await mkdir('.review', { recursive: true });
 const browser = await chromium.launch();
@@ -11,7 +12,7 @@ try {
     for (const component of ['select', 'dropdownmenu']) {
      for (const variant of ['default', 'long-labels', 'empty']) {
       await page.setViewportSize({ width: 320, height: 680 });
-      await page.goto(`http://127.0.0.1:6006/iframe.html?id=components-${component}--${variant}&viewMode=story&globals=theme:${theme}`);
+      await page.goto(`${base}/iframe.html?id=components-${component}--${variant}&viewMode=story&globals=theme:${theme}`);
       const trigger = page.getByRole(component === 'select' ? 'combobox' : 'button', { name: component === 'select' ? 'Workspace' : 'More actions' });
       await trigger.waitFor();
       if (await trigger.getAttribute('aria-expanded') !== 'true') await trigger.click();

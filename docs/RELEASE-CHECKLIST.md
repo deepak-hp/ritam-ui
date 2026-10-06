@@ -1,0 +1,87 @@
+# Ritam UI release goal
+
+## End goal
+
+A professional, openly licensed React UI library that developers and coding assistants can install, understand and use to build purposeful applications. Release only with reproducible checks, documented accessibility evidence, honest support limits and complete examples. Preserve the approved Flame & Ink identity. Popularity is an aspiration, not an acceptance test.
+
+This is the durable source of scope and progress. Checked items require evidence. Unchecked items are not silently dropped when this conversation ends.
+
+## 1. Preserve the design system
+
+- [x] Ritam UI name and `@ritam-ui/react` package identity established.
+- [x] Approved Indian-astrology-inspired Flame & Ink direction implemented; private birth research excluded from Git.
+- [x] Orange filled primary actions, dark button text, white/near-black canvases, Plus Jakarta Sans, restrained success green.
+- [x] Subtle meaningful status motion and reduced-motion support implemented.
+- [x] Apple-informed optional navigation materials with opaque accessibility fallbacks implemented.
+- [x] Catalogue documents these foundations and their correct roles with live examples (846eb1d).
+- [x] Review new surfaces in light/dark and mobile/desktop without introducing a competing visual identity (independent catalogue/workflow reviews).
+
+## 2. Component and installation quality
+
+- [x] 42 React components and 2 hooks implemented with typed contracts.
+- [x] Compiled CSS, local tarball installation, starter generator and SSR/hydration checks exist.
+- [x] Rerun full component, package, consumer and SSR checks on the release candidate.
+- [x] Verify a fresh generated app, installed-package reference and static documentation build.
+- [x] Add package metadata, repeatable release checks and CI.
+- [x] Observe hosted Linux CI passing: [run 37526475891](https://github.com/deepak-hp/ritam-ui/actions/runs/37526475891) on `cd7280a`. Subsequent changes require their own passing run before merge.
+- [x] Audit direct/transitive dependency findings and document actionable residual risks.
+- [x] Establish versioning, changelog, supported environments and upgrade policy.
+- [ ] Publish a versioned npm package after ownership/authentication and release gates are satisfied.
+
+## 3. Professional discovery and examples
+
+- [x] Searchable catalogue covering every public component, with preview, source/API access and usage guidance (846eb1d; 84 component/theme browser audits).
+- [x] Clear installation, foundations, AI integration and accessibility entry points (catalogue; nested static-path checks passed).
+- [x] Complete invoice workflow: filtering, details, explicit simulated follow-up, pending/failure/retry/success.
+- [x] Complete settings workflow: meaningful groups, validation, save/reset, persisted local data and failure recovery.
+- [x] Complete onboarding workflow: steps, validation, review, completion, restart and honest local-only behavior.
+- [x] Verify all three flows with keyboard, responsive layouts, both themes and automated accessibility checks (26 browser audits; 15 reference tests).
+- [ ] Publish catalogue/Storybook hosting after deployment configuration and repository settings are available.
+
+## 4. AI integration that improves composition
+
+- [x] Versioned generated component contract, offline AI text, starter instructions and Storybook MCP integration exist.
+- [x] Composition brief, recipes and honest A/B pilot exist; no demonstrated general improvement claimed.
+- [x] Connect reviewed workflow source and guidance to the catalogue and AI documentation.
+- [x] Keep generated documentation fresh with build/CI checks.
+- [x] Document supported integration paths and validate artifact access without requiring a particular assistant.
+- [x] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
+- [x] Generate and retain twelve independent in-domain attempts comparing plain React/CSS with Ritam plus guidance, with compiler records, original and supplemental browser results, and a label-hidden review packet. See [pilot observations](../trial/evaluation/RESULTS.md).
+- [ ] Obtain independent human review and evaluate fresh tasks before claiming improved AI-generated design quality. The pilot's overlapping examples, small sample and corrected harness do not establish general superiority.
+
+## 5. Accessibility and inclusion
+
+- [x] WCAG 2.2 AA target and application-level/EAA responsibilities documented.
+- [x] Automated keyboard, axe, contrast, reflow, reduced-motion and forced-colour checks exist.
+- [x] Record fresh release-candidate automated results and unresolved limitations.
+- [x] Publish a criterion/evidence matrix and practical manual test protocol.
+- [ ] Native NVDA + Firefox and VoiceOver + Safari evaluation of complete flows.
+- [ ] Actual browser zoom, text spacing, focus-obscuration and supported-browser review.
+- [ ] Evaluation with disabled users and applicable product/service EAA review before any conformance claim.
+
+## 6. Open-source and launch readiness
+
+- [x] Contribution guide, security reporting instructions, issue/PR templates, CI and maintenance policy.
+- [x] Apply the approved MIT license and package third-party attribution (7 October 2026).
+- [ ] Confirm repository visibility, package scope ownership and release permissions without exposing private research.
+- [x] Release notes, installation guide and rollback/release procedure.
+- [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
+- [x] Owner approves/applies license and authorizes public package/site publication when release gates are met ("go ahead finish all", 7 October 2026). Authentication and actual publication remain separate open gates above.
+- [ ] Publish announcements only with explicit authorization; never invent users, benchmarks or endorsements.
+
+## 7. Longer-term commitments (retained, not claimed for React release)
+
+- [ ] Framework-independent token distribution and documented adapter contract.
+- [ ] Native mobile adapters with platform-appropriate behavior and testing.
+- [ ] Desktop integration examples and supported-host matrix.
+- [ ] Figma parity with maintained components/tokens and version mapping.
+- [ ] Localization/RTL coverage and broader framework integrations backed by tests.
+- [ ] Evaluate advanced modules against real needs: charts, tree view, rich-text editing, upload transport and virtualized/editable data grids; current component docs explicitly exclude them.
+- [ ] More complete workflows driven by real usage, contribution feedback and accessibility review.
+
+## Status and evidence
+
+Completed local implementation plan: [release readiness](superpowers/plans/2026-09-28-release-readiness.md).
+Fresh evidence: [release candidate record](RELEASE-READINESS.md). Historical and current results: [verification](../trial/docs/VERIFICATION.md).
+
+Release status: **MIT-licensed React-web beta prepared; unpublished**. Local verification and hosted Linux checks are recorded in the evidence document. Publication access and manual/human gates remain open. No accessibility conformance or public production-release claim is made.

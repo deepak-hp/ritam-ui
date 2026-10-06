@@ -6,7 +6,7 @@ const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(ts|tsx)', '../stories/**/*.mdx'],
   framework: '@storybook/react-vite',
   addons: ['@storybook/addon-docs', '@storybook/addon-a11y', '@storybook/addon-vitest', '@storybook/addon-mcp'],
-  staticDirs: [{ from: '../ai', to: '/ai' }],
+  staticDirs: [{ from: '../ai', to: '/ai' }, { from: '../public', to: '/' }],
   features: { componentsManifest: true },
   typescript: { reactDocgen: 'react-docgen-typescript', reactDocgenTypescriptOptions: {
     propFilter: prop => !prop.parent?.fileName.includes('node_modules') || ['children', 'className', 'style', 'id', 'href', 'target', 'rel', 'title', 'role', 'aria-label'].includes(prop.name),

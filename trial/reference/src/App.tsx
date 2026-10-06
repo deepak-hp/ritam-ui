@@ -327,7 +327,8 @@ function ReferenceWorkspace() {
       <header className="topbar dp-navigation-surface" data-dp-material={navigationFinish}>
         <a className="wordmark" href="#project-workspace" aria-label="Ritam UI projects home">Ritam UI</a>
         <div className="topbar-actions">
-          <a className="wordmark" href="/?view=composition">Composition lab</a>
+          <a className="wordmark" href="?view=catalogue">Catalogue</a>
+          <a className="wordmark" href="?view=composition">Composition lab</a>
           <span className="local-note">Local-only sample</span>
           <Popover triggerLabel="Appearance" title="Appearance">
             <div className="appearance-controls">

@@ -8,7 +8,7 @@ The library exports 42 components (including ToastProvider) and 2 hooks. Start w
 
 To start a new app from this checkout, run `npm run create:app -- "../my-app"` from `trial`. The destination must be empty. This builds and vendors the unpublished package, creates a React/Vite app, and installs its dependencies. Use `--no-install` to generate the files and archive first. See [starter instructions](docs/STARTER.md).
 
-Use Node 24.19 or newer and npm:
+Use Node 24.19 or newer within the Node 24 major and npm:
 
 ```sh
 npm ci
@@ -29,7 +29,7 @@ npm run reference:setup
 npm run reference:dev
 ```
 
-Open http://127.0.0.1:5174. The setup builds and installs a local tarball; it does not publish anything. Repeat setup after library changes. The sample app has no backend or accounts and keeps its data in this browser.
+Open http://127.0.0.1:5174. The setup builds and installs a local tarball; it does not publish anything. It refreshes the tracked reference manifest and lockfile hash, while the generated `reference/vendor` tarball remains untracked. In a fresh clone, run setup before `reference:build`; never assume that archive is committed. Repeat setup after library changes. The sample app has no backend or accounts and keeps its data in this browser.
 
 Open [Composition lab](http://127.0.0.1:5174/?view=composition) to compare two independently generated invoice layouts with identical data and interactions. Read [the pilot method and limits](docs/COMPOSITION-PILOT.md); it does not claim a general improvement in AI design quality. Assistants can use the [composition guide](ai/COMPOSITION.md), also included in the full AI text and Storybook's Start here / Composition page. Run `npm run check:composition` with the reference app running to verify the comparison.
 
@@ -60,7 +60,9 @@ npm run check
 npm run check:consumer
 ```
 
-The consumer check packs and installs the library into a separate temporary app, then bundles its public exports and CSS without the StyleX compiler. The package remains private and unpublished.
+The consumer check packs and installs the library into a separate temporary app, then bundles its public exports and CSS without the StyleX compiler. The MIT-licensed beta is prepared but not yet published to npm.
+
+For the complete local release gate, install Chromium once with `npm run test:browser-install`, then run `npm run check:release`. It starts and stops only the Storybook and reference-preview processes that it owns. See the [release guide](../docs/RELEASING.md) for the checked surfaces and owner-only publication steps.
 
 This package currently targets React web. Native mobile and native desktop adapters, advanced component modules and a full accessibility audit remain future work; the current tests do not establish full WCAG conformance.
 

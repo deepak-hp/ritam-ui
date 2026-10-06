@@ -78,6 +78,7 @@ try {
   }
   const keyboard = await browser.newPage({ viewport: { width: 615, height: 900 }, forcedColors: 'active' });
   await keyboard.goto(`${base}/?view=composition`);
+  await keyboard.getByRole('heading', { name: 'Composition lab', exact: true }).waitFor();
   await keyboard.keyboard.press('Tab');
   assert.equal(await keyboard.evaluate(() => document.activeElement?.textContent), 'Skip to comparison');
   await keyboard.keyboard.press('Enter');

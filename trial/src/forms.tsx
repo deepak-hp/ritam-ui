@@ -132,7 +132,7 @@ export function Combobox({ label, value, onValueChange, options, description, er
     <BaseCombobox.Root<string, false, ComboboxOption> {...props} id={id} value={value} disabled={disabled} modal={false} items={items} onValueChange={next => onValueChange(next)}>
       <label htmlFor={id} {...stylex.props(s.label)}>{label}</label>
       <BaseCombobox.Input aria-label={label} placeholder={placeholder} {...stylex.props(s.input, !!error && s.invalid, disabled && s.disabled)} aria-invalid={error ? true : undefined} aria-describedby={describedBy(undefined, descriptionId, errorId)} aria-errormessage={errorId} />
-      <BaseCombobox.Portal><BaseCombobox.Positioner sideOffset={6} {...stylex.props(s.positioner)}><BaseCombobox.Popup {...stylex.props(s.popup)}><BaseCombobox.List>
+      <BaseCombobox.Portal><BaseCombobox.Positioner sideOffset={6} {...stylex.props(s.positioner)}><BaseCombobox.Popup {...stylex.props(s.popup)}><BaseCombobox.List aria-label={label}>
         {(option: ComboboxOption) => <BaseCombobox.Item key={option.value} value={option.value} disabled={option.disabled} className={state => stylex.props(s.option, state.highlighted && s.highlighted, state.selected && s.selected).className}>{option.label}</BaseCombobox.Item>}
       </BaseCombobox.List><BaseCombobox.Empty {...stylex.props(s.empty)}>No matching options.</BaseCombobox.Empty></BaseCombobox.Popup></BaseCombobox.Positioner></BaseCombobox.Portal>
     </BaseCombobox.Root>

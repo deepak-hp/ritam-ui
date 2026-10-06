@@ -1,0 +1,26 @@
+name: Bug report
+description: Report a reproducible problem in the private release candidate.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, personal data, or suspected security vulnerabilities. See SECURITY.md for private reporting guidance.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include package version or commit, runtime, browser where relevant, and steps.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true

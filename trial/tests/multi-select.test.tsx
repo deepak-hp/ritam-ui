@@ -20,6 +20,7 @@ test('selects multiple options with the keyboard and exposes removable chips', a
   render(<Controlled value={[]} error="Choose at least one team." />);
   const input = screen.getByRole('combobox', { name: 'Teams' });
   await user.click(input);
+  expect(await screen.findByRole('listbox', { name: 'Teams' })).toBeVisible();
   expect(input).toHaveAccessibleDescription('Choose at least one team.');
   await user.keyboard('{ArrowDown}{Enter}');
   expect(screen.getByRole('button', { name: 'Remove Design', hidden: true })).toBeInTheDocument();

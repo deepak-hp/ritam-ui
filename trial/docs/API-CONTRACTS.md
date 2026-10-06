@@ -1,6 +1,6 @@
 # Component contracts
 
-The package is an unpublished React web library. Import components and their types from `@ritam-ui/react` and import `@ritam-ui/react/styles.css` once. Styles are precompiled; consumers do not configure StyleX. Use the generated Agent API reference for the exact props of each component.
+The package is an MIT-licensed React web library with a beta prepared but not yet published. Import components and their types from a locally packed `@ritam-ui/react` tarball and import `@ritam-ui/react/styles.css` once. Styles are precompiled; consumers do not configure StyleX. Use the generated Agent API reference for the exact props of each component.
 
 ## Values and forms
 

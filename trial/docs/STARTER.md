@@ -11,7 +11,7 @@ npm run dev
 
 Choose a new directory or an existing empty one. The command refuses nonempty folders (including hidden files), files and direct symlink/junction targets. It never removes existing content. Relative paths are resolved from the directory where you run the command. Quote paths containing spaces.
 
-This is a repository-local command. The package is still private and unpublished; there is no public `npx` installer yet.
+This is a repository-local command. The MIT-licensed beta package is not yet published; there is no public `npx` installer yet.
 
 ## What is generated
 

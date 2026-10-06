@@ -40,11 +40,19 @@ Lead with invoices and the current collection priority. Use factual summaries th
 
 Distinguish no matching results from no invoices yet. Clearing filters should recover results. An actual reminder flow needs pending, success and failure tied to the real operation; a local prototype must say it is a demo. Do not add revenue charts just because the page handles money.
 
+**Reviewed source:** `ai/examples/Invoices.tsx`, with `ai/examples/model.ts`, `ai/examples/Shell.tsx`, and `ai/examples/workflows.css`. Use this shape when users compare a modest number of factual records and take a record-specific next step. Avoid it when the task is spatial or image-led, or when many rows must be edited at once. Preserve filter recovery, selected-record identity, detail-heading focus, trigger focus return, and explicit local-simulation/failure states.
+
 ## Recipe: grouped settings
 
 **Task:** a user changes a small set of related preferences and understands what saved.
 
 Group fields by meaning with visible labels, short descriptions and errors near their fields. Use TextField/Select for values, Switch for immediate on/off settings only when the behavior supports that, and Checkbox for selection or confirmation. Use Tabs only when groups are substantial and navigation aids the task. Keep unsaved changes and cross-tab validation visible. Offer one clear save path; preserve input on failure and return focus appropriately. Don't use DropdownMenu as a form field or claim local memory is a backend save.
+
+**Reviewed source:** `ai/examples/Settings.tsx`, with `ai/examples/model.ts`, `ai/examples/Shell.tsx`, and `ai/examples/workflows.css`. Use this shape for a small, related preference set with one save action. Avoid it for immediate settings or bulk editing. Preserve name validation, pending field protection, retained drafts after failure, recoverable storage errors, and local-only wording.
+
+## Recipe: sequential onboarding
+
+**Reviewed source:** `ai/examples/Onboarding.tsx`, with `ai/examples/model.ts`, `ai/examples/Shell.tsx`, and `ai/examples/workflows.css`. Use it when the user must complete a short dependent sequence and review choices before locally saving. Avoid it when the task has no real sequence or users need free navigation among substantial independent sections. Preserve step indication, back navigation, validation focus, review content, completion/failure recovery, and an honest statement about local storage and accounts.
 
 ## Recipe: visual collection
 
@@ -63,6 +71,6 @@ Let actual preview content lead. Keep metadata and selection controls consistent
 
 ## Review rubric
 
-Compare results on task clarity, hierarchy, content fit, interaction completeness, responsive behavior, accessibility and fidelity to the design language. Use a human review for visual quality. Passing a token/API check does not prove a good design; an AI-generated aesthetic score is not an objective measure.
+Compare results on task clarity, hierarchy, content fit, interaction completeness, responsive behavior, accessibility and fidelity to the design language. Use a human review for visual quality. Passing a token/API check does not prove a good design; an AI-generated aesthetic score is not an objective measure. For a reproducible multi-task protocol and reporting limits, read `docs/AI-EVALUATION.md`.
 
 For experiments, keep the task, data, APIs, model and generation budget comparable. Record exactly which guidance each run received. Don't deliberately weaken a baseline. Include several tasks and independent runs before making general claims, and evaluate accessibility separately from visual preference.

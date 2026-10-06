@@ -64,7 +64,7 @@ export function MultiSelect({ label, value, onValueChange, options, description,
           <BaseCombobox.Input aria-label={label} aria-description={selected.length ? `${selected.length} selected. Use Left Arrow to reach selected items.` : undefined} placeholder={placeholder} disabled={disabled} aria-invalid={error ? true : undefined} aria-describedby={describedBy(descriptionId, errorId)} aria-errormessage={errorId} {...stylex.props(s.input)} />
         </BaseCombobox.Chips>}</BaseCombobox.Value>
       </BaseCombobox.InputGroup>
-      <BaseCombobox.Portal><BaseCombobox.Positioner sideOffset={6} {...stylex.props(s.positioner)}><BaseCombobox.Popup {...stylex.props(s.popup)}><BaseCombobox.List>
+      <BaseCombobox.Portal><BaseCombobox.Positioner sideOffset={6} {...stylex.props(s.positioner)}><BaseCombobox.Popup {...stylex.props(s.popup)}><BaseCombobox.List aria-label={label}>
         {(option: MultiSelectOption) => <BaseCombobox.Item key={option.value} value={option.value} disabled={option.disabled} className={state => stylex.props(s.option, state.highlighted && s.highlighted, state.selected && s.selected, state.disabled && s.optionDisabled).className}>{option.label}<BaseCombobox.ItemIndicator><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" {...stylex.props(s.indicator)}><path d="m5 12 4 4L19 6" /></svg></BaseCombobox.ItemIndicator></BaseCombobox.Item>}
       </BaseCombobox.List><BaseCombobox.Empty {...stylex.props(s.empty)}>{emptyMessage}</BaseCombobox.Empty></BaseCombobox.Popup></BaseCombobox.Positioner></BaseCombobox.Portal>
     </BaseCombobox.Root>

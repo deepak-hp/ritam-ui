@@ -26,6 +26,8 @@ export const KeyboardSelection: Story = {
   play: async ({ canvasElement }) => {
     const input = within(canvasElement).getByRole('combobox', { name: 'Teams' });
     await userEvent.click(input);
+    const body = within(canvasElement.ownerDocument.body);
+    await expect(await body.findByRole('listbox', { name: 'Teams' })).toBeVisible();
     await userEvent.keyboard('{ArrowDown}{Enter}');
     await userEvent.keyboard('{Escape}');
     await expect(within(canvasElement).getByRole('button', { name: 'Remove Design' })).toBeInTheDocument();

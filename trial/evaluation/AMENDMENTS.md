@@ -2,6 +2,8 @@
 
 Record deviations rather than quietly changing the experiment.
 
+After the pilot was complete, production CI exposed missing explicit listbox names in MultiSelect and Combobox. The release package was repaired separately. This experiment retains its frozen earlier package snapshot and original generated candidates; its measurements do not attest the later repair.
+
 ## Before the first browser measurement
 
 The controller added a wait for the harness root to contain rendered content after navigation. Vite's document load does not guarantee React has committed its first render. This wait applies identically to every candidate and changes no task assertion. No candidate browser results or source were inspected to make this change. The original verifier hash remains in `materials/checks-fingerprint.json`; measurement records identify the actual verifier used.

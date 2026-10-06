@@ -49,3 +49,15 @@ Known non-blocking tooling notices: Storybook preview annotation/docgen and docu
 - Authorize package/site publication and, separately, public announcements.
 
 Native adapters, desktop examples, Figma parity, RTL/localization and advanced modules remain visible in the master checklist. They are not represented as implemented React-release capabilities.
+
+## Beta verification — 7 October 2026
+
+The owner approved the proposed public beta sequence. MIT licensing is applied at the repository and package level; `@ritam-ui/react@0.1.0-beta.1` is configured for public access under the `beta` tag, but has not been published.
+
+The first hosted Linux run found that a clean checkout type-checked playground imports before building `dist`. The aggregate check now builds the library first. [Linux run 37526475891](https://github.com/deepak-hp/ritam-ui/actions/runs/37526475891) passed the complete release gate on `cd7280a`. The same complete local gate passed for the beta working tree (`trial/beta-release.log`, exit 0), including 84 unit tests, 560 story cases, package/consumer/SSR checks, reference/starter checks, live MCP, catalogue, workflows and existing experiences. Later changes still require their own hosted checks before merge.
+
+The rebuilt beta reference workflows also passed in Firefox and WebKit, with the same 18 route/theme/viewport and 8 state/theme audits, plus three text-spacing checks and three keyboard paths per engine. Chromium passed these within the integrated gate. Browser-engine checks do not replace native NVDA, VoiceOver, browser zoom or human review. See [the evidence matrix](../trial/docs/ACCESSIBILITY-EVIDENCE.md).
+
+The development lockfiles now resolve `source-map-js@1.2.2` for [GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q). Fresh registry audits of both lockfiles returned zero findings. This is a point-in-time result, not a security guarantee. Public static builds now retain the full Plus Jakarta Sans OFL text and Ritam MIT text; both reference and Storybook output hashes matched their source copies.
+
+Publication access is not complete: npm identity lookup returned 401, the connected hosting account returned no teams, and the repository remains private. The license approval is resolved; actual distribution, native assistive-technology review, independent human AI evaluation and public promotion remain open.

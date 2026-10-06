@@ -43,4 +43,4 @@ function catalogueAssets(): Plugin {
     },
   };
 }
-export default defineConfig({ base: './', plugins: [react(), catalogueAssets()] });
+export default defineConfig({ base: './', publicDir: '../public', plugins: [react(), catalogueAssets()] });

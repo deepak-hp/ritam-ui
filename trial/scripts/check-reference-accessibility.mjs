@@ -2,10 +2,15 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve('.playwright');
-const { chromium } = await import('playwright');
-const browser = await chromium.launch();
+const playwright = await import('playwright');
+const browserName = process.env.BROWSER ?? 'chromium';
+const supportedBrowsers = ['chromium', 'firefox', 'webkit'];
+if (!supportedBrowsers.includes(browserName)) {
+  throw new Error(`Unsupported BROWSER=${browserName}. Expected one of: ${supportedBrowsers.join(', ')}`);
+}
+const browser = await playwright[browserName].launch();
 const base = process.env.REFERENCE_URL ?? 'http://127.0.0.1:5174';
-const output = '.review/reference-accessibility';
+const output = browserName === 'chromium' ? '.review/reference-accessibility' : `.review/reference-accessibility/${browserName}`;
 await mkdir(output, { recursive: true });
 const failures = [];
 const results = [];

@@ -26,5 +26,11 @@ jobs:
           cache: npm
           cache-dependency-path: trial/package-lock.json
       - run: npm ci
-      - run: npm exec -- playwright install --with-deps chromium
+      - run: npm exec -- playwright install --with-deps chromium firefox webkit
       - run: npm run check:release
+      - run: npm run check:workflows
+        env:
+          BROWSER: firefox
+      - run: npm run check:workflows
+        env:
+          BROWSER: webkit

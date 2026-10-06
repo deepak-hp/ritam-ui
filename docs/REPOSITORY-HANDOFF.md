@@ -14,7 +14,7 @@ A public-web check found other uses of Ritam, including an unrelated Kotlin proj
 - Use `trial/README.md` for the actual build/setup commands. Rebuild the local tarball with `reference:setup` after cloning; the reference app's vendor archive is intentionally not committed.
 - The committed reference lockfile names a local archive generated from this source. Run `reference:setup` before installing/running that app; do not start with `npm ci` inside `reference`.
 - Before the first push, inspect the staged file list and contents for secrets/private data, confirm the intended remote and run the relevant checks. Do not force-push or overwrite existing remote history.
-- Public release still requires an explicit license choice, package/name ownership and release accessibility review. This local milestone does not publish a package or certify accessibility.
+- The MIT license is now applied. Public release still requires package/name ownership, working publication access and the documented release accessibility review. A source push does not publish a package or certify accessibility.
 
 The repository is a source handoff. No npm package is published by pushing it to GitHub.
 
@@ -23,3 +23,9 @@ The repository is a source handoff. No npm package is published by pushing it to
 The reviewed work is pushed on [codex/release-readiness](https://github.com/deepak-hp/ritam-ui/tree/codex/release-readiness). The complete local release command passed. See the [master checklist](RELEASE-CHECKLIST.md) and [verification record](RELEASE-READINESS.md) for delivered scope and remaining gates.
 
 The GitHub connector returned HTTP 404 when asked to create a draft pull request, although Git transport successfully pushed the branch. No pull request was created and no hosted CI result was observed. The branch can be reviewed through [GitHub's comparison page](https://github.com/deepak-hp/ritam-ui/compare/main...codex/release-readiness). Main was not merged or force-pushed.
+
+## Public beta work — 7 October 2026
+
+GitHub connector access now works and [PR #1](https://github.com/deepak-hp/ritam-ui/pull/1) is attached to this work. The repository is still private. MIT licensing and `0.1.0-beta.1` package metadata are committed. A clean Linux run exposed a build-order issue, fixed by building the library before type-checking its playground consumers.
+
+The current npm identity check returns 401; registry publication and scope ownership have not been verified. The connected hosting account returned no teams. No public URL or npm installation is claimed. See the master checklist for remaining gates and current verification evidence.

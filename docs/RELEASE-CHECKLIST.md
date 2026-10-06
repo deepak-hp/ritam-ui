@@ -23,7 +23,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Rerun full component, package, consumer and SSR checks on the release candidate.
 - [x] Verify a fresh generated app, installed-package reference and static documentation build.
 - [x] Add package metadata, repeatable release checks and CI.
-- [ ] Observe the hosted Linux CI job passing on the reviewed branch or pull request.
+- [x] Observe hosted Linux CI passing: [run 37526475891](https://github.com/deepak-hp/ritam-ui/actions/runs/37526475891) on `cd7280a`. Subsequent changes require their own passing run before merge.
 - [x] Audit direct/transitive dependency findings and document actionable residual risks.
 - [x] Establish versioning, changelog, supported environments and upgrade policy.
 - [ ] Publish a versioned npm package after ownership/authentication and release gates are satisfied.
@@ -61,11 +61,11 @@ This is the durable source of scope and progress. Checked items require evidence
 ## 6. Open-source and launch readiness
 
 - [x] Contribution guide, security reporting instructions, issue/PR templates, CI and maintenance policy.
-- [x] Prepare a proposed permissive license and third-party attribution; owner must approve final grant before public release.
+- [x] Apply the approved MIT license and package third-party attribution (7 October 2026).
 - [ ] Confirm repository visibility, package scope ownership and release permissions without exposing private research.
 - [x] Release notes, installation guide and rollback/release procedure.
 - [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
-- [ ] Owner approves/applies license and authorizes public package/site publication when release gates are met.
+- [x] Owner approves/applies license and authorizes public package/site publication when release gates are met ("go ahead finish all", 7 October 2026). Authentication and actual publication remain separate open gates above.
 - [ ] Publish announcements only with explicit authorization; never invent users, benchmarks or endorsements.
 
 ## 7. Longer-term commitments (retained, not claimed for React release)

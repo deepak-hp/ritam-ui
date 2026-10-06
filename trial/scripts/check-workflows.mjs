@@ -3,10 +3,17 @@ import { createServer } from 'node:http';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { extname, resolve, sep } from 'node:path';
 process.env.PLAYWRIGHT_BROWSERS_PATH ??= resolve('.playwright');
-const { chromium } = await import('playwright');
+const playwright = await import('playwright');
+
+const browserName = process.env.BROWSER ?? 'chromium';
+const supportedBrowsers = ['chromium', 'firefox', 'webkit'];
+if (!supportedBrowsers.includes(browserName)) {
+ throw new Error(`Unsupported BROWSER=${browserName}. Expected one of: ${supportedBrowsers.join(', ')}`);
+}
+const browserType = playwright[browserName];
 
 const axe = await readFile('node_modules/axe-core/axe.min.js', 'utf8');
-const output = '.review/workflows';
+const output = browserName === 'chromium' ? '.review/workflows' : `.review/workflows/${browserName}`;
 await mkdir(output, { recursive: true });
 // Test a real static build under a non-root base by default.
 const root = resolve('reference/dist');
@@ -25,11 +32,14 @@ await new Promise(done => server.listen(0, '127.0.0.1', done));
 const base = process.env.REFERENCE_URL ?? `http://127.0.0.1:${server.address().port}/reference/`;
 const url = new URL(base.endsWith('/') ? base : `${base}/`);
 url.search = '?view=catalogue';
-const browser = await chromium.launch();
-
+let browser;
 const results = [];
 const stateResults = [];
+const textSpacingResults = [];
+const keyboardResults = [];
+const spacing = '* { line-height: 1.5 !important; letter-spacing: .12em !important; word-spacing: .16em !important; } p { margin-bottom: 2em !important; }';
 try {
+ browser = await browserType.launch();
  const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
  const errors = []; page.on('pageerror', e => errors.push(e.message));
  const button = name => page.getByRole('button', { name, exact: true });
@@ -47,6 +57,20 @@ try {
   }
  }
  async function route(name) { await page.goto(url.href); await page.getByRole('link', { name, exact: true }).click(); assert.equal(new URL(page.url()).pathname, '/reference/'); await page.locator('.workflow').waitFor(); }
+ async function tabTo(target, context) {
+  for (let i = 0; i < 50; i++) {
+   if (await target.evaluate(el => el === document.activeElement)) {
+    const visible = await target.evaluate(el => {
+     const rect = el.getBoundingClientRect();
+     return rect.width > 0 && rect.height > 0 && rect.top < innerHeight && rect.bottom > 0 && rect.left < innerWidth && rect.right > 0;
+    });
+    assert.ok(visible, `${context}: focused control is obscured`);
+    return;
+   }
+   await page.keyboard.press('Tab');
+  }
+  throw new Error(`${context}: target was not reachable with Tab`);
+ }
  for (const theme of ['light', 'dark']) for (const name of ['Invoices', 'Settings', 'Onboarding']) {
   await route(name); if (theme === 'dark') await button('Use dark theme').click();
   for (const width of [1440, 390, 320]) {
@@ -59,6 +83,40 @@ try {
    await page.screenshot({ path: `${output}/${name.toLowerCase()}-${theme}-${width}.png`, fullPage: true });
    results.push({ route: name, theme, width, axeViolations: 0, overflow: false });
   }
+ }
+ for (const name of ['Invoices', 'Settings', 'Onboarding']) {
+  await route(name);
+  await page.setViewportSize({ width: 320, height: 640 });
+  await page.addStyleTag({ content: spacing });
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${name}/text-spacing overflow`);
+  await page.screenshot({ path: `${output}/${name.toLowerCase()}-text-spacing-320.png`, fullPage: true });
+  textSpacingResults.push({ route: name, width: 320, overflow: false });
+
+  await route(name);
+  await page.setViewportSize({ width: 1280, height: 800 });
+  if (name === 'Invoices') {
+   const search = page.getByLabel('Search invoices');
+   await tabTo(search, `${name} search`);
+   await page.keyboard.insertText('no-client');
+   await page.getByText('No matching invoices', { exact: true }).waitFor();
+   const reset = button('Reset filters');
+   await tabTo(reset, `${name} reset`);
+   await page.keyboard.press('Enter');
+   await page.getByText('No matching invoices', { exact: true }).waitFor({ state: 'hidden' });
+  } else if (name === 'Settings') {
+   const displayName = page.getByLabel('Display name');
+   await tabTo(displayName, `${name} display name`);
+   await page.keyboard.press('ControlOrMeta+A');
+   await page.keyboard.insertText(' ');
+   await tabTo(button('Save settings'), `${name} save`);
+   await page.keyboard.press('Enter');
+   await page.waitForFunction(() => document.activeElement?.id === 'settings-name');
+  } else {
+   await tabTo(button('Continue'), `${name} continue`);
+   await page.keyboard.press('Enter');
+   await page.waitForFunction(() => document.activeElement?.id === 'workspace-name');
+  }
+  keyboardResults.push({ route: name, keyboardPath: true, focusVisibleInViewport: true });
  }
  await route('Invoices'); await page.getByLabel('Search invoices').fill('no-client');
  await page.getByText('No matching invoices', { exact: true }).waitFor(); await button('Reset filters').click();
@@ -101,6 +159,9 @@ try {
  await button('Finish local setup').click(); await alert('Setup was not saved'); assert.equal(await page.evaluate(() => localStorage.getItem('ritam-ui.examples.onboarding')), '{bad'); await page.evaluate(() => { Storage.prototype.setItem = window.originalSetItem; }); await button('Retry completion').click();
  await page.getByRole('heading', { name: 'Recovered is ready to explore' }).waitFor(); await auditState('onboarding-complete');
  assert.deepEqual(errors, []);
- await writeFile(`${output}/results.json`, JSON.stringify({ date: new Date().toISOString(), base, results, stateResults, browserErrors: errors, completeFlows: true, recovery: true, keyboard: true, actualStorageFailure: true, corruptionRecovery: true }, null, 2));
- console.log('Workflows passed: 18 route/theme/viewport and 8 additional state/theme axe and overflow audits; catalogue navigation; invoice filters/reminders; settings persistence/reset; onboarding back/completion/restart; validation/focus; simulated and actual failures; corrupt-storage recovery.');
-} finally { await browser.close(); await new Promise(done => server.close(done)); }
+ await writeFile(`${output}/results.json`, JSON.stringify({ date: new Date().toISOString(), browser: browserName, base, results, stateResults, textSpacingResults, keyboardResults, browserErrors: errors, completeFlows: true, recovery: true, keyboard: true, actualStorageFailure: true, corruptionRecovery: true }, null, 2));
+ console.log(`${browserName}: workflows passed: 18 route/theme/viewport and 8 additional state/theme axe and overflow audits; text spacing and keyboard paths for 3 complete routes; catalogue navigation; invoice filters/reminders; settings persistence/reset; onboarding back/completion/restart; validation/focus; simulated and actual failures; corrupt-storage recovery.`);
+} finally {
+ await browser?.close();
+ if (server.listening) await new Promise(done => server.close(done));
+}

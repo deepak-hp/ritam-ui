@@ -10,6 +10,8 @@ The amended browser verifier SHA-256 is `17409de7c4c29beee1e610a28fdfde3ee036650
 
 The first generator's notes revealed that the common TypeScript harness lacks a CSS side-effect import declaration. The frozen generation configuration is retained for all twelve attempts to avoid changing the task mid-experiment. Any resulting compiler diagnostic or suppression must be reported as a harness limitation, not evidence of inferior UI quality. Initial and corrected sources remain separate.
 
+One correction (`c9a6e15`) adds `app.css.d.ts`; others suppress the known missing declaration at the import. The extra declaration is preserved and hashed at collection. Original check reports hashed App/CSS/prompt only, so its collection hash is not presented as a historical measurement-time hash.
+
 The pilot is not randomized pair presentation: the review page orders opaque candidate IDs for individual review. It hides condition labels only; visual design may reveal the library. Human review has not happened.
 
 The controller patched the production lockfiles to `source-map-js@1.2.2`. Installed tooling was kept unchanged during generation so every candidate used the same environment, recorded in `materials/checks-fingerprint.json`. A later fresh install is required for release verification. No vulnerable tooling is shipped in the library's production dependency graph.

@@ -24,6 +24,8 @@
     "NOTES.md": "a031e4d48bfa860511831120b62eed75a42cf39ec8b793636c000a7c942bae8c",
     "prompt.txt": "b4ea3da2bfcc7c1925ae0a1257085540320c631dda9ea5ef4722b74912e78519"
   },
+  "additionalGeneratedFiles": {},
+  "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
   "check": {
     "id": "c31f0a8",
     "sequence": "002",

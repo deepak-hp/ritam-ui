@@ -23,6 +23,12 @@ for (const run of key.runs) {
     files[name] = sha256(content);
     if (name === 'App.tsx' || name === 'app.css') lines += content.trimEnd().split(/\r?\n/).length;
   }
+  const additionalGeneratedFiles = {};
+  for (const entry of await readdir(resolve(root, prefix), { withFileTypes: true })) {
+    if (entry.isFile() && !['App.tsx', 'app.css', 'NOTES.md', 'prompt.txt', 'manifest.json'].includes(entry.name)) {
+      additionalGeneratedFiles[entry.name] = sha256(await read(`${prefix}/${entry.name}`));
+    }
+  }
   const check = await json(`evidence/${run.id}/check.json`);
   for (const name of ['App.tsx', 'app.css', 'prompt.txt']) {
     if (files[name] !== check.hashes[name]) throw new Error(`${run.id}: source changed after verification: ${name}`);
@@ -53,7 +59,9 @@ for (const run of key.runs) {
   const record = {
     ...run, sourceLines: lines, lineLimitExceeded: lines > 450,
     checkInvocations: invocations.length, observedInvocationLimitExceeded: invocations.length > 2,
-    files, check, checkHistory, browser, confirmation,
+    files, additionalGeneratedFiles,
+    additionalFileProvenance: 'Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.',
+    check, checkHistory, browser, confirmation,
     browserEvidenceWrittenAt: (await stat(resolve(root, `evidence/${run.id}/browser.json`))).mtime.toISOString(),
     verifierSha256,
     primaryProvenance: 'Reconstructed from the frozen verifier and controller execution record, not measurement-time attestation. Original browser.json did not embed a verifier hash.',

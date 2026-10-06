@@ -11,7 +11,7 @@
 - [x] Apply MIT license and prepare a distributable beta package, including license/attribution in the archive and accurate installation guidance.
 - [x] Run matched AI generations on three tasks, repeated per condition, keeping prompts/output/conditions; render and test outputs without silently improving them. Prepare condition-label-hidden human review, separating automated/AI observations from human results. All twelve attempts retained; see `trial/evaluation/RESULTS.md` and `AMENDMENTS.md`.
 - [x] Extend browser/accessibility evidence in Chromium, Firefox and WebKit; retain concrete native/human test protocols and mark those unperformed gates honestly.
-- [ ] Verify the final package and complete review, commit and push; merge only after the relevant hosted checks pass.
+- [x] Verify the beta package, complete independent review, commit and push. Integration status and final-head checks are tracked in PR #1; merge is conditional on those checks passing.
 - [ ] Publish the catalogue and beta package where authenticated access permits. Verify live installation/site after publication.
 - [x] Prepare/update truthful launch drafts and a concrete early-feedback protocol.
 - [ ] Collect actual early-user feedback before claiming validated outcomes. No audience or testers have been invented.

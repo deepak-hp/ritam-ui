@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { Tooltip, Popover, DropdownMenu, AlertDialog, Drawer, Accordion } from '../src/overlays';
@@ -40,11 +40,11 @@ test('destructive alert dialog starts on cancel and does not dismiss from its ba
   const trigger = screen.getByRole('button', { name: 'Delete workspace' });
   await user.click(trigger);
   expect(await screen.findByRole('alertdialog', { name: 'Delete workspace?' })).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: 'Cancel' })).toHaveFocus();
+  await waitFor(() => expect(screen.getByRole('button', { name: 'Cancel' })).toHaveFocus());
   await user.click(document.querySelector('[data-base-ui-dialog-backdrop]') as HTMLElement);
   expect(screen.getByRole('alertdialog', { name: 'Delete workspace?' })).toBeInTheDocument();
   await user.keyboard('{Escape}');
-  expect(trigger).toHaveFocus();
+  await waitFor(() => expect(trigger).toHaveFocus());
 });
 
 test('drawer closes when the close action is pressed', async () => {

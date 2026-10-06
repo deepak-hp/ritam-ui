@@ -29,6 +29,6 @@ For each engine, the run recorded:
 
 All recorded axe violation counts were zero, all recorded overflow values were false, and the browser-error arrays were empty. These automated observations are bounded to the tested states and axe rules. They are not a WCAG conformance statement or a substitute for human review.
 
-Actual browser zoom was not exercised. NVDA with Firefox and VoiceOver with Safari were not available on this Windows test device and remain manual gates; Playwright Firefox and WebKit do not simulate those assistive-technology combinations.
+Actual browser zoom, NVDA with Firefox and VoiceOver with Safari were not exercised in this session and remain manual gates. Playwright Firefox and WebKit do not simulate those assistive-technology combinations; native assistive-technology review still needs an appropriate device and reviewer.
 
 EAA applicability depends on the product/service, jurisdictional implementation, and economic operator. A component library cannot determine it. See the [official Directive text](https://eur-lex.europa.eu/eli/dir/2019/882/oj).

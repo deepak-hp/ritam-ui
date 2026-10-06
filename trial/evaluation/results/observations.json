@@ -1,5 +1,5 @@
 {
-  "collectedAt": "2026-10-06T20:48:04.142Z",
+  "collectedAt": "2026-10-06T20:52:46.968Z",
   "question": "In-domain whole-library-plus-guidance pilot; not a causal or general superiority result.",
   "humanReview": "pending",
   "limitations": [
@@ -36,6 +36,8 @@
         "NOTES.md": "57f4f49935ccd9bf45dcbcab24f54a4fcec9f0ff68cc276963b2dcb761c8c606",
         "prompt.txt": "e8c66d9b5c2e815d090ad3ec02feef124451c3f715e8e9d1f1a48b45606151e1"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c7b92e1",
         "sequence": "002",
@@ -237,6 +239,8 @@
         "NOTES.md": "a031e4d48bfa860511831120b62eed75a42cf39ec8b793636c000a7c942bae8c",
         "prompt.txt": "b4ea3da2bfcc7c1925ae0a1257085540320c631dda9ea5ef4722b74912e78519"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c31f0a8",
         "sequence": "002",
@@ -436,6 +440,8 @@
         "NOTES.md": "e9ce277dbeef98c945f864b37f368d25265c471faab5c101220306c256df6b37",
         "prompt.txt": "9b3c303ad98ebac8cdb97a317291f5892ded6497c5533d826e72edd1439b1013"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c8d145f",
         "sequence": "002",
@@ -635,6 +641,8 @@
         "NOTES.md": "0a7627a532acf5459d980b1f2c726fcdd133e646412fadbefe4c4365afa86799",
         "prompt.txt": "83167251a9861b466d4a3fcd9e637897e2a0b31c7133c7babd1110e357905b5a"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c62ae30",
         "sequence": "002",
@@ -838,6 +846,8 @@
         "NOTES.md": "a56483883b9c17b79ab8ee15c9ac86f8e6ecd5aaa6129e34c6c37f1ceb3150a3",
         "prompt.txt": "8a84c02d9a9be6d7e652965fb27b36fd7ece65451c1bf25945c028638be27757"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c19f4b2",
         "sequence": "002",
@@ -1041,6 +1051,8 @@
         "NOTES.md": "cea0374194616049254f74a687010dac7cce9eecb1c7ec8f1ea90b1fd2b9c2bd",
         "prompt.txt": "d0f699ef5d4245f7f8e2e59f1542b169c3fe838ccc7bfa49a4e8983e952ffe81"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "ca570d1",
         "sequence": "002",
@@ -1240,6 +1252,8 @@
         "NOTES.md": "ee19a21f02d9653db4cf71f42e56b0ab76048829ef55f73a8db8592e721a9864",
         "prompt.txt": "76715d6a92d9e094980ace5bfdd53ec5450d6cef6f15b0297429013a1cc39751"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "ce293a4",
         "sequence": "002",
@@ -1443,6 +1457,8 @@
         "NOTES.md": "38538ece4d04e215213e74d3a3814c07dd0b6aed71fc7c9916e4312eed7a17c1",
         "prompt.txt": "754f5b06fd996196b6ee0c256932a35cdcafc0ce80d2a0574e4b3f8214752ac5"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c40bd79",
         "sequence": "002",
@@ -1642,6 +1658,10 @@
         "NOTES.md": "8b103e95f3ad46d6046d2bd89ce1a4f31be494d42a1cc8937d47dd801bccbea2",
         "prompt.txt": "e894e2d57ee1c8967d5c90b6b483e0056f56f4669f0d36488c288d73927791c8"
       },
+      "additionalGeneratedFiles": {
+        "app.css.d.ts": "03a689bf0480c5ae866ceffd483cb1c1ece26486e4d3956d5b57ec484fdbd2e2"
+      },
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c9a6e15",
         "sequence": "002",
@@ -1840,6 +1860,8 @@
         "NOTES.md": "42287e28e9e758dd8bc95ac44eeb777bbd86a1849a46a0795b4f4cbff4ff1d40",
         "prompt.txt": "3764f52c1410fdff822093010dcc83d7ff71306d3c2646af46b36c951520d49a"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "cf185c0",
         "sequence": "002",
@@ -2035,6 +2057,8 @@
         "NOTES.md": "37c9a9651b0b0502117a6b0888726d2eb6ac655b66e1c0d6e011bada06234e90",
         "prompt.txt": "c873a7006c1e34f6be0f7642fb266bb6a97ec5f9ad3d7dcf72d9086161a9e49f"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "c24a8de",
         "sequence": "002",
@@ -2230,6 +2254,8 @@
         "NOTES.md": "0683a493b80d5a67f6619ee9f5537c88c4d9bebeb91794282cf89970e4d42445",
         "prompt.txt": "66cb721e9020b9273f05b3f9de0de5059789d6e329ea4f9c405b602e7da0a916"
       },
+      "additionalGeneratedFiles": {},
+      "additionalFileProvenance": "Observed at collection. Original check reports fingerprinted App.tsx, app.css and prompt.txt only; declarations added during correction are also retained in Git.",
       "check": {
         "id": "cb6d703",
         "sequence": "002",

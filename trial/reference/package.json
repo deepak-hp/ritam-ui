@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
-    "@ritam-ui/react": "file:vendor/ritam-ui-react-d680fd9b1ef9.tgz",
+    "@ritam-ui/react": "file:vendor/ritam-ui-react-8e204315677b.tgz",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },

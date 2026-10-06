@@ -1,9 +1,12 @@
 {
   "name": "@ritam-ui/react",
-  "version": "0.0.1",
-  "description": "Private React UI library with typed components, compiled CSS, and local AI integration guidance.",
-  "private": true,
-  "license": "UNLICENSED",
+  "version": "0.1.0-beta.1",
+  "description": "React web component library with typed components, compiled CSS, accessibility guidance, and AI integration materials.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/deepak-hp/ritam-ui.git"
@@ -19,7 +22,9 @@
   "files": [
     "dist",
     "ai",
-    "docs"
+    "docs",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
   ],
   "exports": {
     ".": {
@@ -47,7 +52,7 @@
     "test:package": "node --test scripts/check-package.test.mjs",
     "check:ssr": "node scripts/check-ssr.mjs",
     "check:production": "npm run check && npm run check:package && npm run ai:check && npm run check:ssr && npm run check:consumer",
-    "check": "npm run test && npm run typecheck && npm run build && npm run build:playground",
+    "check": "npm run test && npm run build && npm run typecheck && npm run build:playground",
     "storybook": "npm run build && storybook dev -p 6006 --host 127.0.0.1 --no-open --disable-telemetry",
     "build:storybook": "npm run build && storybook build --disable-telemetry",
     "test:stories": "npm run build && node scripts/test-stories.mjs",

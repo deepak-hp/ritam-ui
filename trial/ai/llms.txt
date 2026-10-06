@@ -1,6 +1,6 @@
 # Ritam UI
 
-React web component library; unpublished.
+MIT-licensed React web component library; beta package not yet published.
 
 - [Full integration guide and API](./llms-full.txt)
 - [Composition recipes](./COMPOSITION.md)

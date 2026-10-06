@@ -1,6 +1,6 @@
 # Third-party notices
 
-Ritam UI is built with dependencies declared in `trial/package.json`; their license texts remain governed by their respective authors. This inventory was checked against the installed direct dependencies on 28 September 2026.
+Ritam UI is built with dependencies declared in `trial/package.json`; their license texts remain governed by their respective authors. This inventory was checked against the installed direct dependencies on 7 October 2026. The npm archive keeps these packages external and installs them as dependencies; it does not relicense their code or font software under Ritam UI's MIT license.
 
 | Dependency | Installed version | License | Upstream license |
 | --- | --- | --- | --- |
@@ -11,4 +11,6 @@ Ritam UI is built with dependencies declared in `trial/package.json`; their lice
 | [React](https://react.dev) peer dependency | 19.3.0 | MIT | [MIT text](https://github.com/facebook/react/blob/main/LICENSE) |
 | [React DOM](https://react.dev) peer dependency | 19.3.0 | MIT | [MIT text](https://github.com/facebook/react/blob/main/LICENSE) |
 
-Development tooling also includes Vite, TypeScript, Storybook, Vitest, Playwright, Babel, Testing Library, and axe-core. Before a public release, the owner must review the exact lockfile-resolved dependency set and license obligations. This notice is an attribution inventory, not a substitute for upstream license texts or a grant of rights in Ritam UI.
+The Plus Jakarta Sans package includes font software under the SIL Open Font License 1.1 and its own copyright notice. Consumers who redistribute that font software must preserve its copyright and license as required by the OFL; the dependency's installed `LICENSE` contains the complete terms.
+
+Development tooling also includes Vite, TypeScript, Storybook, Vitest, Playwright, Babel, Testing Library, and axe-core. This notice records attribution for the package's direct runtime dependencies. Complete license texts remain available in each installed dependency and from the linked upstream projects.

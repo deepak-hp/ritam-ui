@@ -60,7 +60,7 @@ npm run check
 npm run check:consumer
 ```
 
-The consumer check packs and installs the library into a separate temporary app, then bundles its public exports and CSS without the StyleX compiler. The package remains private and unpublished.
+The consumer check packs and installs the library into a separate temporary app, then bundles its public exports and CSS without the StyleX compiler. The MIT-licensed beta is prepared but not yet published to npm.
 
 For the complete local release gate, install Chromium once with `npm run test:browser-install`, then run `npm run check:release`. It starts and stops only the Storybook and reference-preview processes that it owns. See the [release guide](../docs/RELEASING.md) for the checked surfaces and owner-only publication steps.
 

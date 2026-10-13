@@ -1,6 +1,11 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import guide from '../docs/APPLE-DESIGN.md?raw';
 
+export const storybookGuide = guide.replace(
+  '(FOUNDATIONS.md)',
+  '(https://github.com/deepak-hp/ritam-ui/blob/main/trial/docs/FOUNDATIONS.md)',
+);
+
 <Meta title="Foundations/Apple guidance" />
 
-<Markdown>{guide}</Markdown>
+<Markdown>{storybookGuide}</Markdown>

@@ -36,7 +36,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Complete settings workflow: meaningful groups, validation, save/reset, persisted local data and failure recovery.
 - [x] Complete onboarding workflow: steps, validation, review, completion, restart and honest local-only behavior.
 - [x] Verify all three flows with keyboard, responsive layouts, both themes and automated accessibility checks (26 browser audits; 15 reference tests).
-- [ ] Publish catalogue/Storybook hosting after deployment configuration and repository settings are available.
+- [x] Publish catalogue/Storybook hosting with a main-only deployment environment and passing release gate ([first deployment](https://github.com/deepak-hp/ritam-ui/actions/runs/38417887319), 13 October 2026).
 
 ## 4. AI integration that improves composition
 
@@ -87,4 +87,4 @@ This is the durable source of scope and progress. Checked items require evidence
 Completed local implementation plan: [release readiness](superpowers/plans/2026-09-28-release-readiness.md).
 Fresh evidence: [release candidate record](RELEASE-READINESS.md). Historical and current results: [verification](../trial/docs/VERIFICATION.md).
 
-Release status: **MIT-licensed React-web beta source public; npm package unpublished**. Local verification and revision-specific hosted checks are recorded in the evidence document. npm publication access, documentation deployment and manual/human gates remain open. No accessibility conformance or stable production-release claim is made.
+Release status: **MIT-licensed React-web beta source and documentation public; npm package unpublished**. Local verification, revision-specific hosted checks and deployment evidence are recorded in the evidence document. npm publication access and manual/human gates remain open. No accessibility conformance or stable production-release claim is made.

@@ -132,13 +132,48 @@ async function main() {
     await story.getByRole('button', { name: 'Save changes', exact: true }).waitFor();
     await story.goto(new URL('storybook/iframe.html?id=components-button--docs&viewMode=docs', site.baseUrl).href);
     await story.getByRole('heading', { name: 'Button', exact: true }).first().waitFor();
+    for (const [storyId, linkName, expectedPath] of [
+      ['components-link--default', 'Read the component API', '/docs/start-here-agent-api--docs'],
+      ['components-breadcrumbs--default', 'Library', '/docs/start-here-catalogue--docs'],
+    ]) {
+      await story.goto(new URL(`storybook/iframe.html?id=${storyId}&viewMode=story`, site.baseUrl).href);
+      const renderedHref = new URL(await story.getByRole('link', { name: linkName, exact: true }).getAttribute('href'), story.url());
+      assert.equal(renderedHref.pathname, `${site.basePath}storybook/`, `${linkName} must retain the Storybook base path`);
+      assert.equal(renderedHref.searchParams.get('path'), expectedPath);
+    }
+
+    const manager = await browser.newPage({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce' });
+    manager.setDefaultTimeout(30_000);
+    observe(manager);
+    await manager.goto(new URL('storybook/?path=/docs/start-here-catalogue--docs', site.baseUrl).href);
+    const preview = manager.frameLocator('#storybook-preview-iframe');
+    try {
+      await preview.getByRole('heading', { name: /Component catalogue/ }).waitFor();
+    } catch (error) {
+      const iframeSource = await manager.locator('#storybook-preview-iframe').getAttribute('src');
+      const previewFrame = manager.frames().find((frame) => frame.url().includes('/iframe.html') && frame.url().includes('start-here-catalogue--docs'));
+      const previewText = previewFrame ? (await previewFrame.locator('body').innerText()).slice(0, 500) : '';
+      throw new Error(`Catalogue preview did not render; iframe=${iframeSource}; body=${previewText}; frames=${manager.frames().map((frame) => frame.url()).join(', ')}`, { cause: error });
+    }
+    await preview.getByRole('link', { name: 'Button', exact: true }).click();
+    await manager.waitForURL((url) => url.pathname === `${site.basePath}storybook/` && url.searchParams.get('path') === '/docs/components-button--docs');
+    await manager.frameLocator('#storybook-preview-iframe').getByRole('heading', { name: /Button/ }).first().waitFor();
+
+    for (const [docsId, linkName, expectedHref] of [
+      ['foundations-apple-guidance--docs', 'foundations', 'https://github.com/deepak-hp/ritam-ui/blob/main/trial/docs/FOUNDATIONS.md'],
+      ['start-here-accessibility--docs', 'VERIFICATION.md', 'https://github.com/deepak-hp/ritam-ui/blob/main/trial/docs/VERIFICATION.md'],
+      ['start-here-accessibility--docs', 'ACCESSIBILITY-EVIDENCE.md', 'https://github.com/deepak-hp/ritam-ui/blob/main/trial/docs/ACCESSIBILITY-EVIDENCE.md'],
+    ]) {
+      await story.goto(new URL(`storybook/iframe.html?id=${docsId}&viewMode=docs`, site.baseUrl).href);
+      assert.equal(await story.getByRole('link', { name: linkName, exact: true }).getAttribute('href'), expectedHref);
+    }
 
     assert.deepEqual(pageErrors, [], `Page errors:\n${pageErrors.join('\n')}`);
     assert.deepEqual(failedResponses, [], `HTTP failures:\n${failedResponses.join('\n')}`);
     assert.deepEqual(escapedRequests, [], `Same-origin requests escaped ${site.basePath}:\n${escapedRequests.join('\n')}`);
     const serverFailures = site.requests.filter(({ status }) => status >= 400);
     assert.deepEqual(serverFailures, [], `Server failures:\n${JSON.stringify(serverFailures, null, 2)}`);
-    process.stdout.write(`Static site passed at ${site.basePath}: catalogue redirect/navigation/reload, Storybook story/docs, license and AI assets; no page errors, 404s, or escaped same-origin requests.\n`);
+    process.stdout.write(`Static site passed at ${site.basePath}: catalogue redirect/navigation/reload, Storybook manager catalogue cross-link and story/docs, license and AI assets; no page errors, 404s, or escaped same-origin requests.\n`);
   } finally {
     await browser.close();
     await site.close();

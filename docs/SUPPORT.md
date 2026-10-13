@@ -16,11 +16,12 @@ The lockfile currently resolves the following versions:
 | Base UI | `1.8.0` | Bundled implementation dependency |
 | StyleX | `0.19.1` | Styling dependency; consumers use precompiled CSS and need no StyleX compiler |
 | TypeScript | `6.0.3` | Tested declarations/build toolchain |
-| Vite | `8.3.0` | Tested reference consumer; other modern bundlers need beta feedback |
+| Vite | `8.3.0` | Tested reference consumer |
+| Next.js App Router | `16.4.0` | Internal installed-package production build, SSR/hydration and bounded Chromium workflow checks; see [consumer validation](validation/2026-10-14-next-consumer.md) |
 | Storybook | `10.6.0` | Documentation/development tool only |
 | Playwright | `1.63.0` | Automated browser-check driver |
 
-Node 22, Node 26, React 18, prerelease React builds, CommonJS `require`, alternate styling compilers and non-Vite bundlers have no recorded release qualification. Report a concrete consumer reproduction if one is important to your application; beta support will be based on evidence rather than an assumed framework label.
+Node 22, Node 26, React 18, prerelease React builds, CommonJS `require`, alternate styling compilers and bundlers outside the tested Vite and Next.js fixtures have no recorded release qualification. The Next.js evidence applies to the pinned App Router fixture, not every Next.js version, router, deployment platform or consuming application. Report a concrete consumer reproduction if another configuration is important to your application; beta support will be based on evidence rather than an assumed framework label.
 
 ## Browser evidence
 

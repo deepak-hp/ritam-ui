@@ -21,11 +21,11 @@ The gate checks source tests, types, library and playground builds, tarball cont
 1. Review `git status`, `CHANGELOG.md`, package metadata, package manifest output, and current audit results. Run `npm audit` from `trial`; the last inventory found zero findings across 401 dependencies, which must be rechecked rather than assumed.
 2. Run the local release gate and complete the manual accessibility and browser review recorded in `docs/RELEASE-READINESS.md`.
 3. Confirm the root and packaged MIT licenses are identical, the package contains `THIRD_PARTY_NOTICES.md`, and the package guard accepts only the approved beta version, public access, `beta` tag, license and attribution files.
-4. Enable private vulnerability reporting and add the resulting repository link to `SECURITY.md`. Configure npm trusted publishing or another owner-approved credential method; do not put long-lived registry credentials in CI. The latest npm authentication check returned 401, so publication remains blocked until owner-controlled authentication is available.
+4. Verify private vulnerability reporting remains enabled and `SECURITY.md` links to the repository's private reporting form. Configure npm trusted publishing or another owner-approved credential method; do not put long-lived registry credentials in CI. The latest npm authentication check returned 401, so publication remains blocked until owner-controlled authentication is available.
 5. After the reviewed release commit and hosted checks pass, create an annotated `v0.1.0-beta.1` tag and publish manually from `trial` with `npm publish`. The manifest's `publishConfig` applies public access and the `beta` tag. Confirm the registry metadata and install the published beta in a clean consumer before changing documentation from local tarball installation.
 6. Promote the repository/site and send any announcement only after the prior checks and explicit owner authorization. Keep rollback material: the prior package version, tag, changelog, and documented deprecation or remediation plan.
 
-The CI workflow validates changes but does not publish, deploy, use registry secrets, or change repository settings.
+The **Release checks** workflow validates changes but does not publish packages, deploy Pages, use registry secrets, or change repository settings. The separate **Deploy documentation site** workflow performs the gated Pages deployment described below.
 
 ## Serein publication access — 13 October 2026
 

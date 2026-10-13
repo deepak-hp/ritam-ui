@@ -14,8 +14,9 @@ test('Select exposes placeholder and associated validation help', () => {
 test('Select prevents choosing a disabled option', async () => {
   const user = userEvent.setup(); const changed = vi.fn();
   render(<Select label="Project" value="one" onValueChange={changed} options={[{ value: 'one', label: 'One' }, { value: 'two', label: 'Restricted', disabled: true }]} />);
-  await user.click(screen.getByRole('combobox', { name: 'Project' }));
-  const blocked = screen.getByRole('option', { name: 'Restricted' });
+  await user.tab();
+  await user.keyboard('{ArrowDown}');
+  const blocked = await screen.findByRole('option', { name: 'Restricted' });
   expect(blocked).toHaveAttribute('aria-disabled', 'true');
   await user.click(blocked);
   expect(changed).not.toHaveBeenCalled();

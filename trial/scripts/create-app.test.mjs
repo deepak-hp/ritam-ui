@@ -20,7 +20,7 @@ async function makeFixture(t) {
   await writeFile(join(template, 'package.json'), JSON.stringify({
     name: 'starter-app',
     private: true,
-    dependencies: { '@ritam-ui/react': '^0.0.1' },
+    dependencies: { '@serein-ui/react': '^0.0.1' },
   }, null, 2));
   await writeFile(join(template, 'src', 'main.jsx'), 'export default null;\n');
   t.after(async () => {
@@ -36,8 +36,8 @@ function fakeRunner(calls) {
     calls.push({ command, args, options });
     if (args.includes('pack')) {
       const vendor = args.at(-1);
-      writeFileSync(join(vendor, 'ritam-ui-react-0.0.1.tgz'), 'archive');
-      return JSON.stringify([{ filename: 'ritam-ui-react-0.0.1.tgz' }]);
+      writeFileSync(join(vendor, 'serein-ui-react-0.0.1.tgz'), 'archive');
+      return JSON.stringify([{ filename: 'serein-ui-react-0.0.1.tgz' }]);
     }
     return '';
   };
@@ -94,8 +94,8 @@ test('createApp copies the template, vendors the archive, and skips install', as
   assert.equal(await readFile(join(destination, 'src', 'main.jsx'), 'utf8'), 'export default null;\n');
   const generatedPackage = JSON.parse(await readFile(join(destination, 'package.json'), 'utf8'));
   assert.equal(generatedPackage.name, 'new-app');
-  assert.equal(generatedPackage.dependencies['@ritam-ui/react'], 'file:vendor/ritam-ui-react.tgz');
-  assert.ok(existsSync(join(destination, 'vendor', 'ritam-ui-react.tgz')));
+  assert.equal(generatedPackage.dependencies['@serein-ui/react'], 'file:vendor/serein-ui-react.tgz');
+  assert.ok(existsSync(join(destination, 'vendor', 'serein-ui-react.tgz')));
   assert.deepEqual(calls.map(({ args }) => args.slice(1, 5)), [
     ['--cache', join(trialRoot, '.npm-cache'), 'run', 'build'],
     ['--cache', join(trialRoot, '.npm-cache'), 'pack', '--json'],
@@ -121,8 +121,8 @@ test('createApp runs build through the default runner when inherited output is n
     "const argumentsList = process.argv.slice(2);",
     "if (argumentsList.includes('pack')) {",
     "  const destinationIndex = argumentsList.indexOf('--pack-destination');",
-    "  writeFileSync(join(argumentsList[destinationIndex + 1], 'ritam-ui-react-0.0.1.tgz'), 'archive');",
-    "  console.log(JSON.stringify([{ filename: 'ritam-ui-react-0.0.1.tgz' }]));",
+    "  writeFileSync(join(argumentsList[destinationIndex + 1], 'serein-ui-react-0.0.1.tgz'), 'archive');",
+    "  console.log(JSON.stringify([{ filename: 'serein-ui-react-0.0.1.tgz' }]));",
     "}",
   ].join('\n'));
 
@@ -133,7 +133,7 @@ test('createApp runs build through the default runner when inherited output is n
     npmExecPath: fakeNpm,
   });
 
-  assert.ok(existsSync(join(destination, 'vendor', 'ritam-ui-react.tgz')));
+  assert.ok(existsSync(join(destination, 'vendor', 'serein-ui-react.tgz')));
 });
 
 test('createApp keeps the scaffold when installation fails', async (t) => {
@@ -141,8 +141,8 @@ test('createApp keeps the scaffold when installation fails', async (t) => {
   const destination = join(directory, 'demo$(echo unsafe)`echo unsafe`');
   const runner = (command, args, options) => {
     if (args.includes('pack')) {
-      writeFileSync(join(args.at(-1), 'ritam-ui-react-0.0.1.tgz'), 'archive');
-      return JSON.stringify([{ filename: 'ritam-ui-react-0.0.1.tgz' }]);
+      writeFileSync(join(args.at(-1), 'serein-ui-react-0.0.1.tgz'), 'archive');
+      return JSON.stringify([{ filename: 'serein-ui-react-0.0.1.tgz' }]);
     }
     if (args.includes('install')) throw new Error('offline');
     return '';
@@ -159,5 +159,5 @@ test('createApp keeps the scaffold when installation fails', async (t) => {
   assert.ok(error.message.includes(destination));
   assert.doesNotMatch(error.message, /\bcd /);
   assert.ok(existsSync(join(destination, 'package.json')));
-  assert.ok(existsSync(join(destination, 'vendor', 'ritam-ui-react.tgz')));
+  assert.ok(existsSync(join(destination, 'vendor', 'serein-ui-react.tgz')));
 });

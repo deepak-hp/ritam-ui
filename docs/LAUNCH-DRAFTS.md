@@ -4,7 +4,7 @@ These are unsent drafts. The owner approved MIT licensing and the beta publicati
 
 ## Short announcement draft
 
-Ritam UI is an MIT-licensed React web component library with 42 typed components, compiled CSS, Storybook documentation, and practical AI composition recipes. Its Flame & Ink foundations support light and dark interfaces, while complete invoice, settings, and onboarding examples demonstrate real UI states with simulated services. We are inviting early technical feedback on installation, component contracts, and accessible interaction details. The repository and documentation will be the source of truth when the package is made public.
+Serein is an MIT-licensed React web component library with 42 typed components, compiled CSS, Storybook documentation, and practical AI composition recipes. Its Flame & Ink foundations support light and dark interfaces, while complete invoice, settings, and onboarding examples demonstrate real UI states with simulated services. We are inviting early technical feedback on installation, component contracts, and accessible interaction details. The repository and documentation will be the source of truth when the package is made public.
 
 ## Demonstration outline
 

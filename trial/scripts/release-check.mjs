@@ -94,7 +94,7 @@ try {
   const referenceUrl = `http://127.0.0.1:${referencePort}`;
   await waitFor(referenceUrl, reference, 'Reference preview');
   const referenceEnv = { REFERENCE_URL: referenceUrl };
-  for (const check of ['check:reference', 'check:reference-accessibility', 'check:materials', 'check:composition']) run(['run', check], referenceEnv);
+  for (const check of ['check:reference', 'check:reference-accessibility', 'check:materials', 'check:composition', 'check:serein']) run(['run', check], referenceEnv);
   for (const check of ['check:catalogue', 'check:workflows']) run(['run', check]);
 } finally {
   await stop(reference);

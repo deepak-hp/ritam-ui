@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as UI from '@ritam-ui/react';
+import * as UI from '@serein-ui/react';
 
 export function Button() {
   const [saved, setSaved] = useState(false);

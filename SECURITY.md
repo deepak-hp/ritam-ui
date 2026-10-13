@@ -1,6 +1,6 @@
 # Security policy
 
-Ritam UI has no configured public security-reporting channel yet. Do not post suspected vulnerabilities in a public issue.
+Serein has no configured public security-reporting channel yet. Do not post suspected vulnerabilities in a public issue.
 
 The owner must enable GitHub private vulnerability reporting before public release, then update this document with the repository-provided reporting link. Until that setting exists, use a private channel already agreed with the owner; this document intentionally does not invent a contact address or response-time promise.
 

@@ -1,6 +1,6 @@
 # Third-party notices
 
-Ritam UI is built with dependencies declared in `package.json`; their license texts remain governed by their respective authors. This inventory was checked against the installed direct dependencies on 7 October 2026. The npm archive keeps these packages external and installs them as dependencies; it does not relicense their code or font software under Ritam UI's MIT license.
+Serein is built with dependencies declared in `package.json`; their license texts remain governed by their respective authors. This inventory was checked against the installed direct dependencies on 7 October 2026. The npm archive keeps these packages external and installs them as dependencies; it does not relicense their code or font software under Serein's MIT license.
 
 | Dependency | Installed version | License | Upstream license |
 | --- | --- | --- | --- |

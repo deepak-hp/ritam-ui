@@ -21,10 +21,9 @@
 .workflow-demo { margin: 1.5rem 0; }
 .workflow-demo summary { cursor: pointer; min-height: 44px; display: list-item; padding: .75rem 0; font-size: .875rem; }
 .workflow-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; max-width: 720px; margin-bottom: 1rem; }
-.workflow-table { max-width: 100%; }
 .workflow table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9375rem; font-variant-numeric: tabular-nums; }
 .workflow th { font-size: .8125rem; color: var(--dp-muted); font-weight: 600; }
-.workflow th, .workflow td { padding: 1rem .75rem; border-bottom: 1px solid var(--dp-divider); white-space: nowrap; }
+.workflow th, .workflow td { padding: 1rem .75rem; white-space: nowrap; }
 .workflow th:last-child, .workflow td:last-child { text-align: right; }
 .workflow td:first-child button { padding-inline: 0; }
 .invoice-client { display: block; }

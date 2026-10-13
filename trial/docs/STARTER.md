@@ -1,4 +1,4 @@
-# Start an app with Ritam UI
+# Start an app with Serein
 
 From this library checkout's `trial` directory, using Node 24.19 or later:
 
@@ -16,7 +16,7 @@ This is a repository-local command. The MIT-licensed beta package is not yet pub
 ## What is generated
 
 - A standard React/Vite app with strict TypeScript and production build commands.
-- The library's actual npm tarball in `vendor/ritam-ui-react.tgz`, installed through a local file dependency.
+- The library's actual npm tarball in `vendor/serein-ui-react.tgz`, installed through a local file dependency.
 - Precompiled CSS and the approved font imported once; no StyleX compiler or library source alias.
 - Document-wide light/dark themes, preference persistence when storage is available, and a small removable form example with validation.
 - `AGENTS.md` and `UI-LIBRARY.md` guiding coding assistants to the installed declarations, tokens, contract and accessibility responsibilities.

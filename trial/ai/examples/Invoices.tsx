@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Button, Checkbox, DataTable, EmptyState, Select, TextField, useAsyncAction } from '@ritam-ui/react';
+import { Button, Checkbox, DataTable, EmptyState, Select, TextField, useAsyncAction } from '@serein-ui/react';
 import Shell, { focusId } from './Shell';
 import { filterInvoices, invoices, money, pause, type Invoice } from './model';
 function InvoiceDetail({ invoice, close }: { invoice: Invoice; close: () => void }) {
@@ -15,12 +15,12 @@ export default function Invoices() {
   const visible = filterInvoices(invoices, query, status);
   return <Shell title="Invoices" description="Review fictional client invoices and try a reminder. Sample snapshot: 28 September 2026; amounts in USD."><div className="workflow-filters"><TextField label="Search invoices" placeholder="Client or invoice number" value={query} onChange={e => setQuery(e.target.value)} /><Select label="Invoice status" value={status} onValueChange={setStatus} options={['All', 'Overdue', 'Open', 'Paid'].map(x => ({ value: x, label: x }))} /></div><p role="status" className="workflow-muted">{visible.length} of {invoices.length} invoices</p>
     {visible.length > 0 && <p className="workflow-table-hint workflow-muted" id="invoice-scroll-hint">Scroll the table horizontally to see every column.</p>}
-    {visible.length ? <div className="workflow-table"><DataTable caption="Sample invoices, as of 28 September 2026" rows={visible} rowKey={invoice => invoice.id} columns={[
+    {visible.length ? <DataTable caption="Sample invoices, as of 28 September 2026" rows={visible} rowKey={invoice => invoice.id} columns={[
       { key: 'client', header: 'Invoice / client', cell: invoice => <><Button variant="quiet" aria-expanded={selected?.id === invoice.id} onClick={e => { trigger.current = e.currentTarget; setSelected(invoice); }}>{invoice.id}</Button><span className="invoice-client">{invoice.client}</span></> },
       { key: 'due', header: 'Due', cell: invoice => invoice.due },
       { key: 'status', header: 'Status', cell: invoice => invoice.status },
       { key: 'amount', header: 'Amount', cell: invoice => money(invoice.amount) },
-    ]} /></div> : <EmptyState title="No matching invoices" description="Try a different client or status, or show all sample invoices." action={<Button onClick={() => { setQuery(''); setStatus('All'); }}>Reset filters</Button>} />}
+    ]} /> : <EmptyState title="No matching invoices" description="Try a different client or status, or show all sample invoices." action={<Button onClick={() => { setQuery(''); setStatus('All'); }}>Reset filters</Button>} />}
     {selected && <InvoiceDetail key={selected.id} invoice={selected} close={() => { setSelected(null); requestAnimationFrame(() => trigger.current?.isConnected ? trigger.current.focus() : document.getElementById('workflow-main')?.focus()); }} />}
   </Shell>;
 }

@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from 'react';
-import { Alert, Button, TextField } from '@ritam-ui/react';
+import { Alert, Button, TextField } from '@serein-ui/react';
 import { readTheme, saveTheme } from './theme';
 
 export default function App() {
@@ -23,7 +23,7 @@ export default function App() {
   return <>
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="app-header">
-      <span className="app-name">Ritam UI</span>
+      <span className="app-name">Serein</span>
       <Button variant="quiet" onClick={() => {
         const next = theme === 'light' ? 'dark' : 'light';
         saveTheme(next);

@@ -1,4 +1,4 @@
-import { Badge, Button, DataTable, Select, TextField } from '@ritam-ui/react';
+import { Badge, Button, DataTable, Select, TextField } from '@serein-ui/react';
 import { formatAmount, formatDue, type Invoice, type InvoiceFilter, type InvoiceViewProps } from './comparison-types';
 import './invoice-guided.css';
 
@@ -115,7 +115,7 @@ export function InvoiceGuided({
           <Button variant="secondary" onClick={onClear}>Clear filters</Button>
         </div>
 
-        <div className="invoice-guided__table-region" role="region" tabIndex={0} aria-label="Version B invoice table. Scroll horizontally to compare all invoice fields.">
+        <div className="invoice-guided__table-region">
           <DataTable
             caption="Studio invoices — Version B"
             rows={invoices}

@@ -1,6 +1,6 @@
-# Contributing to Ritam UI
+# Contributing to Serein
 
-Ritam UI is an unpublished release candidate. Contributions are reviewed by the repository owner and do not authorize publication or change the license status.
+Serein is an unpublished release candidate. Contributions are reviewed by the repository owner and do not authorize publication or change the license status.
 
 ## Before opening a change
 

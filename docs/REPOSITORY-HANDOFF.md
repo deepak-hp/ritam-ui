@@ -1,10 +1,10 @@
 # Repository handoff
 
-Display name: **Ritam UI**. Repository: [deepak-hp/ritam-ui](https://github.com/deepak-hp/ritam-ui).
+Display name: **Serein**. Unpublished package: `@serein-ui/react`. Repository: [deepak-hp/ritam-ui](https://github.com/deepak-hp/ritam-ui).
 
-The name alludes to ṛta, the Indian idea of order and right arrangement, as a symbolic connection to the founder's astrology-inspired identity. It is not a claim that a birth chart prescribes this name. Meaning references: [Rta / Ritam](https://asivanayoga.com/blogs/sanskrit/rta) and [University of Calicut Sanskrit material](https://sde.uoc.ac.in/sites/default/files/sde_videos/VI_Sem-BA_SanskritCore_Course-Culture_and_environmental_science_in_sanskrit.pdf).
+The active library and package were renamed from Ritam UI and `@ritam-ui/react` to Serein and `@serein-ui/react` on 13 October 2026. Frozen evaluation materials and earlier verification entries retain the old name so their evidence remains accurate. The GitHub repository URL is unchanged.
 
-A public-web check found other uses of Ritam, including an unrelated Kotlin project. No trademark, domain or registry-package availability is guaranteed. The local unpublished package is now `@ritam-ui/react`; imports, examples and generated apps use that scope.
+No trademark, domain, npm scope or package-name availability is guaranteed. The local unpublished package, imports, examples and generated apps use the Serein identity.
 
 ## Ready before push
 

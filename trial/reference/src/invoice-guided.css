@@ -113,17 +113,6 @@
   margin: 1.5rem 0;
 }
 
-.invoice-guided__table-region {
-  overflow-x: auto;
-  border: 1px solid var(--dp-border);
-  scrollbar-color: var(--dp-border) transparent;
-}
-
-.invoice-guided__table-region:focus-visible {
-  outline: 3px solid var(--dp-focus);
-  outline-offset: 3px;
-}
-
 .invoice-guided__table-region table {
   min-width: 790px;
 }

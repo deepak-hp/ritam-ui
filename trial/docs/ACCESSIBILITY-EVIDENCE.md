@@ -1,6 +1,6 @@
 # Accessibility evidence matrix
 
-Ritam UI targets WCAG 2.2 AA. This matrix records available component and reference-app evidence; it is not a conformance claim. W3C states that automated and human evaluation complement each other, and that conformance includes every page in a complete process. See [WCAG 2.2](https://www.w3.org/TR/WCAG22/) and the [complete-process requirement](https://www.w3.org/TR/WCAG22/#cc5).
+Serein targets WCAG 2.2 AA. This matrix records available component and reference-app evidence; it is not a conformance claim. W3C states that automated and human evaluation complement each other, and that conformance includes every page in a complete process. See [WCAG 2.2](https://www.w3.org/TR/WCAG22/) and the [complete-process requirement](https://www.w3.org/TR/WCAG22/#cc5).
 
 | Area / success criterion | Current automated evidence | Required manual or product review | Status |
 | --- | --- | --- | --- |

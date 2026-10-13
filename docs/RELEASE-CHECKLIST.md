@@ -1,4 +1,4 @@
-# Ritam UI release goal
+# Serein release goal
 
 ## End goal
 
@@ -8,7 +8,7 @@ This is the durable source of scope and progress. Checked items require evidence
 
 ## 1. Preserve the design system
 
-- [x] Ritam UI name and `@ritam-ui/react` package identity established.
+- [x] Serein name and `@serein-ui/react` package identity established.
 - [x] Approved Indian-astrology-inspired Flame & Ink direction implemented; private birth research excluded from Git.
 - [x] Orange filled primary actions, dark button text, white/near-black canvases, Plus Jakarta Sans, restrained success green.
 - [x] Subtle meaningful status motion and reduced-motion support implemented.
@@ -46,7 +46,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Keep generated documentation fresh with build/CI checks.
 - [x] Document supported integration paths and validate artifact access without requiring a particular assistant.
 - [x] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
-- [x] Generate and retain twelve independent in-domain attempts comparing plain React/CSS with Ritam plus guidance, with compiler records, original and supplemental browser results, and a label-hidden review packet. See [pilot observations](../trial/evaluation/RESULTS.md).
+- [x] Generate and retain twelve independent in-domain attempts comparing plain React/CSS with the then-current Ritam package plus guidance, with compiler records, original and supplemental browser results, and a label-hidden review packet. These frozen artifacts predate the Serein rename. See [pilot observations](../trial/evaluation/RESULTS.md).
 - [ ] Obtain independent human review and evaluate fresh tasks before claiming improved AI-generated design quality. The pilot's overlapping examples, small sample and corrected harness do not establish general superiority.
 
 ## 5. Accessibility and inclusion
@@ -55,6 +55,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Automated keyboard, axe, contrast, reflow, reduced-motion and forced-colour checks exist.
 - [x] Record fresh release-candidate automated results and unresolved limitations.
 - [x] Publish a criterion/evidence matrix and practical manual test protocol.
+- [x] Prepare complete-flow NVDA/Firefox, VoiceOver/Safari and real zoom procedures, a support matrix and a real-application beta feedback kit; results remain pending until performed.
 - [ ] Native NVDA + Firefox and VoiceOver + Safari evaluation of complete flows.
 - [ ] Actual browser zoom, text spacing, focus-obscuration and supported-browser review.
 - [ ] Evaluation with disabled users and applicable product/service EAA review before any conformance claim.
@@ -63,7 +64,9 @@ This is the durable source of scope and progress. Checked items require evidence
 
 - [x] Contribution guide, security reporting instructions, issue/PR templates, CI and maintenance policy.
 - [x] Apply the approved MIT license and package third-party attribution (7 October 2026).
-- [ ] Confirm repository visibility, package scope ownership and release permissions without exposing private research.
+- [x] Verify GitHub administration access and review source/history for private research and credential patterns before public-source publication (13 October 2026; bounded scan, not a guarantee).
+- [ ] Make the reviewed source public and enable a verified private vulnerability-reporting channel.
+- [ ] Confirm npm scope ownership and publication authentication (current identity check: HTTP 401).
 - [x] Release notes, installation guide and rollback/release procedure.
 - [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
 - [x] Owner approves/applies license and authorizes public package/site publication when release gates are met ("go ahead finish all", 7 October 2026). Authentication and actual publication remain separate open gates above.

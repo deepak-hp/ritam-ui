@@ -41,6 +41,6 @@ const unexpected = files.filter(file => !publicFile(file));
 assert.deepEqual(unexpected, [], `Unexpected package file(s): ${unexpected.join(', ')}`);
 for (const file of files.filter(file => /\.(?:js|json|md|txt|css|ts|tsx)$/i.test(file))) {
   const contents = await readFile(file, 'utf8');
-  assert.ok(!/(?:Deepak UI|Deepak \/ UI)/.test(contents), `Stale brand name found in package file: ${file}`);
+  assert.ok(!/(?:Deepak UI|Deepak \/ UI|Ritam UI)/.test(contents), `Stale brand name found in package file: ${file}`);
 }
 console.log('Package entry, exports, contents manifest, CSS side effects and React peers verified.');

@@ -39,7 +39,6 @@ h2 { margin-bottom: 0.25rem; font-size: 1.125rem; letter-spacing: -0.025em; }
 .workspace-intro > button { background: var(--dp-orange) !important; color: var(--dp-on-orange) !important; border-color: var(--dp-orange-border) !important; }
 .workspace-intro > button:hover { background: var(--dp-orange-hover) !important; }
 .filters { display: grid; grid-template-columns: minmax(14rem, 1.6fr) minmax(11rem, 1fr) minmax(13rem, 1.1fr) auto; align-items: end; gap: 0.9rem; margin: 1.5rem 0; }
-.table-region { overflow-x: auto; }
 .table-region table { min-width: 740px; }
 .table-region td:first-child button { padding-inline: 0 !important; border-color: transparent !important; background: transparent !important; font-weight: 650; text-align: left; }
 .table-region td:first-child button:hover { color: var(--dp-orange-text) !important; }

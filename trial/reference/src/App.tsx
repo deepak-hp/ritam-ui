@@ -22,7 +22,7 @@ import {
   useToast,
   type DateRangeValue,
   type TableSort,
-} from '@ritam-ui/react';
+} from '@serein-ui/react';
 import {
   PROJECT_STORAGE_KEY,
   createProject,
@@ -325,7 +325,7 @@ function ReferenceWorkspace() {
     <div className="workspace-shell" data-preview-glass={previewGlass}>
       <a className="skip-link" href="#project-workspace">Skip to project workspace</a>
       <header className="topbar dp-navigation-surface" data-dp-material={navigationFinish}>
-        <a className="wordmark" href="#project-workspace" aria-label="Ritam UI projects home">Ritam UI</a>
+        <a className="wordmark" href="#project-workspace" aria-label="Serein projects home">Serein</a>
         <div className="topbar-actions">
           <a className="wordmark" href="?view=catalogue">Catalogue</a>
           <a className="wordmark" href="?view=composition">Composition lab</a>

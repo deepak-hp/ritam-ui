@@ -6,19 +6,23 @@ import { Button } from './components';
 const spin = stylex.keyframes({ from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } });
 const pulse = stylex.keyframes({ '0%, 100%': { opacity: 1 }, '50%': { opacity: 0.55 } });
 const s = stylex.create({
-  badge: { whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: 6, padding: '3px 8px', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 3, fontSize: 12, fontWeight: 650, lineHeight: 1.5, color: 'var(--dp-text)', backgroundColor: 'var(--dp-surface)' },
+  badge: { whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: 6, padding: '3px 8px', borderWidth: 0, borderStyle: 'solid', borderRadius: 'var(--dp-radius-small)', fontSize: 12, fontWeight: 600, lineHeight: 1.5 },
+  badgeNeutral: { color: 'var(--dp-text)', backgroundColor: 'var(--dp-surface)' },
+  badgeSuccess: { color: 'var(--dp-success)', backgroundColor: 'var(--dp-success-surface)' },
+  badgeError: { color: 'var(--dp-error)', backgroundColor: 'var(--dp-error-surface)' },
+  badgeWarning: { color: 'var(--dp-warning)', backgroundColor: 'var(--dp-warning-surface)' },
   neutral: { color: 'var(--dp-text)' },
   success: { color: 'var(--dp-success)' },
   error: { color: 'var(--dp-error)' },
-  warning: { color: 'var(--dp-orange-text)' },
-  panel: { padding: 20, borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 4, color: 'var(--dp-text)', backgroundColor: 'var(--dp-canvas)', minWidth: 0, overflowWrap: 'anywhere' },
+  warning: { color: 'var(--dp-warning)' },
+  panel: { padding: 20, borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-divider)', borderRadius: 'var(--dp-radius-panel)', color: 'var(--dp-text)', backgroundColor: 'var(--dp-raised)', boxShadow: 'var(--dp-shadow-surface)', minWidth: 0, overflowWrap: 'anywhere' },
   alert: { display: 'flex', gap: 12, alignItems: 'flex-start', backgroundColor: 'var(--dp-surface)' },
   title: { margin: '0 0 6px', fontSize: 16, fontWeight: 650, lineHeight: 1.4 },
   body: { fontSize: 14, lineHeight: 1.7, color: 'var(--dp-muted)', margin: 0 },
   avatar: { width: 40, height: 40, borderRadius: '50%', display: 'inline-grid', placeItems: 'center', flexShrink: 0, overflow: 'hidden', backgroundColor: 'var(--dp-selected)', color: 'var(--dp-text)', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', fontSize: 14, fontWeight: 650 },
   image: { width: '100%', height: '100%', objectFit: 'cover' },
   separator: { margin: '20px 0', borderWidth: 0, borderTopWidth: 1, borderTopStyle: 'solid', borderTopColor: 'var(--dp-divider)' },
-  skeleton: { display: 'block', borderRadius: 3, backgroundColor: 'var(--dp-divider)', height: 16, animationName: { default: pulse, '@media (prefers-reduced-motion: reduce)': 'none' }, animationDuration: '1.6s', animationIterationCount: 'infinite', animationTimingFunction: 'ease-in-out' },
+  skeleton: { display: 'block', borderRadius: 'var(--dp-radius-small)', backgroundColor: 'var(--dp-divider)', height: 16, animationName: { default: pulse, '@media (prefers-reduced-motion: reduce)': 'none' }, animationDuration: '1.6s', animationIterationCount: 'infinite', animationTimingFunction: 'ease-in-out' },
   sr: { position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap', borderWidth: 0 },
   progressField: { display: 'grid', gap: 8, minWidth: 0 },
   progressLabels: { display: 'flex', justifyContent: 'space-between', gap: 12, fontSize: 14, lineHeight: 1.5, color: 'var(--dp-text)' },
@@ -28,14 +32,15 @@ const s = stylex.create({
   empty: { padding: '40px 24px', textAlign: 'center', maxWidth: 560, marginInline: 'auto' },
   action: { marginTop: 20 },
   viewport: { position: 'fixed', bottom: 20, right: 20, width: 'min(380px, calc(100vw - 40px))', maxHeight: 'calc(100dvh - 40px)', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 12, zIndex: 120 },
-  toast: { position: 'relative', flexShrink: 0, boxShadow: '0 8px 24px #00000020' },
+  toast: { position: 'relative', flexShrink: 0, boxShadow: 'var(--dp-shadow-popup)' },
   toastHidden: { display: 'none' },
   toastActions: { display: 'flex', justifyContent: 'flex-end', gap: 8, marginTop: 12 },
 });
 
 export type FeedbackTone = 'neutral' | 'success' | 'error' | 'warning';
 export type BadgeProps = { children: ReactNode; tone?: FeedbackTone };
-export function Badge({ children, tone = 'neutral' }: BadgeProps) { return <span {...stylex.props(s.badge, s[tone])}>{children}</span>; }
+const badgeTones = { neutral: s.badgeNeutral, success: s.badgeSuccess, error: s.badgeError, warning: s.badgeWarning };
+export function Badge({ children, tone = 'neutral' }: BadgeProps) { return <span {...stylex.props(s.badge, badgeTones[tone])}>{children}</span>; }
 
 export type AlertProps = { title: string; children?: ReactNode; tone?: FeedbackTone; live?: 'off' | 'polite' | 'assertive' };
 export function Alert({ title, children, tone = 'neutral', live = 'off' }: AlertProps) {

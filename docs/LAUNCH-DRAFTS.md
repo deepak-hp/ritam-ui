@@ -1,22 +1,105 @@
-# Promotion drafts and demo outline
+# Serein beta announcement and reviewer invitations
 
-These are unsent drafts. The owner approved MIT licensing and the beta publication sequence on 7 October 2026; actual npm/site publication and manual review gates remain open. Use a live installation command and verified public links only after distribution succeeds. These drafts do not claim existing public availability, users, benchmarks, or accessibility certification.
+Prepared 14 October 2026. **Drafts: not sent or posted.** Source, catalogue and Storybook are public; the npm package is not published. Native accessibility and independent user reviews remain open. These drafts describe the available React-web beta and invite review; they do not announce a stable production release.
 
-## Short announcement draft
+## Verified destinations
 
-Serein is an MIT-licensed React web component library with 42 typed components, compiled CSS, Storybook documentation, and practical AI composition recipes. Its Flame & Ink foundations support light and dark interfaces, while complete invoice, settings, and onboarding examples demonstrate real UI states with simulated services. We are inviting early technical feedback on installation, component contracts, and accessible interaction details. The repository and documentation will be the source of truth when the package is made public.
+- Source: https://github.com/deepak-hp/ritam-ui
+- Live components: https://deepak-hp.github.io/ritam-ui/?view=catalogue
+- Design studio: https://deepak-hp.github.io/ritam-ui/?view=serein
+- Storybook: https://deepak-hp.github.io/ritam-ui/storybook/
+- Beta feedback form: https://github.com/deepak-hp/ritam-ui/issues/new?template=beta_feedback.yml
+- Reviewer instructions: https://github.com/deepak-hp/ritam-ui/blob/main/docs/BETA-EVALUATION.md
+- Private security reports: https://github.com/deepak-hp/ritam-ui/security/advisories/new
 
-## Demonstration outline
+The owner selected the GitHub repository for the beta announcement on 14 October 2026. GitHub Issues is enabled and Discussions is disabled, so the reviewer call below uses an issue. No LinkedIn/X account or private reviewer contacts have been supplied; those messages remain drafts.
 
-1. Show the package's Start Here catalogue and one typed component API.
-2. Install the local package in the reference workspace and show the compiled CSS import.
-3. Walk through invoice filtering and its simulated reminder failure/retry state.
-4. Show settings validation, local persistence, and recovery from a failed save.
-5. Show the onboarding flow, keyboard behavior, and its local-only boundary.
-6. Show the AI contract, composition recipes and the preserved 12-attempt pilot. Explain task overlap, test-harness corrections and pending human review; do not present the pilot as proof of general design superiority.
+## GitHub reviewer call — selected destination
 
-## Early feedback request
+**Title:** Serein React beta: looking for integration and accessibility reviewers
 
-Ask reviewers to report the React/runtime version, installation path, component or flow tested, expected and observed behavior, and any accessibility or documentation gap. Record feedback as issues only after repository settings and moderation paths are ready.
+Serein is an open-source React UI library built around a consistent design language: bright orange actions, clear light and dark surfaces, and restrained motion. It includes 42 typed components, compiled CSS, a component catalogue, Storybook, and structured component guidance for coding assistants.
 
-No invitations have been sent and no early-user feedback has been collected. Recruit actual reviewers after public links work: one developer to install the published beta in a fresh project, one developer to try the AI integration with their own task, and an accessibility reviewer using native assistive technology. Preserve failures and disagreements, and obtain permission before quoting any feedback publicly.
+The source and interactive demos are now public under MIT:
+
+- [Try the components](https://deepak-hp.github.io/ritam-ui/?view=catalogue)
+- [Explore the design](https://deepak-hp.github.io/ritam-ui/?view=serein)
+- [Read Storybook](https://deepak-hp.github.io/ritam-ui/storybook/)
+
+I’m looking for practical feedback in three areas:
+
+1. **Developers:** install the reviewed local package in a test branch of an existing React application and try a real task, including a failed request and recovery.
+2. **Accessibility reviewers:** try complete flows with NVDA/Firefox or VoiceOver/Safari, actual browser zoom, and keyboard-only input. Report what happened and what was announced.
+3. **People building with AI:** use the component guidance on your own task and describe where it helped, where it was restrictive, and what still needed manual design work.
+
+Start with the [beta evaluation kit](https://github.com/deepak-hp/ritam-ui/blob/main/docs/BETA-EVALUATION.md). npm publication is still pending, so installation currently uses a locally built tarball. React web is the supported implementation; native mobile and desktop adapters are not included.
+
+Please submit a [beta feedback report](https://github.com/deepak-hp/ritam-ui/issues/new?template=beta_feedback.yml) with the candidate version/commit, environment, steps, expected result and actual result. Use fictional data and keep private code and credentials out of reports. Report security issues through the [private channel](https://github.com/deepak-hp/ritam-ui/security/advisories/new).
+
+Automated checks are in place, but independent review is still needed. This beta does not claim WCAG/EAA conformance or a proven improvement in AI-generated design quality. Specific criticism, failed attempts and workarounds are useful feedback.
+
+## LinkedIn draft
+
+I’ve opened the source and demos for Serein, a React UI library with 42 typed components, light and dark themes, and structured guidance for coding assistants.
+
+The problem I’m exploring is familiar: an AI can assemble a screen quickly, but the result still needs clear hierarchy, consistent controls and thoughtful failure states. Serein brings components and composition guidance together so those decisions have a concrete starting point.
+
+This is a beta. I’m looking for developers to try it in an existing React app and accessibility reviewers to test complete flows. The component demo is live; npm publication and independent reviews are still pending.
+
+Try it: https://deepak-hp.github.io/ritam-ui/?view=catalogue
+
+Source and review instructions: https://github.com/deepak-hp/ritam-ui
+
+If you try it, share the task you attempted and the friction you encountered. I’d rather learn from a specific failure than collect a general thumbs-up.
+
+## X draft
+
+Serein’s React UI beta is open source: 42 typed components, light/dark themes, and guidance for coding assistants. Looking for integration and accessibility feedback. npm release pending.
+
+https://deepak-hp.github.io/ritam-ui/?view=catalogue
+
+## Direct reviewer invitation template
+
+**Subject:** Would you review one Serein beta workflow?
+
+I’m preparing Serein, an MIT-licensed React component library, for a stable release. The beta demo is available at https://deepak-hp.github.io/ritam-ui/?view=catalogue.
+
+Would you be interested in reviewing one task that matches your experience: integrating the local package in a real React app, checking a complete flow with your screen reader, or building a fresh task with the AI guidance?
+
+The [review kit](https://github.com/deepak-hp/ritam-ui/blob/main/docs/BETA-EVALUATION.md) explains the candidate, installation and report format. You can choose the task and stop at any point. Please use fictional data and leave confidential application code out of reports. If the scope or time commitment does not suit you, there is no obligation to participate.
+
+The beta has not completed independent accessibility review and is not yet published on npm. I’m interested in failures and friction as well as successes. Feedback will not be quoted as an endorsement without your permission.
+
+## 60-second demonstration script
+
+1. **0–10 seconds:** Open the live catalogue. Show Button, Select and a light/dark theme change. Caption: “Serein — React web beta”.
+2. **10–25 seconds:** Open the invoice workflow. Filter records and trigger the clearly labeled simulated failure/retry. Caption: “Examples include failure and recovery”. Do not imply an email was sent.
+3. **25–40 seconds:** Show settings validation and successful local persistence. Keep the fictional values visible so the before/after is understandable.
+4. **40–50 seconds:** Show the source-derived component contract and one composition recipe. Caption: “Structured guidance for coding assistants”. Do not display a quality score or claim superiority.
+5. **50–60 seconds:** End on the catalogue URL and beta feedback form. Caption: “Open source. Reviewers welcome. npm release pending.”
+
+Use captures from the actual application, label simulated services, and keep text legible. A script is not a completed video; no recording or announcement is claimed by this file.
+
+## Publishing and follow-through
+
+- [x] Public source, catalogue, Storybook and feedback destinations identified.
+- [x] Beta copy, reviewer invitation and demonstration script prepared.
+- [x] Owner selects the GitHub repository for the announcement. No private invitation recipients were selected.
+- [ ] Publish the selected exact text and record the resulting public URL here.
+- [ ] Record actual reviewer participation and reports, without interpreting silence as approval.
+- [ ] Triage each finding; link its reproduction, fix, and retest before marking it resolved.
+- [ ] Review the evidence and npm installation outcome before a separate stable-release announcement.
+
+No invitations have been sent, no external feedback has been collected, and no audience or engagement numbers are claimed.
+
+## Repository name at launch
+
+The owner requested that the repository name match Serein when ready to launch. Planned target: `deepak-hp/serein-ui`; current repository and working links remain `deepak-hp/ritam-ui`. An authenticated lookup of the target returned 404 on 14 October 2026; recheck availability at the actual rename.
+
+- [ ] Once the launch gates are met, rename the repository to `serein-ui` and update the local origin remote.
+- [ ] Update active package repository/homepage/bugs metadata, installation examples, site/source/feedback links and announcement copy. Preserve frozen experiment inputs and historical evidence; annotate their old identity rather than rewriting their recorded bytes.
+- [ ] Rebuild and deploy Pages under `/serein-ui/`; verify catalogue, Storybook manager navigation, deep links, fonts, CSS and AI assets at the new address.
+- [ ] Update the repository homepage and published announcement links after the new deployment is verified.
+- [ ] Verify old repository links redirect and document the changed Pages address. Do not assume old Pages links redirect.
+
+[GitHub's rename guidance](https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository) distinguishes repository redirects from project-site URLs, which are not automatically redirected. The existing Pages workflows derive the base path from the repository name, but active hardcoded links still need review. No repository rename or new-site deployment is claimed here.

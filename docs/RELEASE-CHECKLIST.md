@@ -22,6 +22,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Compiled CSS, local tarball installation, starter generator and SSR/hydration checks exist.
 - [x] Rerun full component, package, consumer and SSR checks on the release candidate.
 - [x] Verify a fresh generated app, installed-package reference and static documentation build.
+- [x] Verify a separate Next.js App Router consumer against an installed beta tarball: production build, SSR/hydration, keyboard validation, failed save/retry, themes and narrow layout. This is internal integration evidence, not external adoption; see [the consumer record](validation/2026-10-14-next-consumer.md).
 - [x] Add package metadata, repeatable release checks and CI.
 - [x] Observe hosted Linux CI passing: [run 37526475891](https://github.com/deepak-hp/ritam-ui/actions/runs/37526475891) on `cd7280a`. Subsequent changes require their own passing run before merge.
 - [x] Audit direct/transitive dependency findings and document actionable residual risks.
@@ -47,6 +48,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Document supported integration paths and validate artifact access without requiring a particular assistant.
 - [x] Design a reproducible multi-task evaluation with human review; don't fabricate results or promise universal model support.
 - [x] Generate and retain twelve independent in-domain attempts comparing plain React/CSS with the then-current Ritam package plus guidance, with compiler records, original and supplemental browser results, and a label-hidden review packet. These frozen artifacts predate the Serein rename. See [pilot observations](../trial/evaluation/RESULTS.md).
+- [x] Generate four fresh file-review attempts with frozen inputs and equal authored-line limits, retain initial/final compiler and browser records, and prepare another label-hidden review packet. A documented supplemental verifier corrects a pending-label lookup defect; original results remain preserved. See [the fresh trial](validation/2026-10-14-ai-trial.md).
 - [ ] Obtain independent human review and evaluate fresh tasks before claiming improved AI-generated design quality. The pilot's overlapping examples, small sample and corrected harness do not establish general superiority.
 
 ## 5. Accessibility and inclusion
@@ -54,6 +56,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] WCAG 2.2 AA target and application-level/EAA responsibilities documented.
 - [x] Automated keyboard, axe, contrast, reflow, reduced-motion and forced-colour checks exist.
 - [x] Record fresh release-candidate automated results and unresolved limitations.
+- [x] Add focused Chromium, Firefox and WebKit checks for disabled controls, nested modal focus, error recovery, live-status DOM semantics, text spacing, bounded targets and forced-colour focus. All six scripted scenarios passed per engine; see [the focused audit](validation/2026-10-14-accessibility.md).
 - [x] Publish a criterion/evidence matrix and practical manual test protocol.
 - [x] Prepare complete-flow NVDA/Firefox, VoiceOver/Safari and real zoom procedures, a support matrix and a real-application beta feedback kit; results remain pending until performed.
 - [ ] Native NVDA + Firefox and VoiceOver + Safari evaluation of complete flows.
@@ -69,8 +72,10 @@ This is the durable source of scope and progress. Checked items require evidence
 - [ ] Confirm npm scope ownership and publication authentication (current identity check: HTTP 401).
 - [x] Release notes, installation guide and rollback/release procedure.
 - [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
+- [x] Update beta announcements and reviewer invitations with verified public destinations and current limits. Posts remain drafts while the owner prioritizes the agent review; see [launch drafts](LAUNCH-DRAFTS.md).
 - [x] Owner approves/applies license and authorizes public package/site publication when release gates are met ("go ahead finish all", 7 October 2026). Authentication and actual publication remain separate open gates above.
 - [ ] Publish announcements only with explicit authorization; never invent users, benchmarks or endorsements.
+- [ ] At launch, rename `deepak-hp/ritam-ui` to `deepak-hp/serein-ui`, update active metadata/links and the origin remote, then verify the new Pages deployment. Requested 14 October 2026; see the [rename checklist](LAUNCH-DRAFTS.md#repository-name-at-launch). Frozen historical evidence retains its original identity.
 
 ## 7. Longer-term commitments (retained, not claimed for React release)
 

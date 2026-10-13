@@ -25,7 +25,8 @@
 - [x] Launch: update existing drafts for the now-public beta, include actual catalogue/Storybook/source/feedback links, provide a reviewer invitation and short social copy, and retain the npm/unperformed-review limits. Prepare exact messages for the owner-selected destination before any external sending.
 - [x] At the owner's request, perform separate agent visual and technical reviews. Keep their observations distinct from independent human feedback and preserve all generated attempts.
 - [x] Address the compact-selection gap exposed by visual review: add optional Checkbox `hideLabel` with an accessible name and 48px click area, a compact-row story and regression, and stronger composition guidance. This is an additive post-trial fix; do not alter the frozen package or generated candidates.
-- [ ] Review changed files and generated artifacts, run checks appropriate to each change, update the durable release checklist and evidence, and commit the reviewed work through a PR with hosted checks.
+- [x] Review changed files and generated artifacts, run checks appropriate to each change, update the durable release checklist and evidence, and commit the reviewed work through [PR #4](https://github.com/deepak-hp/ritam-ui/pull/4). [Hosted run 38454416679](https://github.com/deepak-hp/ritam-ui/actions/runs/38454416679) passed on implementation revision `d85307152dea739a2d304c33c664b66f4e576a43`; subsequent revision checks and integration evidence are tracked on the PR.
+- [x] Publish the selected GitHub beta reviewer call as [issue #5](https://github.com/deepak-hp/ritam-ui/issues/5). Keep the repository/Pages rename deferred until launch gates are met, as requested.
 
 ## Human completion requirements
 

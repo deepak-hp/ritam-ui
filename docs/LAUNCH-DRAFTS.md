@@ -1,6 +1,6 @@
 # Serein beta announcement and reviewer invitations
 
-Prepared 14 October 2026. **Drafts: not sent or posted.** Source, catalogue and Storybook are public; the npm package is not published. Native accessibility and independent user reviews remain open. These drafts describe the available React-web beta and invite review; they do not announce a stable production release.
+Prepared 14 October 2026. **The selected GitHub reviewer call is published as [issue #5](https://github.com/deepak-hp/ritam-ui/issues/5); other channels remain drafts.** Source, catalogue and Storybook are public; the npm package is not published. Native accessibility and independent user reviews remain open. This copy describes the available React-web beta and invites review; it does not announce a stable production release.
 
 ## Verified destinations
 
@@ -85,12 +85,12 @@ Use captures from the actual application, label simulated services, and keep tex
 - [x] Public source, catalogue, Storybook and feedback destinations identified.
 - [x] Beta copy, reviewer invitation and demonstration script prepared.
 - [x] Owner selects the GitHub repository for the announcement. No private invitation recipients were selected.
-- [ ] Publish the selected exact text and record the resulting public URL here.
+- [x] Publish the selected exact text: [GitHub beta reviewer call #5](https://github.com/deepak-hp/ritam-ui/issues/5), 14 October 2026.
 - [ ] Record actual reviewer participation and reports, without interpreting silence as approval.
 - [ ] Triage each finding; link its reproduction, fix, and retest before marking it resolved.
 - [ ] Review the evidence and npm installation outcome before a separate stable-release announcement.
 
-No invitations have been sent, no external feedback has been collected, and no audience or engagement numbers are claimed.
+No direct invitations have been sent, no external feedback has been collected, and no audience or engagement numbers are claimed. The GitHub issue is a public call for reviewers, not evidence that reviews have happened.
 
 ## Repository name at launch
 

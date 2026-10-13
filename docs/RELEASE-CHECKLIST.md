@@ -72,9 +72,9 @@ This is the durable source of scope and progress. Checked items require evidence
 - [ ] Confirm npm scope ownership and publication authentication (current identity check: HTTP 401).
 - [x] Release notes, installation guide and rollback/release procedure.
 - [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
-- [x] Update beta announcements and reviewer invitations with verified public destinations and current limits. Posts remain drafts while the owner prioritizes the agent review; see [launch drafts](LAUNCH-DRAFTS.md).
+- [x] Update beta announcements and reviewer invitations with verified public destinations and current limits. The owner-selected GitHub call is published; other channels remain drafts. See [launch materials](LAUNCH-DRAFTS.md).
 - [x] Owner approves/applies license and authorizes public package/site publication when release gates are met ("go ahead finish all", 7 October 2026). Authentication and actual publication remain separate open gates above.
-- [ ] Publish announcements only with explicit authorization; never invent users, benchmarks or endorsements.
+- [x] Publish the explicitly authorized [GitHub beta reviewer announcement](https://github.com/deepak-hp/ritam-ui/issues/5), 14 October 2026. No users, benchmarks or endorsements are claimed; no other channel has been posted.
 - [ ] At launch, rename `deepak-hp/ritam-ui` to `deepak-hp/serein-ui`, update active metadata/links and the origin remote, then verify the new Pages deployment. Requested 14 October 2026; see the [rename checklist](LAUNCH-DRAFTS.md#repository-name-at-launch). Frozen historical evidence retains its original identity.
 
 ## 7. Longer-term commitments (retained, not claimed for React release)

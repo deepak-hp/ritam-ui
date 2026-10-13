@@ -25,7 +25,7 @@ Files: existing release runner, tests and build configuration only where a repro
 - [x] Run `npm run check:release` with Node 24; diagnose and fix actual failures without weakening checks.
 - [x] Repeat Firefox and WebKit workflow checks against the rebuilt package.
 - [x] Audit current dependencies and package contents, then review the final diff and private-data exclusions.
-- [ ] Commit the intentional Serein work, push the branch, open a PR and observe fresh hosted checks on that commit.
+- [x] Commit the intentional Serein work, push the branch, open a PR and observe fresh hosted checks on that commit.
 
 ## Task 2: Publishable documentation site
 
@@ -34,7 +34,7 @@ Files: dedicated static-site assembly script and GitHub Pages workflow, with dep
 - [x] Inspect current static asset/base-path handling and choose a single catalogue + Storybook output.
 - [x] Implement a deterministic build that retains licenses and links; use official hosting documentation for workflow configuration.
 - [x] Validate the built site under the actual repository subpath, including component navigation, Storybook and required asset links.
-- [ ] Configure/deploy on the existing repository when permissions and public-release checks permit; otherwise retain a tested artifact and exact remaining setup step.
+- [x] Configure/deploy on the existing repository when permissions and public-release checks permit; otherwise retain a tested artifact and exact remaining setup step.
 
 ## Task 3: Human review and stable-release requirements
 
@@ -52,7 +52,7 @@ Files: `.gitignore` only if new private paths require exclusions; `SECURITY.md`,
 - [x] Enable a private vulnerability-reporting channel when available and verify its actual URL.
 - [x] Make the reviewed repository public only after privacy and local release checks pass.
 - [ ] Publish the verified beta only with confirmed package ownership/authentication; verify registry metadata and a clean npm consumer after publication.
-- [ ] Update the durable checklist with completed evidence and exact external blockers; retain beta status until human gates are satisfied.
+- [x] Update the durable checklist with completed evidence and exact external blockers; retain beta status until human gates are satisfied.
 
 ## Completion evidence
 

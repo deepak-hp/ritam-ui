@@ -1,6 +1,16 @@
 import { Meta, Markdown } from '@storybook/addon-docs/blocks';
 import guidance from '../docs/ACCESSIBILITY.md?raw';
 
+export const storybookGuidance = guidance
+  .replace(
+    '(VERIFICATION.md)',
+    '(https://github.com/deepak-hp/ritam-ui/blob/main/trial/docs/VERIFICATION.md)',
+  )
+  .replace(
+    '(ACCESSIBILITY-EVIDENCE.md)',
+    '(https://github.com/deepak-hp/ritam-ui/blob/main/trial/docs/ACCESSIBILITY-EVIDENCE.md)',
+  );
+
 <Meta title="Start here/Accessibility" />
 
-<Markdown>{guidance}</Markdown>
+<Markdown>{storybookGuidance}</Markdown>

@@ -4,6 +4,8 @@ A React component library and composition guide for building purposeful interfac
 
 Serein means fine rain from a clear evening sky. Its design pairs bright orange actions with clear white and deep evening surfaces, soft elevation, Plus Jakarta Sans, and restrained success green. It preserves the founder's Indian astrology-inspired direction; personal chart research is kept outside version control.
 
+Explore the [component catalogue](https://deepak-hp.github.io/ritam-ui/?view=catalogue), [design studio](https://deepak-hp.github.io/ritam-ui/?view=serein), and [Storybook](https://deepak-hp.github.io/ritam-ui/storybook/). These are public beta previews; npm publication and human accessibility review remain open.
+
 To see the redesign locally, run `npm run reference:setup` then `npm run reference:dev` in `trial/`, and open [the Serein design studio](http://127.0.0.1:5174/?view=serein). The same real components appear in both themes. [DESIGN.md](DESIGN.md) records the visual language and [foundations](trial/docs/FOUNDATIONS.md) documents the tokens.
 
 ## Start here

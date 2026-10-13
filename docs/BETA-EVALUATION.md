@@ -2,6 +2,8 @@
 
 Serein `0.1.0-beta.1` needs feedback from real people integrating the React web package into real applications. The repository's reference app, automated tests and frozen AI comparison are internal evidence; they are not external adoption, usability or accessibility validation.
 
+The 14 October maintainer work adds [focused browser accessibility checks](validation/2026-10-14-accessibility.md), a [separate Next.js consumer](validation/2026-10-14-next-consumer.md), and a [fresh four-attempt AI task](validation/2026-10-14-ai-trial.md). Reviewers can use these reproductions as background; they do not satisfy the external-reviewer or native-device criteria below.
+
 ## Candidate installation
 
 The npm package is not published. Do not run `npm install @serein-ui/react` until registry publication has been independently verified. The candidate owner must create and share a reviewed tarball through an authorized channel, together with its SHA-256 checksum and source commit:
@@ -43,7 +45,7 @@ For every task, use keyboard-only input at desktop and narrow widths, light and 
 
 ## What to record
 
-Submit one [beta feedback issue](../.github/ISSUE_TEMPLATE/beta_feedback.yml) per task or defect, or provide the same fields privately when the repository is not yet public:
+Submit one [beta feedback issue](https://github.com/deepak-hp/ritam-ui/issues/new?template=beta_feedback.yml) per task or defect. The form opens in the public repository; omit private application data and use the [private security channel](https://github.com/deepak-hp/ritam-ui/security/advisories/new) for vulnerabilities:
 
 - reviewer role and organization type, without personal identifiers;
 - consuming application's purpose and whether it is a prototype, staging system or production-bound system;

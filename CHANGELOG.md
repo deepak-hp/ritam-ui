@@ -4,6 +4,9 @@ All notable beta changes are recorded here. The package has not yet been publish
 
 ## Unreleased
 
+- Added optional `Checkbox hideLabel` for compact row selection, preserving its required accessible label and a 48px label target; added a wrapping-row example and layout checks.
+- Added a production Next.js consumer fixture, focused accessibility checks across three browser engines, and a fresh four-attempt AI comparison with separate agent visual review and preserved original evidence.
+- Expanded composition guidance for selection labels, text contrast, mobile clipping, recoverable batch decisions and completed queues.
 - Renamed the active library to Serein and the package to `@serein-ui/react`; existing `dp-*` style hooks and demo storage keys remain stable.
 - Refined shared light/dark surfaces, primary and secondary states, typography, corners, status fills, and keyboard focus; added the Serein design studio.
 - Removed redundant table frames and scroll wrappers, collapsed joined NumberField seams, and corrected Accordion borders and hover corners.

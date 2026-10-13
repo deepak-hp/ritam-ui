@@ -35,6 +35,22 @@ jobs:
       - run: npm run check:workflows
         env:
           BROWSER: webkit
+      - name: Check focused accessibility scenarios across browser engines
+        run: |
+          node scripts/check-accessibility-gaps.mjs chromium
+          node scripts/check-accessibility-gaps.mjs firefox
+          node scripts/check-accessibility-gaps.mjs webkit
+      - name: Check compact checkbox layout and accessibility
+        run: node scripts/check-compact-checkbox.mjs
+      - name: Verify installed package in Next.js App Router
+        working-directory: trial/integration/next
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          npm run setup
+          npm ci --ignore-scripts
+          npm run build
+          npm run verify
       - name: Build public documentation artifact
         run: node scripts/build-site.mjs --base-path "$SITE_BASE"
         env:

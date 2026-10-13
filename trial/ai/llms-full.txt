@@ -36,6 +36,7 @@ Before composing a screen, read `ai/COMPOSITION.md` (also included in `llms-full
 - Use dark text on the orange primary fill. White text on that orange is not an approved text pairing.
 - Every control needs a meaningful visible label. Keep descriptions and errors associated with inputs. Error meaning must also be conveyed with text.
 - `Select`, `Checkbox`, `Switch`, `RadioGroup` and `Tabs` are controlled: store their value and handle changes. Do not pass undocumented native props to wrapper APIs that do not support them.
+- For Checkbox row selection beside an already visible record name, use `hideLabel` with a specific required `label` and a 48px selection column. Do not constrain a visible-label Checkbox to a tiny cell or hide text through selectors targeting its internal DOM.
 - `Dialog`, `AlertDialog`, `Drawer`, `Popover` and `DropdownMenu` support `open`, `defaultOpen` and `onOpenChange`. A controlled parent owns closing. Confirmation requests closing immediately; it does not await an asynchronous operation. Keep async confirmation controlled and close only after success. Read `docs/API-CONTRACTS.md` for value, overlay and package contracts.
 - `StatusIcon` is decorative. Pair it with text; use a polite live region for asynchronous status. `useAsyncAction` must receive the real operation and its AbortSignal. Report success only when that operation resolves.
 - Respect reduced motion by default. The explicit Storybook motion preview is a demo override, not a production preference.
@@ -102,7 +103,7 @@ These are starting points, not mandatory templates. Document why the chosen layo
 - **Hierarchy:** lead with the task. Keep important content near its actions. Use heading size, weight and whitespace to express relationships; avoid making every section equally prominent.
 - **Containers:** use a card when an item is an independent unit. Use alignment and dividers for a continuous list or form. Explain the need before nesting surfaces.
 - **Density:** dense workspaces need compact, scannable rows; focused forms need comfortable reading width. Density must not reduce usable hit targets or hide focus.
-- **Colour:** retain Plus Jakarta Sans and shared tokens. Orange denotes priority; use dark text on the orange fill. Use green sparingly for actual success. Semantic meaning also needs text.
+- **Colour:** retain Plus Jakarta Sans and shared tokens. Orange denotes priority; use dark text on the orange fill. For small orange text on a neutral surface, use `--dp-orange-text`, not the bright `--dp-orange` button fill. Use theme-aware semantic tokens or Badge for statuses, and green sparingly for actual success. Semantic meaning also needs text.
 - **Content:** use realistic field lengths, dates and quantities. Name actions specifically. Avoid empty slogans, invented performance numbers and charts that don't help the task.
 - **Typography:** use a small consistent hierarchy, readable line lengths and tabular numerals for amounts. Long labels must wrap or have an accessible full-text path.
 - **Responsive layout:** decide what stacks, wraps or stays in a scrollable region. A comparison table may scroll inside a labelled focusable region; the page itself must not overflow. Never silently drop essential data.
@@ -136,13 +137,24 @@ Group fields by meaning with visible labels, short descriptions and errors near 
 
 Let actual preview content lead. Keep metadata and selection controls consistent across items. Preserve image aspect ratios where meaningful, include text names and appropriate alternatives, and offer a useful empty state. Adapt column count to available space rather than shrinking text. Use a list/table alternative when detailed comparison dominates. The current package does not include a full gallery, upload transport or image editor; compose layout and verified APIs without inventing exports.
 
+For compact row selection, use `Checkbox hideLabel` beside the visible record identity. Its required `label` still names the action for assistive technology. Reserve a 48px control column and a wrapping content column; avoid absolute positioning or clipping that can conceal collisions at narrow widths. For example:
+
+```tsx
+<div style={{ display: 'grid', gridTemplateColumns: '48px minmax(0, 1fr)', gap: 12, alignItems: 'center' }}>
+  <Checkbox label={`Select ${file.name}`} hideLabel checked={selected} onCheckedChange={setSelected} />
+  <span style={{ minWidth: 0, overflowWrap: 'anywhere' }}>{file.name}</span>
+</div>
+```
+
+Keep owner, type, size and status available when they inform the decision. Once selection opens a decision form, provide a clear cancel/edit path as well as retry; retain the failed request's data. After the final eligible record is processed, replace selection instructions with an accurate completed-queue state and update the summary to include the new outcome. These are composition responsibilities, not automatic Checkbox behavior.
+
 ## Build, inspect, correct
 
 1. Retrieve the relevant component APIs and examples before coding.
 2. Compose with documented controls and shared tokens; do not guess props.
 3. Run type/build and interaction checks. Test meaningful loading/error/empty states when the screen has those behaviors.
 4. Render light/dark and narrow/desktop. Exercise keyboard use, focus and long content. Automated accessibility checks do not certify compliance.
-5. Inspect the screenshot: does the intended task lead, does grouping make sense, is anything decorative competing with useful content, and does the layout fit this product?
+5. Inspect the screenshot: does the intended task lead, does grouping make sense, is anything decorative competing with useful content, and does the layout fit this product? Check that visible labels and record names do not overlap or duplicate unnecessarily. Zero page overflow can still hide clipped content or excessively tall rows; an axe pass does not assess those problems.
 6. Correct concrete issues, then recheck the affected behavior. Describe what was checked and what remains unverified.
 
 ## Review rubric
@@ -868,8 +880,9 @@ type SelectionProps = {
 };
 export type CheckboxProps = SelectionProps & {
     indeterminate?: boolean;
+    hideLabel?: boolean;
 };
-export declare function Checkbox({ label, description, checked, onCheckedChange, disabled, name, indeterminate }: CheckboxProps): import("react").JSX.Element;
+export declare function Checkbox({ label, description, checked, onCheckedChange, disabled, name, indeterminate, hideLabel }: CheckboxProps): import("react").JSX.Element;
 export type SwitchProps = SelectionProps;
 export declare function Switch({ label, description, checked, onCheckedChange, disabled, name }: SwitchProps): import("react").JSX.Element;
 export type RadioOption = {

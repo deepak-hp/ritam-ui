@@ -10,6 +10,8 @@ TextField and Textarea support native controlled or uncontrolled input props. Fi
 
 Labels must describe the purpose of each control. Pass descriptions and errors through the component API so they remain associated with the actual input. IconButton requires `label`; StatusIcon is decorative and needs adjacent status text. TypeScript cannot verify that a label is meaningful or that application content is accessible.
 
+Checkbox accepts `hideLabel` for compact row selection when the adjacent record already supplies visible context. `label` remains required and becomes visually hidden, preserving the accessible name. The compact label wrapper reserves a 48 by 48 CSS-pixel click area. Give that column enough space and use a specific name such as `Select Homepage hero.png`; keep the normal visible label for standalone questions or preferences. This option does not hide `description` or change selection, disabled or indeterminate behavior.
+
 ## Opening and closing overlays
 
 Dialog, AlertDialog, Drawer, Popover, DropdownMenu, DatePicker and DateRangePicker share these optional props:

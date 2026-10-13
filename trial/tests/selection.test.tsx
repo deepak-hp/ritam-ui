@@ -22,6 +22,34 @@ test('checkbox exposes an indeterminate state', () => {
   expect(screen.getByRole('checkbox', { name: 'Select all' })).toHaveAttribute('aria-checked', 'mixed');
 });
 
+test('hidden checkbox label preserves its accessible name, description, and keyboard activation', async () => {
+  const user = userEvent.setup();
+  function Example() {
+    const [checked, setChecked] = useState(false);
+    return <Checkbox hideLabel label="Select quarterly-report-final-approved.pdf" description="Select this file for a bulk action." checked={checked} onCheckedChange={setChecked} />;
+  }
+  render(<Example />);
+  const checkbox = screen.getByRole('checkbox', { name: 'Select quarterly-report-final-approved.pdf' });
+  expect(checkbox).toHaveAccessibleDescription('Select this file for a bulk action.');
+  await user.tab();
+  await user.keyboard(' ');
+  expect(checkbox).toBeChecked();
+});
+
+test('hidden checkbox label preserves the indeterminate state', () => {
+  render(<Checkbox hideLabel label="Select every file" checked={false} indeterminate onCheckedChange={() => {}} />);
+  expect(screen.getByRole('checkbox', { name: 'Select every file' })).toHaveAttribute('aria-checked', 'mixed');
+});
+
+test('hidden checkbox label preserves the disabled state', async () => {
+  const onCheckedChange = vi.fn();
+  render(<Checkbox hideLabel label="Select archived-notes.txt" checked={false} disabled onCheckedChange={onCheckedChange} />);
+  const checkbox = screen.getByRole('checkbox', { name: 'Select archived-notes.txt' });
+  await userEvent.click(checkbox);
+  expect(checkbox).toHaveAttribute('aria-disabled', 'true');
+  expect(onCheckedChange).not.toHaveBeenCalled();
+});
+
 test('disabled switch cannot change', async () => {
   const onCheckedChange = vi.fn();
   render(<Switch label="Live updates" checked={false} onCheckedChange={onCheckedChange} disabled />);

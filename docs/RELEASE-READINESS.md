@@ -2,7 +2,7 @@
 
 Current Serein work is recorded in [the redesign and frame audit](SEREIN-REDESIGN.md) and [the beta release plan](superpowers/plans/2026-10-13-serein-beta-release.md). Historical results below apply to their named revisions, not automatically to later changes.
 
-This record accompanies the [master checklist](RELEASE-CHECKLIST.md). The current milestone is a reviewed React-web release candidate. Public licensing, package publication, hosting and manual accessibility evaluation remain separate release gates.
+This record accompanies the [master checklist](RELEASE-CHECKLIST.md). The current milestone is a React-web beta with public MIT-licensed source and deployed documentation. npm publication and manual accessibility/human evaluation remain open; a public repository and site do not establish a stable production release.
 
 ## Delivered scope
 
@@ -13,6 +13,8 @@ This record accompanies the [master checklist](RELEASE-CHECKLIST.md). The curren
 - Accessibility evidence and a reproducible AI evaluation protocol. Automated checks do not establish WCAG/EAA conformance or prove that AI-generated designs improve.
 
 ## Review and verification
+
+This section records the **28 September 2026 baseline**. The dated updates below record subsequent tests, hosted CI and deployment; these historical counts and setup limits are not the current release status.
 
 The catalogue, workflows, AI guidance and release tooling received independent reviews, followed by a whole-branch review. No material findings remain. Review fixes include recovery-button focus return and cross-platform AI fingerprint stability. Integration also corrected an assertion that checked focus before popup removal and two legacy browser checks that ignored the release runner's server address.
 
@@ -33,22 +35,22 @@ These are distinct coverage counts, not an aggregate quality score. Repeated ver
 
 An independent Git source export with no preinstalled dependencies passed `npm ci`, library build, package manifest checks, AI freshness, fresh reference setup and the reference production build. The missing vendor archive was successfully regenerated from source. The dependency audit reported zero known vulnerabilities; this is a point-in-time registry result, not a security guarantee.
 
-Known non-blocking tooling notices: Storybook preview annotation/docgen and documentation chunk-size warnings; npm emitted an optional-package cleanup warning during the Windows clean install, which still completed successfully. Hosted Linux CI has been configured but has not been observed running.
+Known non-blocking tooling notices at that baseline: Storybook preview annotation/docgen and documentation chunk-size warnings; npm emitted an optional-package cleanup warning during the Windows clean install, which still completed successfully. Hosted Linux CI was configured but had not yet been observed running. Successful hosted runs are recorded in the later dated updates.
 
 ## Decisions retained
 
 - Work used a dedicated branch in the existing checkout to retain installed dependencies and the live reference app.
 - The user's unattended instruction authorized reversible implementation decisions without an interview pause.
 - The invoice example uses Serein's exported DataTable so the canonical AI recipe demonstrates component reuse.
-- A permissive license is proposed for owner review. No final grant, package publication or public promotional message is implied by this work.
+- The owner subsequently approved MIT licensing, applied on 7 October 2026. Public source/documentation and the GitHub beta reviewer call are recorded below; npm publication remains pending.
 
 ## External release gates
 
-- Approve/apply the license and verify dependency notices.
-- Confirm repository visibility, npm scope ownership, release permissions and hosting configuration.
+- Verify the applied MIT license and dependency notices on each release candidate.
+- Confirm npm scope ownership and publication authentication, then publish and verify the exact beta in a clean registry consumer. Keep local tarball instructions until that succeeds.
 - Perform native NVDA/Firefox and VoiceOver/Safari checks, actual browser zoom and complete-process accessibility evaluation; review EAA applicability for the consuming product.
 - Run the multi-task AI evaluation with independent human review before making improvement claims.
-- Authorize package/site publication and, separately, public announcements.
+- At launch, complete the requested repository rename and verify the new Pages paths using the [launch checklist](LAUNCH-DRAFTS.md#repository-name-at-launch). Additional announcement destinations require owner authorization; the GitHub beta reviewer call is already published.
 
 Native adapters, desktop examples, Figma parity, RTL/localization and advanced modules remain visible in the master checklist. They are not represented as implemented React-release capabilities.
 

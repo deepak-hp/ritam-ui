@@ -75,3 +75,17 @@ There were no failures in the new automated scenarios.
 | Complete keyboard and focus-obscuration review | Pending human review | The new layered path and existing scripted paths pass, but a person still needs to traverse every control and open-layer state in final browsers and record visible focus behavior. |
 
 These blocked rows remain open release gates; the automated passes do not change their status in `trial/reference/ACCESSIBILITY-REVIEW.md`.
+
+## Background keyboard follow-up
+
+Later on 14 October 2026, the checks were extended against the library rebuilt from `ac565b6b3804a892051ba3e73a0e10609fd3e61f`. The earlier result table is retained as a historical record. The Select/menu case now uses arrow keys to reach every item instead of directly focusing an enabled menu item:
+
+- ArrowDown and ArrowUp reach the disabled item in each widget. Disabled items remain discoverable; focus alone does not mean an action is available. This matches the disabled-menu behavior in the [W3C menu pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/).
+- Enter and Space on those disabled items leave the selected value/action unchanged, retain focus and keep the popup open.
+- Home/End move to the expected items; Enter activates an enabled item; both selection and Escape dismissal return focus to the trigger.
+
+All six scenarios passed again in each of headless Chromium `153.0.8010.12`, Playwright Firefox `155.0` and WebKit `26.6` with Node `24.19.0` and Playwright `1.63.0`: **18 scenario passes, zero failures**. The script used isolated contexts and its own temporary loopback server; it did not operate any desktop browser window. No component implementation changed.
+
+Commands: `npm run build`, followed by the three exact script commands above using the recorded Node 24 executable. The first sandboxed Chromium launch could not access loopback (`ERR_NETWORK_ACCESS_DENIED`); the approved run with loopback access and both subsequent engines exited `0`. Result JSON at the paths above records the expanded scenario name, engine versions and empty failure arrays. The existing release workflow already invokes this script in all three engines; this test revision still requires its own hosted run. The prior main revision passed [release CI 38457458042](https://github.com/deepak-hp/ritam-ui/actions/runs/38457458042).
+
+Native Firefox/NVDA installation was also completed and verified in this follow-up. See the separate [Windows setup record](2026-10-14-windows-setup.md) for the changed setup status and actual native browser automation blocker. Installation and headless results do not constitute a native screen-reader pass.

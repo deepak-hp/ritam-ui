@@ -33,7 +33,7 @@ The release checks exercise rendered behavior, keyboard paths, both themes, narr
 | WebKit `26.6` via Playwright on Windows | Same rebuilt workflow matrix passed; `browser.version()` captured the executed engine version | Automated engine evidence only; this is not Safari, macOS, iOS or VoiceOver evidence |
 | Safari on macOS | No native run recorded | Pending; required for stable 1.0 consideration |
 | Safari on iOS/iPadOS | No native run recorded | Unqualified during beta |
-| Firefox with NVDA on Windows | Protocol prepared; no native run recorded | Pending |
+| Firefox `157.0.1` with NVDA `2026.2` on Windows | Installed and signatures verified; [setup and native automation blocker](validation/2026-10-14-windows-setup.md) recorded; no native flow completed | Pending; installation is not compatibility evidence |
 | Safari with VoiceOver on macOS | Protocol prepared; no native run recorded | Pending |
 | Mobile Chromium/Android assistive technology | No native run recorded | Unqualified during beta |
 

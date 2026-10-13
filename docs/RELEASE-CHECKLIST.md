@@ -65,7 +65,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Contribution guide, security reporting instructions, issue/PR templates, CI and maintenance policy.
 - [x] Apply the approved MIT license and package third-party attribution (7 October 2026).
 - [x] Verify GitHub administration access and review source/history for private research and credential patterns before public-source publication (13 October 2026; bounded scan, not a guarantee).
-- [ ] Make the reviewed source public and enable a verified private vulnerability-reporting channel.
+- [x] Make the reviewed source public and enable a verified private vulnerability-reporting channel (GitHub settings verified 13 October 2026).
 - [ ] Confirm npm scope ownership and publication authentication (current identity check: HTTP 401).
 - [x] Release notes, installation guide and rollback/release procedure.
 - [x] Prepare truthful README pitch, launch post drafts and demonstration outline.
@@ -87,4 +87,4 @@ This is the durable source of scope and progress. Checked items require evidence
 Completed local implementation plan: [release readiness](superpowers/plans/2026-09-28-release-readiness.md).
 Fresh evidence: [release candidate record](RELEASE-READINESS.md). Historical and current results: [verification](../trial/docs/VERIFICATION.md).
 
-Release status: **MIT-licensed React-web beta prepared; unpublished**. Local verification and hosted Linux checks are recorded in the evidence document. Publication access and manual/human gates remain open. No accessibility conformance or public production-release claim is made.
+Release status: **MIT-licensed React-web beta source public; npm package unpublished**. Local verification and revision-specific hosted checks are recorded in the evidence document. npm publication access, documentation deployment and manual/human gates remain open. No accessibility conformance or stable production-release claim is made.

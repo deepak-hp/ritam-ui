@@ -49,8 +49,8 @@ Files: `trial/reference/ACCESSIBILITY-REVIEW.md`, focused beta feedback/support 
 Files: `.gitignore` only if new private paths require exclusions; `SECURITY.md`, release notes and public setup instructions.
 
 - [x] Inspect current repository visibility, npm identity/scope access and hosting access without exposing credentials.
-- [ ] Enable a private vulnerability-reporting channel when available and verify its actual URL.
-- [ ] Make the reviewed repository public only after privacy and release checks pass.
+- [x] Enable a private vulnerability-reporting channel when available and verify its actual URL.
+- [x] Make the reviewed repository public only after privacy and local release checks pass.
 - [ ] Publish the verified beta only with confirmed package ownership/authentication; verify registry metadata and a clean npm consumer after publication.
 - [ ] Update the durable checklist with completed evidence and exact external blockers; retain beta status until human gates are satisfied.
 

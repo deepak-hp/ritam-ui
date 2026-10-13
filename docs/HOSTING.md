@@ -1,6 +1,6 @@
 # Documentation hosting
 
-The public documentation site is one static GitHub Pages artifact:
+Documentation builds to one static GitHub Pages artifact, with these routes:
 
 - `https://deepak-hp.github.io/ritam-ui/?view=catalogue` opens the component catalogue.
 - `https://deepak-hp.github.io/ritam-ui/storybook/` opens Storybook.
@@ -33,7 +33,7 @@ Before deployment, verify all of these against the served artifact:
 
 ## GitHub Pages setup and release gate
 
-The repository owner or an administrator must complete the account-level setup. In **Settings → Pages → Build and deployment**, set **Source** to **GitHub Actions**. The repository is currently private, and GitHub warns that a Pages site can still be public even when its source repository is private. Do not run the workflow or merge a change that triggers it until the privacy review, public-source gate and release checks are complete.
+On 13 October 2026, the reviewed MIT-licensed beta source was made public, private vulnerability reporting was enabled, Pages was configured with **GitHub Actions** as its source, and the `github-pages` environment was restricted to the `main` branch. Configuration alone does not establish a successful deployment; record and verify the actual deployment as described below.
 
 After those gates pass:
 

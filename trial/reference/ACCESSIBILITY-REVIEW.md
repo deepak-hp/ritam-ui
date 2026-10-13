@@ -27,7 +27,7 @@ Record browser/OS/assistive-technology versions, expected behaviour, actual resu
 | Browser zoom 400% from a 1280px-wide window | Ordinary content reflows; only the data table needs horizontal scrolling; all editor actions remain reachable | Pending |
 | Windows contrast themes, including dark and light themes | Text, checked/selected states, validation, disabled controls and focus remain distinguishable | Pending |
 | Keyboard and screen reader: Due dates popup | Month/day navigation, partial range and completed selection are understandable; focus returns to the date trigger | Pending |
-| Dynamic storage failure and recovery | The error is announced, corrupt stored data remains untouched, and Retry loading has an understandable outcome | Pending |
+| Dynamic storage failure and recovery | The Projects error is announced, corrupt stored data remains untouched, and **Retry loading** has an understandable outcome; Settings and Onboarding recovery uses **Allow replacement on next save** | Pending |
 
 This protocol covers the reference workspace. Each consuming app still needs complete-page and complete-process evaluation, including its own content and services. No WCAG or EAA conformance claim follows from these checks.
 
@@ -42,6 +42,8 @@ npm run reference:dev
 ```
 
 Open `http://127.0.0.1:5174` on the device under review. Use only fictional data and do not enter personal birth information, credentials, customer records or other sensitive data. Before each run, clear this origin's site data so saved state from an earlier run cannot hide a first-use defect.
+
+The default route `/` opens **Projects**. Use `?view=invoices`, `?view=settings` and `?view=onboarding` for the other native review flows. The catalogue and composition links are `?view=catalogue` and `?view=composition`.
 
 Create one result record per environment. Record exact versions from the applications' About screens; “latest” is not a version.
 
@@ -66,31 +68,43 @@ Start every unperformed record at **Pending**. Use **Blocked** only when setup o
 
 ## Common task script
 
-Complete all three flows with the mouse or trackpad put aside. In each flow, move through the page in both directions, activate controls, dismiss any popup with Escape, and confirm that the visible focus indicator is never fully covered by sticky content or an open layer. The focus check follows [W3C's focus-not-obscured guidance](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html).
+Complete the Projects, Invoices, Settings and Onboarding flows with the mouse or trackpad put aside. In each flow, move through the page in both directions, activate controls, dismiss any popup with Escape, and confirm that the visible focus indicator is never fully covered by sticky content or an open layer. The focus check follows [W3C's focus-not-obscured guidance](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html).
+
+### Projects
+
+1. Open `/` and navigate the **Projects** heading, filters, table and controls. Confirm the table's sortable headers announce their sorted state; this sorting expectation applies to Projects, not the invoice table.
+2. Open a project in the **Edit ...** Drawer, change a field, then dismiss it with **Cancel**, its close control or Escape. Confirm the **Discard unsaved changes?** decision initially focuses **Keep editing**; that action returns focus to **Project name**. Dismiss again and confirm **Discard changes** closes the Drawer without saving and returns focus to the opener.
+3. Activate **Archive**. In the confirmation, confirm **Cancel** and Escape leave the project unchanged; confirm **Archive project** succeeds, announces the result, and moves focus to `#project-workspace`. In archived view, repeat with **Restore** and **Restore project**.
+4. Open **Due dates** and use keyboard navigation to move between months and days, set a partial range, complete the range, and dismiss the popup. Confirm the selection is understandable and focus returns to the **Due dates** trigger.
+5. Trigger the Projects storage error. Confirm **Retry loading** has an understandable outcome and the existing saved data remains untouched.
 
 ### Invoices
 
-1. Open **Invoices** and navigate by landmarks, headings and controls. Confirm the result count is announced after filters change.
+1. Open `?view=invoices` and navigate by landmarks, headings and controls. Confirm the result count is announced after filters change.
 2. Search for `no-client`, reach the no-results message, activate **Reset filters**, then choose **Paid** in **Invoice status**.
-3. Open `INV-1044`, confirm that its paid state and lack of reminder action are understandable, then close details. Focus must return to `INV-1044`.
-4. Show all invoices, open `INV-1042`, select **Fail the next reminder**, and activate **Simulate reminder**. Confirm the pending state, failure alert and retained context are understandable.
-5. Activate **Retry reminder**, confirm success is announced and no email is claimed to have been sent, then close details. Focus must return to `INV-1042`.
+3. Open `INV-1044`, confirm that its paid state and lack of reminder action are understandable, then close the inline details section. Its heading receives focus when opened, and **Close details** returns focus to `INV-1044`.
+4. Set **Invoice status** to **All**, open `INV-1042`, select **Fail the next reminder**, and activate **Simulate reminder**. Confirm the pending state, failure alert and retained context are understandable.
+5. Activate **Retry reminder**, confirm success is announced and no email is claimed to have been sent, then close the inline details section. Focus must return to `INV-1042`.
 
 ### Settings
 
-1. Open **Settings**, clear **Display name**, and activate **Save settings**. Confirm focus moves to the field and its `Enter a name.` error is associated and announced once.
+1. Open `?view=settings`, clear **Display name**, and activate **Save settings**. Confirm focus moves to the field and its `Enter a name.` error is associated and announced once.
 2. Enter `Accessibility reviewer`, choose a different time zone, expand **Try a save failure**, select **Fail the next save**, and save.
 3. Confirm controls are unavailable only while the save is pending. After failure, confirm the alert explains recovery and the entered name and time zone remain intact.
 4. Activate **Retry save**, confirm success is announced, reload the page and confirm the saved values return.
 5. Change the name without saving, activate **Reset changes**, and confirm the last saved values return and focus moves to **Display name**.
 
+For a separate unreadable-storage scenario, the recovery action is **Allow replacement on next save**. It permits replacement by the next successful save; it does not retry the simulated save failure above.
+
 ### Onboarding
 
-1. Open **Onboarding** and activate **Continue** with an empty name. Confirm focus moves to **Workspace name** and its error is associated and announced once.
+1. Open `?view=onboarding` and activate **Continue** with an empty name. Confirm focus moves to **Workspace name** and its error is associated and announced once.
 2. Enter `Cedar Studio`, continue, change the weekly-summary preference, go **Back**, and confirm the name remains. Continue to the review step and confirm the progress and review content are understandable.
 3. Expand **Try a completion failure**, select **Fail the next completion**, and finish. Confirm the pending state, failure alert, retained choices and retry action are understandable.
 4. Activate **Retry completion**, confirm the completion heading receives focus, reload and confirm the completion state remains.
 5. Activate **Restart setup** and confirm a blank first step returns. Focus must move to **Workspace name**.
+
+For a separate unreadable-storage scenario, confirm **Allow replacement on next save** explains the permission to replace the saved record. It is distinct from **Retry completion**.
 
 ## NVDA with Firefox
 
@@ -120,7 +134,7 @@ These checks use the browser's own zoom command. Do not substitute DevTools view
 
 1. Set the desktop browser window so its content area is 1280 CSS pixels wide at 100% zoom. Record the physical display, OS scaling, window size and browser zoom shown in the browser UI.
 2. Increase browser zoom to **200%**. Complete the common task script in both themes. Record clipped or overlapping text, lost content, two-dimensional page scrolling, obscured focus, unreachable actions and popups that extend outside the viewport.
-3. Return to 100%, restore the 1280 CSS-pixel starting width, then increase browser zoom to **400%**. Repeat all three flows, including each failure and recovery path. Ordinary page content must reflow to one dimension; the invoice data table may scroll horizontally inside its labeled region. The page itself, forms and editor actions must not require horizontal scrolling. This procedure exercises the relationship described in [W3C's reflow guidance](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
+3. Return to 100%, restore the 1280 CSS-pixel starting width, then increase browser zoom to **400%**. Repeat all four flows, including each failure and recovery path. Ordinary page content must reflow to one dimension; data tables may scroll horizontally inside their labeled regions. The page itself, forms and editor actions must not require horizontal scrolling. This procedure exercises the relationship described in [W3C's reflow guidance](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html).
 4. At 100%, 200% and 400%, Tab and Shift+Tab through every interactive element. Confirm logical order, a visible focus indicator, no keyboard trap, Escape behavior, and that focused controls are not completely covered.
 5. With a pointer, inspect every non-inline control at 100% zoom. Record its rendered size and spacing when it appears smaller than 24 by 24 CSS pixels; assess exceptions using [W3C's target-size guidance](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
 6. In both themes and every interactive state, measure text contrast and the boundaries or indicators needed to identify controls, selected state, validation and focus. Record colors, ratio, tool and result. Use the applicable text requirement and [W3C's non-text contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html); visual inspection alone is not a contrast measurement.

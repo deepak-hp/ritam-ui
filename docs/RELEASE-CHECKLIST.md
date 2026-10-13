@@ -59,6 +59,7 @@ This is the durable source of scope and progress. Checked items require evidence
 - [x] Add focused Chromium, Firefox and WebKit checks for disabled controls, nested modal focus, error recovery, live-status DOM semantics, text spacing, bounded targets and forced-colour focus. All six scripted scenarios passed per engine; see [the focused audit](validation/2026-10-14-accessibility.md).
 - [x] Publish a criterion/evidence matrix and practical manual test protocol.
 - [x] Prepare complete-flow NVDA/Firefox, VoiceOver/Safari and real zoom procedures, a support matrix and a real-application beta feedback kit; results remain pending until performed.
+- [x] Install native Firefox `157.0.1` and NVDA `2026.2` on Windows and verify executable signatures. See [setup evidence and automation blocker](validation/2026-10-14-windows-setup.md); no native flow has passed.
 - [ ] Native NVDA + Firefox and VoiceOver + Safari evaluation of complete flows.
 - [ ] Actual browser zoom, text spacing, focus-obscuration and supported-browser review.
 - [ ] Evaluation with disabled users and applicable product/service EAA review before any conformance claim.

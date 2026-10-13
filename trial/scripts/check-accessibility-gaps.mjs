@@ -114,6 +114,11 @@ async function record(name, action) {
   }
 }
 
+async function expectFocus(page, locator) {
+  const element = await locator.elementHandle();
+  await page.waitForFunction(target => target === document.activeElement, element);
+}
+
 try {
   const page = await browser.newPage({ viewport: { width: 960, height: 900 }, reducedMotion: 'reduce' });
   page.setDefaultTimeout(8000);
@@ -135,28 +140,80 @@ try {
 
   await page.reload();
   await page.getByRole('heading', { name: 'Accessibility gap fixture' }).waitFor();
-  await record('select keyboard activation and menu disabled semantics', async () => {
+  await record('select and menu disabled keyboard navigation', async () => {
     const select = page.getByRole('combobox', { name: 'Team' });
     await select.focus();
     await page.keyboard.press('ArrowDown');
-    await page.getByRole('listbox', { name: 'Team' }).waitFor();
+    const listbox = page.getByRole('listbox', { name: 'Team' });
+    await listbox.waitFor();
+    const personal = page.getByRole('option', { name: 'Personal', exact: true });
+    const restricted = page.getByRole('option', { name: 'Restricted', exact: true });
+    const studio = page.getByRole('option', { name: 'Studio', exact: true });
+    await expectFocus(page, personal);
+    await page.keyboard.press('ArrowDown');
+    await expectFocus(page, restricted);
+    assert.equal(await restricted.getAttribute('aria-disabled'), 'true');
+    for (const key of ['Enter', 'Space']) {
+      await page.keyboard.press(key);
+      assert.equal(await page.getByTestId('team-value').textContent(), 'Team value: personal', `${key} selected a disabled option`);
+      assert.ok(await listbox.isVisible(), `${key} dismissed the listbox from a disabled option`);
+      await expectFocus(page, restricted);
+    }
+    await page.keyboard.press('ArrowDown');
+    await expectFocus(page, studio);
+    await page.keyboard.press('ArrowUp');
+    await expectFocus(page, restricted);
+    await page.keyboard.press('Home');
+    await expectFocus(page, personal);
     await page.keyboard.press('End');
+    await expectFocus(page, studio);
     await page.keyboard.press('Enter');
     assert.equal(await page.getByTestId('team-value').textContent(), 'Team value: studio');
+    await listbox.waitFor({ state: 'hidden' });
+    await expectFocus(page, select);
+    await page.keyboard.press('ArrowDown');
+    await listbox.waitFor();
+    await page.keyboard.press('Escape');
+    await listbox.waitFor({ state: 'hidden' });
+    await expectFocus(page, select);
+
     const menu = page.getByRole('button', { name: 'Record actions' });
     await menu.focus();
     await page.keyboard.press('ArrowDown');
-    await page.getByRole('menu').waitFor();
+    const popup = page.getByRole('menu');
+    await popup.waitFor();
+    const edit = page.getByRole('menuitem', { name: 'Edit', exact: true });
     const disabled = page.getByRole('menuitem', { name: 'Delete' });
+    const duplicate = page.getByRole('menuitem', { name: 'Duplicate' });
+    await expectFocus(page, edit);
+    await page.keyboard.press('ArrowDown');
+    await expectFocus(page, disabled);
     assert.equal(await disabled.getAttribute('aria-disabled'), 'true');
     assert.equal(await disabled.isEnabled(), false);
-    assert.equal(await page.getByTestId('menu-action').textContent(), 'Menu action: none');
-    const duplicate = page.getByRole('menuitem', { name: 'Duplicate' });
-    await duplicate.focus();
-    assert.ok(await duplicate.evaluate(element => element === document.activeElement));
+    for (const key of ['Enter', 'Space']) {
+      await page.keyboard.press(key);
+      assert.equal(await page.getByTestId('menu-action').textContent(), 'Menu action: none', `${key} activated a disabled menu item`);
+      assert.ok(await popup.isVisible(), `${key} dismissed the menu from a disabled item`);
+      await expectFocus(page, disabled);
+    }
+    await page.keyboard.press('ArrowDown');
+    await expectFocus(page, duplicate);
+    await page.keyboard.press('ArrowUp');
+    await expectFocus(page, disabled);
+    await page.keyboard.press('Home');
+    await expectFocus(page, edit);
+    await page.keyboard.press('End');
+    await expectFocus(page, duplicate);
     await page.keyboard.press('Enter');
     assert.equal(await page.getByTestId('menu-action').textContent(), 'Menu action: duplicate');
-    return 'Select End/Enter and a focused enabled menu item activate; disabled menu semantics are exposed';
+    await popup.waitFor({ state: 'hidden' });
+    await expectFocus(page, menu);
+    await page.keyboard.press('ArrowDown');
+    await popup.waitFor();
+    await page.keyboard.press('Escape');
+    await popup.waitFor({ state: 'hidden' });
+    await expectFocus(page, menu);
+    return 'arrows reach disabled items in both directions; Enter/Space reject disabled activation; Home/End, enabled activation and Escape restore the expected focus';
   });
 
   await page.reload();

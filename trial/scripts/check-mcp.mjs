@@ -17,7 +17,7 @@ async function call(method, params = {}) {
   assert.ok(!data.error, JSON.stringify(data.error));
   return data.result;
 }
-const initialized = await call('initialize', { protocolVersion: '2025-03-26', capabilities: {}, clientInfo: { name: 'ritam-ui-check', version: '1.0.0' } });
+const initialized = await call('initialize', { protocolVersion: '2025-03-26', capabilities: {}, clientInfo: { name: 'serein-check', version: '1.0.0' } });
 await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json, text/event-stream', ...(session ? { 'Mcp-Session-Id': session } : {}) }, body: JSON.stringify({ jsonrpc: '2.0', method: 'notifications/initialized' }) });
 const { tools } = await call('tools/list');
 console.log('MCP server:', initialized.serverInfo, 'Tools:', tools.map(tool => tool.name));

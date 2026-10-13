@@ -1,4 +1,4 @@
-# Ritam UI - React component library
+# Serein - React component library
 
 React 19, Base UI and precompiled StyleX. The approved Flame & Ink direction uses Plus Jakarta Sans, crisp corners, solid orange primary actions, and restrained state-driven motion.
 
@@ -39,8 +39,8 @@ The package exports React components and a precompiled CSS file. Consuming apps 
 
 ```tsx
 import '@fontsource-variable/plus-jakarta-sans';
-import '@ritam-ui/react/styles.css';
-import { Button } from '@ritam-ui/react';
+import '@serein-ui/react/styles.css';
+import { Button } from '@serein-ui/react';
 
 export function Example() {
   return <Button>Continue</Button>;

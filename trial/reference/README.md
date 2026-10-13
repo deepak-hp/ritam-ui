@@ -1,6 +1,6 @@
 # Reference workspace
 
-A local project workspace built from the actual `@ritam-ui/react` npm tarball. It exercises the library's public API and precompiled CSS without source aliases or a StyleX compiler.
+A local project workspace built from the actual `@serein-ui/react` npm tarball. It exercises the library's public API and precompiled CSS without source aliases or a StyleX compiler.
 
 ## Run
 
@@ -14,7 +14,7 @@ npm run reference:dev
 
 Open http://127.0.0.1:5174. Setup builds the library, packs it into a content-addressed archive in `reference/vendor`, and installs the archive and app dependencies. Run setup again after changing library code. The vendor archive is generated locally and ignored by Git; run setup before installing this app from a fresh checkout.
 
-The app itself is ordinary React/Vite. Its `src` imports components and types from `@ritam-ui/react`, imports CSS/font once in `main.tsx`, and sets document-wide theme attributes so portals inherit the theme. There is no custom build transform for library styles.
+The app itself is ordinary React/Vite. Its `src` imports components and types from `@serein-ui/react`, imports CSS/font once in `main.tsx`, and sets document-wide theme attributes so portals inherit the theme. There is no custom build transform for library styles.
 
 Setup deliberately updates this app's package manifest and lockfile to the generated tarball hash. This makes a changed local library install as a new artifact even when its unpublished version number stays the same. Generated archives remain in the ignored vendor directory.
 

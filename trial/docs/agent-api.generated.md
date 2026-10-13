@@ -1,12 +1,16 @@
-# Ritam UI — AI integration
+# Serein — AI integration
 
-Status: Ritam UI is an MIT-licensed React web library preparing package `@ritam-ui/react` version `0.1.0-beta.1`. The beta is not yet published. Use this exact package name and do not claim native mobile support.
+Status: Serein is an MIT-licensed React web library preparing package `@serein-ui/react` version `0.1.0-beta.1`. The beta is not yet published. Use this exact package name and do not claim native mobile support.
 
 ## Quick start for any coding assistant
 
+Serein's visual language is clear surfaces, warm orange actions, soft neutral elevation, and purposeful state motion. Use the shared surface, field, radius, and shadow tokens instead of inventing per-screen palettes or geometry. Preserve orange buttons with dark text in both themes; green is for actual success. The name's evening-rain meaning is a material metaphor, not a request for weather, stars, gradients, or decorative animation. `docs/FOUNDATIONS.md` defines the exact roles; the checkout's root `DESIGN.md` also records the visual system.
+
+Resting cards are flat; menus and dialogs carry elevation. Secondary actions use neutral rest/hover/active fills. Badges pair success, warning, or error text with the corresponding semantic surface token. Keep contrast-qualified field boundaries and visible keyboard focus; decorative edges can stay quiet.
+
 Read `llms-full.txt` and `contract.json` in this directory. These are generated from the installed package's TypeScript declarations and CSS tokens on every build. Read `examples/README.md` when a local workflow recipe fits the task; those reviewed files are client-side demonstrations, not package exports or backend integrations. Read stories for usage, `docs/FOUNDATIONS.md` for the implemented visual system, and `docs/ACCESSIBILITY.md` for obligations and known limits. Never invent props or components.
 
-For a local checkout, run `npm ci`, `npm run build`, then `npm run storybook` from `trial`. Until the beta is published, run `npm pack` here and install the resulting tarball in another React 19 app. Import `@ritam-ui/react/styles.css` once. Import `@fontsource-variable/plus-jakarta-sans` if using the brand font dependency. The consumer does not need a StyleX compiler.
+For a local checkout, run `npm ci`, `npm run build`, then `npm run storybook` from `trial`. Until the beta is published, run `npm pack` here and install the resulting tarball in another React 19 app. Import `@serein-ui/react/styles.css` once. Import `@fontsource-variable/plus-jakarta-sans` if using the brand font dependency. The consumer does not need a StyleX compiler.
 
 Set `data-dp-theme="light"` or `"dark"` on `<html>` and class `dp-theme` on `<body>`. The theme is document-wide, including portals. Do not apply the theme solely to a nested wrapper. Only use supported, documented props.
 
@@ -14,7 +18,7 @@ Set `data-dp-theme="light"` or `"dark"` on `<html>` and class `dp-theme` on `<bo
 
 Start Storybook, then add an HTTP MCP server to your AI client's project settings:
 
-- Name: `ritam-ui`
+- Name: `serein`
 - Transport: Streamable HTTP
 - URL: `http://127.0.0.1:6006/mcp`
 
@@ -59,7 +63,7 @@ Use `MultiSelect` for controlled string-array choices with search, selected chip
 
 ## Example prompt
 
-“Read the Ritam UI contract and accessibility guidance. Build a settings form using the documented components, preserve the theme and keyboard behaviour, add stories for errors and disabled states, and run the relevant checks. If a requested capability is missing, identify it instead of inventing a prop.”
+“Read the Serein contract and accessibility guidance. Build a settings form using the documented components, preserve the theme and keyboard behaviour, add stories for errors and disabled states, and run the relevant checks. If a requested capability is missing, identify it instead of inventing a prop.”
 
 ## Verification
 
@@ -70,7 +74,7 @@ Use `MultiSelect` for controlled string-array choices with search, selected chip
 References: [Storybook MCP](https://storybook.js.org/docs/ai/mcp/overview), [Storybook manifests](https://storybook.js.org/docs/ai/manifests), [WCAG 2.2](https://www.w3.org/TR/WCAG22/).
 
 
-# Composing screens with Ritam UI
+# Composing screens with Serein
 
 Use this guide with the installed version's contract and examples. These recipes guide composition; they are not additional exported components. Preserve the approved Flame & Ink identity. A screen's purpose determines its structure.
 
@@ -156,7 +160,7 @@ The following generated files mirror reviewed reference-app source. They are cli
 
 ```tsx
 import { useEffect, useRef, useState } from 'react';
-import { Button, Checkbox, DataTable, EmptyState, Select, TextField, useAsyncAction } from '@ritam-ui/react';
+import { Button, Checkbox, DataTable, EmptyState, Select, TextField, useAsyncAction } from '@serein-ui/react';
 import Shell, { focusId } from './Shell';
 import { filterInvoices, invoices, money, pause, type Invoice } from './model';
 function InvoiceDetail({ invoice, close }: { invoice: Invoice; close: () => void }) {
@@ -172,12 +176,12 @@ export default function Invoices() {
   const visible = filterInvoices(invoices, query, status);
   return <Shell title="Invoices" description="Review fictional client invoices and try a reminder. Sample snapshot: 28 September 2026; amounts in USD."><div className="workflow-filters"><TextField label="Search invoices" placeholder="Client or invoice number" value={query} onChange={e => setQuery(e.target.value)} /><Select label="Invoice status" value={status} onValueChange={setStatus} options={['All', 'Overdue', 'Open', 'Paid'].map(x => ({ value: x, label: x }))} /></div><p role="status" className="workflow-muted">{visible.length} of {invoices.length} invoices</p>
     {visible.length > 0 && <p className="workflow-table-hint workflow-muted" id="invoice-scroll-hint">Scroll the table horizontally to see every column.</p>}
-    {visible.length ? <div className="workflow-table"><DataTable caption="Sample invoices, as of 28 September 2026" rows={visible} rowKey={invoice => invoice.id} columns={[
+    {visible.length ? <DataTable caption="Sample invoices, as of 28 September 2026" rows={visible} rowKey={invoice => invoice.id} columns={[
       { key: 'client', header: 'Invoice / client', cell: invoice => <><Button variant="quiet" aria-expanded={selected?.id === invoice.id} onClick={e => { trigger.current = e.currentTarget; setSelected(invoice); }}>{invoice.id}</Button><span className="invoice-client">{invoice.client}</span></> },
       { key: 'due', header: 'Due', cell: invoice => invoice.due },
       { key: 'status', header: 'Status', cell: invoice => invoice.status },
       { key: 'amount', header: 'Amount', cell: invoice => money(invoice.amount) },
-    ]} /></div> : <EmptyState title="No matching invoices" description="Try a different client or status, or show all sample invoices." action={<Button onClick={() => { setQuery(''); setStatus('All'); }}>Reset filters</Button>} />}
+    ]} /> : <EmptyState title="No matching invoices" description="Try a different client or status, or show all sample invoices." action={<Button onClick={() => { setQuery(''); setStatus('All'); }}>Reset filters</Button>} />}
     {selected && <InvoiceDetail key={selected.id} invoice={selected} close={() => { setSelected(null); requestAnimationFrame(() => trigger.current?.isConnected ? trigger.current.focus() : document.getElementById('workflow-main')?.focus()); }} />}
   </Shell>;
 }
@@ -187,7 +191,7 @@ export default function Invoices() {
 
 ```tsx
 import { useState } from 'react';
-import { Button, Checkbox, Select, TextField, useAsyncAction } from '@ritam-ui/react';
+import { Button, Checkbox, Select, TextField, useAsyncAction } from '@serein-ui/react';
 import Shell, { Recovery, focusId } from './Shell';
 import { defaults, parseSettings, pause, readRecord, saveRecord, timezones, validateName } from './model';
 export default function Settings() {
@@ -223,7 +227,7 @@ export default function Settings() {
 
 ```tsx
 import { useState } from 'react';
-import { Button, Checkbox, TextField, useAsyncAction } from '@ritam-ui/react';
+import { Button, Checkbox, TextField, useAsyncAction } from '@serein-ui/react';
 import Shell, { Recovery, focusId } from './Shell';
 import { parseWorkspace, pause, readRecord, saveRecord, storageKey, validateName } from './model';
 export default function Onboarding() {
@@ -254,12 +258,12 @@ export default function Onboarding() {
 
 ```tsx
 import { useEffect, useState, type ReactNode } from 'react';
-import { Button } from '@ritam-ui/react';
+import { Button } from '@serein-ui/react';
 import './workflows.css';
 export default function Shell({ title, description, children }: { title: string; description: string; children: ReactNode }) {
   const [dark, setDark] = useState(() => document.documentElement.dataset.dpTheme === 'dark');
-  useEffect(() => { document.documentElement.dataset.dpTheme = dark ? 'dark' : 'light'; document.title = `${title} · Ritam UI`; }, [dark, title]);
-  return <div className="workflow"><a className="skip-link" href="#workflow-main">Skip to content</a><header className="workflow-header"><a className="wordmark" href="?view=catalogue">Ritam UI</a><a href="?view=catalogue">Back to catalogue</a><Button variant="quiet" onClick={() => setDark(!dark)}>{dark ? 'Use light theme' : 'Use dark theme'}</Button></header><main id="workflow-main" tabIndex={-1}><header className="workflow-intro"><h1>{title}</h1><p>{description}</p></header>{children}</main><footer className="workflow-footer">Local demonstration · No accounts, payments or email delivery.</footer></div>;
+  useEffect(() => { document.documentElement.dataset.dpTheme = dark ? 'dark' : 'light'; document.title = `${title} · Serein`; }, [dark, title]);
+  return <div className="workflow"><a className="skip-link" href="#workflow-main">Skip to content</a><header className="workflow-header"><a className="wordmark" href="?view=catalogue">Serein</a><a href="?view=catalogue">Back to catalogue</a><Button variant="quiet" onClick={() => setDark(!dark)}>{dark ? 'Use light theme' : 'Use dark theme'}</Button></header><main id="workflow-main" tabIndex={-1}><header className="workflow-intro"><h1>{title}</h1><p>{description}</p></header>{children}</main><footer className="workflow-footer">Local demonstration · No accounts, payments or email delivery.</footer></div>;
 }
 export function Recovery({ onRecover }: { onRecover: () => void }) { return <div className="workflow-notice" role="alert"><p>Saved data could not be read. It may be damaged, from another version, or browser storage may be unavailable. Existing data has not been changed.</p><Button variant="secondary" onClick={onRecover}>Allow replacement on next save</Button><p>This permits the next successful save to replace the saved record with the values shown.</p></div>; }
 export function focusId(id: string) { requestAnimationFrame(() => document.getElementById(id)?.focus()); }
@@ -325,10 +329,9 @@ export const money = (amount: number) => new Intl.NumberFormat('en-US', { style:
 .workflow-demo { margin: 1.5rem 0; }
 .workflow-demo summary { cursor: pointer; min-height: 44px; display: list-item; padding: .75rem 0; font-size: .875rem; }
 .workflow-filters { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 1rem; max-width: 720px; margin-bottom: 1rem; }
-.workflow-table { max-width: 100%; }
 .workflow table { width: 100%; border-collapse: collapse; text-align: left; font-size: .9375rem; font-variant-numeric: tabular-nums; }
 .workflow th { font-size: .8125rem; color: var(--dp-muted); font-weight: 600; }
-.workflow th, .workflow td { padding: 1rem .75rem; border-bottom: 1px solid var(--dp-divider); white-space: nowrap; }
+.workflow th, .workflow td { padding: 1rem .75rem; white-space: nowrap; }
 .workflow th:last-child, .workflow td:last-child { text-align: right; }
 .workflow td:first-child button { padding-inline: 0; }
 .invoice-client { display: block; }
@@ -930,20 +933,35 @@ export declare function useAsyncAction(action: (signal: AbortSignal) => Promise<
 ```css
 :root,[data-dp-theme="light"]{
  color-scheme:light;
- --dp-canvas:#FFFFFF;--dp-surface:#F4F4F6;--dp-selected:#FFEEE7;
- --dp-text:#111216;--dp-muted:#5B5D66;--dp-border:#858B95;--dp-divider:#E3E4E8;
- --dp-orange:#FF681F;--dp-orange-hover:#F45C14;--dp-orange-border:#A83A0A;--dp-on-orange:#141414;--dp-orange-text:#A83A0A;
- --dp-success:#28694F;--dp-error:#B4233C;--dp-focus:#111216;
+ --dp-canvas:#FFFFFF;--dp-surface:#F6F6F5;--dp-raised:#FFFFFF;--dp-field:#FFFFFF;--dp-selected:#FFF0E8;
+ --dp-text:#20211F;--dp-muted:#60615F;--dp-border:#878984;--dp-divider:#E3E5E0;
+ --dp-hover:#ECEDEA;--dp-active:#E2E4DF;
+ --dp-orange:#FF681F;--dp-orange-hover:#F45C14;--dp-orange-active:#E8540E;--dp-orange-border:#A83A0A;--dp-on-orange:#141414;--dp-orange-text:#A83A0A;
+ --dp-success:#28694F;--dp-success-surface:#E9F7EF;--dp-error:#B4233C;--dp-error-surface:#FDECEF;--dp-warning:#88500B;--dp-warning-surface:#FFF4DC;--dp-focus:#20211F;
  --dp-font:'Plus Jakarta Sans Variable','Plus Jakarta Sans',sans-serif;
+ --dp-radius-small:5px;--dp-radius-control:8px;--dp-radius-popup:12px;--dp-radius-panel:16px;--dp-radius-dialog:20px;
+ --dp-shadow-surface:none;
+ --dp-shadow-popup:0 2px 6px #20211F0A,0 12px 32px #20211F14;
+ --dp-shadow-dialog:0 12px 24px #20211F14,0 32px 80px #20211F26;
+ --dp-shadow-action:inset 0 1px 0 #FFFFFF55,0 2px 3px #7B2E0E14;
+ --dp-shadow-action-hover:inset 0 1px 0 #FFFFFF55,0 3px 8px #7B2E0E24;
+ --dp-ease-out:cubic-bezier(.16,1,.3,1);--dp-duration-fast:140ms;--dp-duration-enter:240ms;
  --dp-navigation-subtle-fill:color-mix(in srgb,var(--dp-canvas) 94%,transparent);
  --dp-navigation-expressive-fill:color-mix(in srgb,var(--dp-canvas) 88%,transparent);
  --dp-navigation-shadow:0 4px 16px #1112160A;
  --dp-navigation-expressive-shadow:0 12px 32px #11121618;
 }
 [data-dp-theme="dark"]{
- color-scheme:dark;--dp-canvas:#090A0C;--dp-surface:#14161B;--dp-selected:#1C1E23;
- --dp-text:#F6F7F9;--dp-muted:#BEC0C7;--dp-border:#788292;--dp-divider:#34373E;
- --dp-orange-text:#FF874D;--dp-success:#8AD3AC;--dp-error:#FF9CAF;--dp-focus:#F6F7F9;
+ color-scheme:dark;--dp-canvas:#101113;--dp-surface:#191B1D;--dp-raised:#202224;--dp-field:#16181A;--dp-selected:#30251F;
+ --dp-text:#F3F3F0;--dp-muted:#B6B8B3;--dp-border:#747771;--dp-divider:#363936;
+ --dp-hover:#2A2D2F;--dp-active:#34383B;
+ --dp-orange:#FF803E;--dp-orange-hover:#FF925B;--dp-orange-active:#FFA16F;--dp-orange-border:#FFAA7D;
+ --dp-orange-text:#FF874D;--dp-success:#8AD3AC;--dp-success-surface:#142820;--dp-error:#FF9CAF;--dp-error-surface:#32171D;--dp-warning:#FFD28A;--dp-warning-surface:#332711;--dp-focus:#F3F3F0;
+ --dp-shadow-surface:none;
+ --dp-shadow-popup:0 4px 8px #00000030,0 16px 40px #00000055;
+ --dp-shadow-dialog:0 12px 24px #00000040,0 32px 80px #00000070;
+ --dp-shadow-action:inset 0 1px 0 #FFFFFF55,0 2px 4px #00000033;
+ --dp-shadow-action-hover:inset 0 1px 0 #FFFFFF77,0 4px 12px #00000055;
  --dp-navigation-subtle-fill:color-mix(in srgb,var(--dp-canvas) 94%,transparent);
  --dp-navigation-expressive-fill:color-mix(in srgb,var(--dp-canvas) 88%,transparent);
  --dp-navigation-shadow:0 4px 16px #00000040;
@@ -956,10 +974,14 @@ export declare function useAsyncAction(action: (signal: AbortSignal) => Promise<
 .dp-theme :is(input,textarea){caret-color:var(--dp-orange-text)}
 .dp-theme input:disabled{opacity:.5;cursor:not-allowed}
 .dp-theme ::selection{background:var(--dp-orange);color:var(--dp-on-orange)}
+.dp-theme {scrollbar-color:var(--dp-border) var(--dp-canvas)}
+.dp-theme a{text-underline-offset:.2em}
+.dp-theme :where(table,progress,input[type="number"]){font-variant-numeric:tabular-nums}
 @media(prefers-reduced-motion:reduce){.dp-theme button{transition:none!important;transform:none!important}}
 @media(forced-colors:active){.dp-theme{--dp-canvas:Canvas;--dp-surface:Canvas;--dp-selected:ButtonFace;--dp-text:CanvasText;--dp-muted:CanvasText;--dp-border:CanvasText;--dp-divider:CanvasText;--dp-orange:ButtonFace;--dp-orange-hover:ButtonFace;--dp-orange-border:CanvasText;--dp-on-orange:ButtonText;--dp-orange-text:CanvasText;--dp-success:CanvasText;--dp-error:CanvasText;--dp-focus:CanvasText}.dp-theme :where(button,input,textarea,[role="combobox"],[role="tab"],[role="checkbox"],[role="switch"],[role="radio"],[role="option"],a):focus-visible{outline-color:CanvasText}.dp-theme :where(button,input,textarea,[role="combobox"],[role="checkbox"],[role="switch"],[role="radio"]){forced-color-adjust:auto}}
 
 @media(forced-colors:active){.dp-theme button[aria-current="page"],.dp-theme .rdp-selected .rdp-day_button{outline:2px solid ButtonText;outline-offset:-4px}}
+@media(forced-colors:active){:root,[data-dp-theme]{--dp-raised:Canvas;--dp-field:Canvas;--dp-hover:ButtonFace;--dp-active:ButtonFace;--dp-orange-active:ButtonFace;--dp-success-surface:Canvas;--dp-error-surface:Canvas;--dp-warning-surface:Canvas;--dp-warning:CanvasText;--dp-shadow-surface:none;--dp-shadow-popup:none;--dp-shadow-dialog:none;--dp-shadow-action:none;--dp-shadow-action-hover:none}}
 
 /* Opt in on one navigation plane; keep content and nested controls opaque/plain.
    Layout, position and corner geometry belong to the consuming app. */

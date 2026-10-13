@@ -1,4 +1,4 @@
-# Composing screens with Ritam UI
+# Composing screens with Serein
 
 Use this guide with the installed version's contract and examples. These recipes guide composition; they are not additional exported components. Preserve the approved Flame & Ink identity. A screen's purpose determines its structure.
 

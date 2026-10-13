@@ -1,10 +1,10 @@
-# Apple guidance with Flame & Ink
+# Apple guidance within Serein
 
 Reviewed 27 September 2026 against Apple's [design hub](https://developer.apple.com/design/), current Human Interface Guidelines and the linked WWDC25 sessions. This is a refinement of our existing design language, not a claim that Apple released these guidelines today.
 
 ## Identity stays personal
 
-The approved astrology-informed identity remains the authority for colour roles and character: orange `#FF681F` with dark `#141414` labels, white and near-black canvases, Plus Jakarta Sans, crisp controls, restrained green for success, and textual error/status feedback. Historical palette proposals do not override the implemented tokens. The private chart research remains private. Exact hex values, fonts and geometry are design decisions within that interpretation, not values prescribed by astrology.
+The approved astrology-informed identity remains the authority for colour roles and character: orange with dark `#141414` labels, white and near-black canvases, Plus Jakarta Sans, clear controls, restrained green for success, and textual error/status feedback. Serein retains `#FF681F` in light mode and uses the brighter `#FF803E` in dark mode. Its current geometry and surfaces are documented in [foundations](FOUNDATIONS.md). Historical palette proposals do not override the implemented tokens. The private chart research remains private. Exact hex values, fonts and geometry are design decisions within that interpretation, not values prescribed by astrology.
 
 Apple's guidance informs interaction and material use within this identity. We do not replace the palette with system blue, substitute San Francisco or SF Symbols, introduce zodiac decoration, or make every control a capsule.
 

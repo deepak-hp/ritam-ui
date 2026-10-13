@@ -11,16 +11,17 @@ const s = stylex.create({
   row: { display: 'flex', alignItems: 'center', gap: 12, minHeight: 48, color: 'var(--dp-text)', cursor: 'pointer' },
   rowDisabled: { color: 'var(--dp-muted)', cursor: 'not-allowed', opacity: 0.5 },
   rowLabel: { fontSize: 14, fontWeight: 600, lineHeight: 1.4 },
-  description: { margin: '0 0 0 32px', color: 'var(--dp-muted)', fontSize: 13, lineHeight: 1.5 },
-  checkbox: { flexShrink: 0, width: 20, height: 20, display: 'grid', placeItems: 'center', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 2, backgroundColor: 'var(--dp-canvas)', color: 'var(--dp-on-orange)', cursor: 'inherit', transition: { default: 'background-color 140ms ease, border-color 140ms ease', '@media (prefers-reduced-motion: reduce)': 'none' }, ':focus-visible': { outline: '2px solid var(--dp-focus)', outlineOffset: 3 } },
+  description: { margin: '2px 0 0 32px', color: 'var(--dp-muted)', fontSize: 13, lineHeight: 1.5 },
+  switchDescription: { marginLeft: 54 },
+  checkbox: { flexShrink: 0, width: 20, height: 20, display: 'grid', placeItems: 'center', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 'var(--dp-radius-small)', backgroundColor: 'var(--dp-field)', color: 'var(--dp-on-orange)', cursor: 'inherit', transition: { default: 'background-color var(--dp-duration-fast) var(--dp-ease-out), border-color var(--dp-duration-fast) var(--dp-ease-out)', '@media (prefers-reduced-motion: reduce)': 'none' }, ':focus-visible': { outline: '2px solid var(--dp-focus)', outlineOffset: 3 } },
   checkboxChecked: { backgroundColor: 'var(--dp-orange)', borderColor: 'var(--dp-orange-border)' },
   checkboxIndicator: { display: 'grid', placeItems: 'center' },
-  switch: { flexShrink: 0, width: 42, height: 24, padding: 2, display: 'flex', alignItems: 'center', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 999, backgroundColor: 'var(--dp-surface)', cursor: 'inherit', transition: { default: 'background-color 140ms ease, border-color 140ms ease', '@media (prefers-reduced-motion: reduce)': 'none' }, ':focus-visible': { outline: '2px solid var(--dp-focus)', outlineOffset: 3 } },
+  switch: { flexShrink: 0, width: 42, height: 24, padding: 2, display: 'flex', alignItems: 'center', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 999, backgroundColor: 'var(--dp-field)', cursor: 'inherit', transition: { default: 'background-color var(--dp-duration-fast) var(--dp-ease-out), border-color var(--dp-duration-fast) var(--dp-ease-out)', '@media (prefers-reduced-motion: reduce)': 'none' }, ':focus-visible': { outline: '2px solid var(--dp-focus)', outlineOffset: 3 } },
   switchChecked: { backgroundColor: 'var(--dp-orange)', borderColor: 'var(--dp-orange-border)' },
-  thumb: { width: 18, height: 18, borderRadius: 999, backgroundColor: 'var(--dp-muted)', transform: 'translateX(0)', transition: { default: 'transform 140ms ease, background-color 140ms ease', '@media (prefers-reduced-motion: reduce)': 'none' } },
+  thumb: { width: 18, height: 18, borderRadius: 999, backgroundColor: 'var(--dp-muted)', transform: 'translateX(0)', transition: { default: 'transform var(--dp-duration-fast) var(--dp-ease-out), background-color var(--dp-duration-fast) var(--dp-ease-out)', '@media (prefers-reduced-motion: reduce)': 'none' } },
   thumbChecked: { backgroundColor: 'var(--dp-on-orange)', transform: 'translateX(18px)' },
   group: { display: 'flex', flexDirection: 'column', gap: 2 },
-  radio: { flexShrink: 0, width: 20, height: 20, display: 'grid', placeItems: 'center', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 999, backgroundColor: 'var(--dp-canvas)', cursor: 'inherit', transition: { default: 'border-color 140ms ease, background-color 140ms ease', '@media (prefers-reduced-motion: reduce)': 'none' }, ':focus-visible': { outline: '2px solid var(--dp-focus)', outlineOffset: 3 } },
+  radio: { flexShrink: 0, width: 20, height: 20, display: 'grid', placeItems: 'center', borderWidth: 1, borderStyle: 'solid', borderColor: 'var(--dp-border)', borderRadius: 999, backgroundColor: 'var(--dp-field)', cursor: 'inherit', transition: { default: 'border-color var(--dp-duration-fast) var(--dp-ease-out), background-color var(--dp-duration-fast) var(--dp-ease-out)', '@media (prefers-reduced-motion: reduce)': 'none' }, ':focus-visible': { outline: '2px solid var(--dp-focus)', outlineOffset: 3 } },
   radioChecked: { borderColor: 'var(--dp-orange-border)', backgroundColor: 'var(--dp-orange)' },
   radioIndicator: { width: 8, height: 8, borderRadius: 999, backgroundColor: 'var(--dp-on-orange)' },
 });
@@ -66,7 +67,7 @@ export function Switch({ label, description, checked, onCheckedChange, disabled,
     </BaseSwitch.Root>
     <span {...stylex.props(s.rowLabel)}>{label}</span>
     </label>
-    {description && <p id={descriptionId} {...stylex.props(s.description)}>{description}</p>}
+    {description && <p id={descriptionId} {...stylex.props(s.description, s.switchDescription)}>{description}</p>}
   </div>;
 }
 

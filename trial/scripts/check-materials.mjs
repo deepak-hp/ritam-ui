@@ -50,9 +50,9 @@ try {
       return Object.fromEntries(['--dp-orange', '--dp-on-orange', '--dp-canvas', '--dp-success', '--dp-font'].map(name => [name, style.getPropertyValue(name).trim()]));
     });
     const hex = value => value.toUpperCase().replace(/^#([0-9A-F])([0-9A-F])([0-9A-F])$/, '#$1$1$2$2$3$3');
-    assert.equal(hex(identity['--dp-orange']), '#FF681F');
+    assert.equal(hex(identity['--dp-orange']), theme === 'light' ? '#FF681F' : '#FF803E');
     assert.equal(hex(identity['--dp-on-orange']), '#141414');
-    assert.equal(hex(identity['--dp-canvas']), theme === 'light' ? '#FFFFFF' : '#090A0C');
+    assert.equal(hex(identity['--dp-canvas']), theme === 'light' ? '#FFFFFF' : '#101113');
     assert.equal(hex(identity['--dp-success']), theme === 'light' ? '#28694F' : '#8AD3AC');
     assert.ok(identity['--dp-font'].includes('Plus Jakarta Sans'));
 

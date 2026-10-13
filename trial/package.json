@@ -1,5 +1,5 @@
 {
-  "name": "@ritam-ui/react",
+  "name": "@serein-ui/react",
   "version": "0.1.0-beta.1",
   "description": "React web component library with typed components, compiled CSS, accessibility guidance, and AI integration materials.",
   "license": "MIT",
@@ -76,6 +76,7 @@
     "test:starter": "node --test scripts/create-app.test.mjs",
     "check:starter": "node scripts/check-starter.mjs",
     "check:materials": "node scripts/check-materials.mjs",
+    "check:serein": "node scripts/check-serein.mjs",
     "check:composition": "node scripts/check-composition.mjs",
     "check:catalogue": "node scripts/check-catalogue.mjs",
     "check:workflows": "node scripts/check-workflows.mjs",

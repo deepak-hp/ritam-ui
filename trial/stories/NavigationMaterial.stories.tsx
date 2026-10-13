@@ -21,7 +21,7 @@ function NavigationMaterialExample({ initialMaterial }: { initialMaterial: Navig
   return (
     <div className="navigation-material-example">
       <header className="navigation-material-example__header dp-navigation-surface" data-dp-material={material}>
-        <a className="navigation-material-example__wordmark" href={`#${id}-projects`}>Ritam UI</a>
+        <a className="navigation-material-example__wordmark" href={`#${id}-projects`}>Serein</a>
         <nav aria-label="Workspace navigation" className="navigation-material-example__links">
           <a href={`#${id}-projects`} aria-current="page">Projects</a>
           <a href={`#${id}-activity`}>Activity</a>

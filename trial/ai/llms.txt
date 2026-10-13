@@ -1,4 +1,4 @@
-# Ritam UI
+# Serein
 
 MIT-licensed React web component library; beta package not yet published.
 

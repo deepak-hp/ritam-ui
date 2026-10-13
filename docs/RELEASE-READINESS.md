@@ -1,4 +1,6 @@
-# Ritam UI release candidate
+# Serein release candidate
+
+Current Serein work is recorded in [the redesign and frame audit](SEREIN-REDESIGN.md) and [the beta release plan](superpowers/plans/2026-10-13-serein-beta-release.md). Historical results below apply to their named revisions, not automatically to later changes.
 
 This record accompanies the [master checklist](RELEASE-CHECKLIST.md). The current milestone is a reviewed React-web release candidate. Public licensing, package publication, hosting and manual accessibility evaluation remain separate release gates.
 
@@ -37,7 +39,7 @@ Known non-blocking tooling notices: Storybook preview annotation/docgen and docu
 
 - Work used a dedicated branch in the existing checkout to retain installed dependencies and the live reference app.
 - The user's unattended instruction authorized reversible implementation decisions without an interview pause.
-- The invoice example uses Ritam's exported DataTable so the canonical AI recipe demonstrates component reuse.
+- The invoice example uses Serein's exported DataTable so the canonical AI recipe demonstrates component reuse.
 - A permissive license is proposed for owner review. No final grant, package publication or public promotional message is implied by this work.
 
 ## External release gates
@@ -52,13 +54,13 @@ Native adapters, desktop examples, Figma parity, RTL/localization and advanced m
 
 ## Beta verification — 7 October 2026
 
-The owner approved the proposed public beta sequence. MIT licensing is applied at the repository and package level; `@ritam-ui/react@0.1.0-beta.1` is configured for public access under the `beta` tag, but has not been published.
+The owner approved the proposed public beta sequence. MIT licensing is applied at the repository and package level; `@serein-ui/react@0.1.0-beta.1` is configured for public access under the `beta` tag, but has not been published.
 
 The first hosted Linux run found that a clean checkout type-checked playground imports before building `dist`. The aggregate check now builds the library first. [Linux run 37526475891](https://github.com/deepak-hp/ritam-ui/actions/runs/37526475891) passed the complete release gate on `cd7280a`. The same complete local gate passed for the beta working tree (`trial/beta-release.log`, exit 0), including 84 unit tests, 560 story cases, package/consumer/SSR checks, reference/starter checks, live MCP, catalogue, workflows and existing experiences. Later changes still require their own hosted checks before merge.
 
 The rebuilt beta reference workflows also passed in Firefox and WebKit, with the same 18 route/theme/viewport and 8 state/theme audits, plus three text-spacing checks and three keyboard paths per engine. Chromium passed these within the integrated gate. Browser-engine checks do not replace native NVDA, VoiceOver, browser zoom or human review. See [the evidence matrix](../trial/docs/ACCESSIBILITY-EVIDENCE.md).
 
-The development lockfiles now resolve `source-map-js@1.2.2` for [GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q). Fresh registry audits of both lockfiles returned zero findings. This is a point-in-time result, not a security guarantee. Public static builds now retain the full Plus Jakarta Sans OFL text and Ritam MIT text; both reference and Storybook output hashes matched their source copies.
+The development lockfiles now resolve `source-map-js@1.2.2` for [GHSA-68fv-2mgg-jv7q](https://github.com/advisories/GHSA-68fv-2mgg-jv7q). Fresh registry audits of both lockfiles returned zero findings. This is a point-in-time result, not a security guarantee. Public static builds retain the full Plus Jakarta Sans OFL text and project MIT text; both reference and Storybook output hashes matched their source copies at the recorded revision.
 
 Publication access is not complete: npm identity lookup returned 401, the connected hosting account returned no teams, and the repository remains private. The license approval is resolved; actual distribution, native assistive-technology review, independent human AI evaluation and public promotion remain open.
 
@@ -69,3 +71,19 @@ The final source review has no unresolved material findings within its scope. Th
 [Linux run 37528468167](https://github.com/deepak-hp/ritam-ui/actions/runs/37528468167) passed the integrated gate and the additional Firefox and WebKit workflow checks on `a851552`. A subsequent run exposed an intermittent alert-dialog test assertion before asynchronous initial focus completed. The affected test now waits for initial and restored focus; all seven overlay tests and all 84 unit tests passed locally after the repair. The final revision still requires a green hosted run before integration.
 
 Run 37530520023 then exposed an unnamed MultiSelect listbox during the full-motion story audit. MultiSelect and the related Combobox now explicitly name their option lists from the existing field label. Regression assertions check the names while the lists are open; accessibility rules remain enabled. The complete local gate passed again after this repair (`trial/beta-final-release.log`), as did rebuilt-reference Firefox and WebKit checks (`trial/beta-final-firefox.log`, `trial/beta-final-webkit.log`). Final hosted verification is tracked on PR #1. The AI pilot retains its earlier frozen package snapshot and is not silently rerun against this repair.
+
+## Serein candidate verification — 13 October 2026
+
+The full local `npm run check:release` gate passed after the Serein rename, visual refinement and frame audit. It includes 84 unit tests, 560 Storybook cases, packed consumer and SSR/hydration checks, generated AI and live MCP checks, starter/reference builds and tests, catalogue/workflow audits, and the new Serein studio checks. Raw ignored log: `trial/serein-release.log`.
+
+The fresh aggregate run executed on Windows with Node `24.19.0` and npm `10.8.1` and exited `0`. Its Chromium workflow used Playwright engine `153.0.8010.12`. Separate rebuilt-package workflow runs exited `0` with Firefox `155.0` and WebKit `26.6`; each covered 18 route/theme/viewport audits, 8 additional state/theme accessibility and overflow audits, text spacing and keyboard paths for all three complete workflows, and the interaction and recovery cases recorded by the workflow verifier. The browser versions were captured by launching each installed engine and reading `browser.version()` after the checks.
+
+The first production run found a verifier defect: Vite minifies six-digit CSS hex colours to three digits where possible, while the contrast helper only parsed pairs of digits. The helper now expands shorthand before computing luminance. Production colours and contrast thresholds were unchanged; the corrected complete gate passed. Independent source review found no additional material issue in the Serein candidate and deployment preparation.
+
+Fresh npm audits of both package and reference lockfiles reported zero findings. A targeted scan of working source and all local Git-history blobs found no matching credential patterns, exact private birth details, or tracked private research paths. This bounded review is not a guarantee against all possible undiscovered secrets.
+
+The combined documentation site was assembled separately with Node `24.11.1` for the repository base path `/ritam-ui/`. All five site-builder tests passed, followed by the complete reference and Storybook build and the browser smoke check of the assembled subpath. The local artifact verifies catalogue, Storybook and required asset routing under that base path; it is not evidence of a deployed GitHub Pages site or a hosted CI result for the final revision.
+
+Npm authentication still returns HTTP 401; a public package lookup returns HTTP 404 and does not prove scope ownership. A fresh hosted check for the final revision and documentation deployment remain pending. Native NVDA/Firefox, VoiceOver/Safari and actual zoom review also remain pending. The [review protocol](../trial/reference/ACCESSIBILITY-REVIEW.md), [real-application beta evaluation kit](BETA-EVALUATION.md) and [support matrix](SUPPORT.md) record these limits. No external reviewer feedback, npm publication, accessibility certification or stable 1.0 approval is claimed.
+
+The reviewed candidate was committed as `72a6de4` and opened in [PR #2](https://github.com/deepak-hp/ritam-ui/pull/2). After the privacy review and complete local release gate passed, the repository was made public and GitHub private vulnerability reporting was enabled; API reads confirmed `PUBLIC` and `enabled: true`. Pages is configured for Actions and its deployment environment permits only the `main` branch. Actual hosted checks and deployment must still pass independently of those settings. The assembled Storybook manager was also opened locally at `/ritam-ui/storybook/`; its Button navigation, documentation and rendered examples loaded correctly.

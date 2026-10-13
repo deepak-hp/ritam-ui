@@ -1,4 +1,4 @@
-import type { DateRangeValue, TableSort } from '@ritam-ui/react';
+import type { DateRangeValue, TableSort } from '@serein-ui/react';
 
 export const PROJECT_STORAGE_KEY = 'ritam-ui.reference.projects.v1';
 const LEGACY_PROJECT_STORAGE_KEY = 'deepak-ui.reference.projects.v1';

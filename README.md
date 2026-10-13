@@ -1,8 +1,10 @@
-# Ritam UI
+# Serein
 
-A React component library and composition guide for building purposeful interfaces with coding assistants. The MIT-licensed beta package is `@ritam-ui/react`; version `0.1.0-beta.1` is prepared but not yet published.
+A React component library and composition guide for building purposeful interfaces with coding assistants. The MIT-licensed beta package is `@serein-ui/react`; version `0.1.0-beta.1` is prepared but not yet published.
 
-The default Flame & Ink identity uses orange primary actions, light and dark neutral surfaces, Plus Jakarta Sans and restrained success green. It draws on the founder's Indian astrology-inspired design direction; personal chart research is kept outside version control.
+Serein means fine rain from a clear evening sky. Its design pairs bright orange actions with clear white and deep evening surfaces, soft elevation, Plus Jakarta Sans, and restrained success green. It preserves the founder's Indian astrology-inspired direction; personal chart research is kept outside version control.
+
+To see the redesign locally, run `npm run reference:setup` then `npm run reference:dev` in `trial/`, and open [the Serein design studio](http://127.0.0.1:5174/?view=serein). The same real components appear in both themes. [DESIGN.md](DESIGN.md) records the visual language and [foundations](trial/docs/FOUNDATIONS.md) documents the tokens.
 
 ## Start here
 
@@ -13,6 +15,9 @@ The default Flame & Ink identity uses orange primary actions, light and dark neu
 - [Comparison pilot and its limits](trial/docs/COMPOSITION-PILOT.md)
 - [Accessibility scope](trial/docs/ACCESSIBILITY.md)
 - [Release and verification guide](docs/RELEASING.md)
+- [Beta evaluation and feedback](docs/BETA-EVALUATION.md)
+- [Supported environments](docs/SUPPORT.md)
+- [Documentation hosting](docs/HOSTING.md)
 - [Release readiness evidence](docs/RELEASE-READINESS.md)
 - [Contributing and maintenance](CONTRIBUTING.md)
 - [Repository handoff](docs/REPOSITORY-HANDOFF.md)

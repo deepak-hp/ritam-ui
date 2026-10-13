@@ -1,40 +1,63 @@
-# Flame & Ink foundations
+# Serein foundations
 
-This is a reference to the implemented Ritam UI system, not a new theme or token layer. The approved Flame & Ink identity uses Plus Jakarta Sans, orange priority actions with dark text, white and near-black canvases, restrained green, and crisp controls. The product retains its astrology-informed foundation as a symbolic approved basis; this document adds no personal data or new astrological prescriptions.
+Serein takes its material language from fine rain falling from a clear evening sky: clear surfaces, soft light, and restrained movement. The approved astrology-informed foundation remains symbolic. Orange actions, white and near-black canvases, Plus Jakarta Sans, and limited green are preserved. Personal chart details are not distributed.
 
 ## Colour roles
 
-Authoritative checkout source: `src/tokens.css`. Distributed values are available in the [machine-readable contract](../ai/contract.json) and [token stylesheet](../tokens.css).
+Source of truth: `src/tokens.css`. Distributed values are included in the [machine-readable contract](../ai/contract.json) and [token stylesheet](../tokens.css).
 
-| Role | Light | Dark / use |
+| Role | Light | Dark |
 | --- | --- | --- |
-| Canvas | `#FFFFFF` | `#090A0C`; document background |
-| Surface | `#F4F4F6` | `#14161B`; quiet contained regions |
-| Text | `#111216` | `#F6F7F9`; default readable text |
-| Muted text | `#5B5D66` | `#BEC0C7`; supporting copy, never the only state signal |
-| Borders and dividers | `#858B95` / `#E3E4E8` | `#788292` / `#34373E`; field boundaries and separation |
-| Priority action | `#FF681F` | same fill; pair with `--dp-on-orange` (`#141414`) |
-| Priority hover / text | `#F45C14` / `#A83A0A` | `--dp-orange-text` becomes `#FF874D`; actionable links and emphasis |
-| Success | `#28694F` | `#8AD3AC`; actual success only |
-| Error | `#B4233C` | `#FF9CAF`; include explanatory text and field association |
-| Focus | `#111216` | `#F6F7F9`; visible two-pixel outline |
+| Canvas | `#FFFFFF` | `#101113` |
+| Quiet surface | `#F6F6F5` | `#191B1D` |
+| Raised surface | `#FFFFFF` | `#202224` |
+| Input surface | `#FFFFFF` | `#16181A` |
+| Text | `#20211F` | `#F3F3F0` |
+| Supporting text | `#60615F` | `#B6B8B3` |
+| Control boundary | `#878984` | `#747771` |
+| Decorative divider | `#E3E5E0` | `#363936` |
+| Neutral hover | `#ECEDEA` | `#2A2D2F` |
+| Neutral active | `#E2E4DF` | `#34383B` |
+| Primary action | `#FF681F` | `#FF803E` |
+| Primary hover | `#F45C14` | `#FF925B` |
+| Primary active | `#E8540E` | `#FFA16F` |
+| Primary text | `#141414` | `#141414` |
+| Accent text | `#A83A0A` | `#FF874D` |
+| Success | `#28694F` | `#8AD3AC` |
+| Success surface | `#E9F7EF` | `#142820` |
+| Error | `#B4233C` | `#FF9CAF` |
+| Error surface | `#FDECEF` | `#32171D` |
+| Warning | `#88500B` | `#FFD28A` |
+| Warning surface | `#FFF4DC` | `#332711` |
 
-Orange is the priority colour, not a general decoration. Primary orange fills use dark text; white text on orange is not an approved pairing. Success, error, selected state, and disabled state always need text, labels, or another non-colour cue.
+Orange is reserved for priority actions and selected controls. Neutral controls use the quiet surface at rest and dedicated hover and active fills; they do not borrow the orange selection wash. Filled orange buttons use dark text, never white. Green communicates an actual successful result. Every status also has words or another non-colour cue. The stronger border token defines interactive boundaries; the softer divider is only for decorative separation. Surfaces are opaque, with neutral shadows reserved for transient elevation rather than ambient coloured glows.
 
-## Type, controls and layout
+## Geometry and typography
 
-The shared font token is `--dp-font`: Plus Jakarta Sans Variable, Plus Jakarta Sans, then a sans-serif fallback. The document theme belongs on `<html data-dp-theme="light|dark">`, and `dp-theme` belongs on `<body>` so portals inherit it. Defining component text uses 14px labels and buttons (buttons are weight 650), 16px text inputs, and 13px helper text. The workflow reference uses a 2rem page heading and 1.25rem section/legend heading; it is a readable hierarchy for that example, not a new global type scale.
+| Token | Value | Use |
+| --- | --- | --- |
+| `--dp-radius-small` | 5px | Small indicators and options |
+| `--dp-radius-control` | 8px | Buttons, fields, joined-control outer corners |
+| `--dp-radius-popup` | 12px | Menus and popovers |
+| `--dp-radius-panel` | 16px | Cards and grouped surfaces |
+| `--dp-radius-dialog` | 20px | Focused modal surfaces |
 
-Controls are deliberately crisp: primary buttons and text inputs are 48px minimum height with a 2px radius; common menu options are at least 44px. Popups and menus use a 6px radius, dialogs use 8px, and the global visible-focus rule is a 2px outline with 3px offset. One-pixel boundaries and ordinary flex/grid gaps support the compact geometry. Spacing is not currently centralized as a published scale: use the component’s existing geometry or local layout spacing that preserves readable groups and target size. Do not introduce a parallel spacing or radius system.
+Circles and pill controls retain their functional shapes. Standard buttons and fields are at least 48px high; common menu options are at least 44px. Visible focus uses a two-pixel outline with three-pixel offset. The softer shapes do not reduce hit targets or focus visibility.
 
-The source of truth remains the checkout’s `src/tokens.css`, component styles under `src/`, and `reference/src/workflows/workflows.css`. Package and catalogue users can inspect the [contract](../ai/contract.json), [token stylesheet](../tokens.css), and reviewed [workflow geometry mirror](../ai/examples/workflows.css).
+Each component owns its outer frame. DataTable also owns its horizontal scrolling, named region, and keyboard focus; place it in an unframed layout wrapper rather than adding a second border or scroll region. Joined controls share one seam, and row/item dividers stop before the container's outer edge. Preserve control boundaries and keyboard focus outlines: they communicate different states, even when both are visible.
 
-## Motion and navigation materials
+`--dp-font` selects Plus Jakarta Sans Variable, then Plus Jakarta Sans and a sans-serif fallback. Labels/buttons use 14px, inputs 16px, helpers 13px. Buttons and control labels use weight 600. Heading tracking stays at or above -0.04em. Tables and numeric controls use tabular figures. Group related content tightly and leave more space between tasks; do not make every paragraph a card.
 
-Reduced motion disables button transitions and transforms. Keep animation only where it explains a state change and preserve the reduced-motion preference.
+## Material and motion
 
-`dp-navigation-surface` is an optional CSS utility for one navigation plane. Its `data-dp-material` value may be `subtle`, `expressive`, or `solid`; layout and positioning remain application-owned. Content surfaces, forms, tables, and nested controls remain opaque. The utility falls back to opaque surfaces when transparency, contrast, forced-colour, or browser support requires it. See [`APPLE-DESIGN.md`](APPLE-DESIGN.md), the [distributed token stylesheet](../tokens.css), and the checkout source comments in `src/tokens.css`.
+`--dp-shadow-surface` is `none`: cards and grouped surfaces use fill and divider relationships at rest. `--dp-shadow-popup` and `--dp-shadow-dialog` express elevation only for transient layers. `--dp-shadow-action` gives the primary action a restrained top-edge highlight and offset shadow. Keep control boundaries visible in both themes.
 
-## Accessibility constraints
+Status icons communicate real pending, success, or error states; motion never determines completion. Reduced-motion settings disable the animated transitions and state-icon motion. Optional `dp-navigation-surface` supports `subtle`, `expressive`, and `solid` modes on one navigation plane. Content, nested controls, and forms stay opaque. Reduced transparency, increased contrast, and forced colours use solid fallbacks. See [navigation material guidance](APPLE-DESIGN.md).
 
-Keep visible labels, connected descriptions/errors, keyboard operation, focus return, and semantic landmarks in composed screens. Test light and dark themes, narrow layouts, loading/error/empty states, keyboard flow, and the final rendered focus and contrast. The component library has automated evidence but does not establish WCAG or EAA conformance; each product needs complete-page and complete-process review. See [`ACCESSIBILITY.md`](ACCESSIBILITY.md) and [`ACCESSIBILITY-EVIDENCE.md`](ACCESSIBILITY-EVIDENCE.md).
+## Integration and accessibility
+
+Apply `data-dp-theme="light|dark"` on `<html>` and `dp-theme` on `<body>` so portalled overlays inherit the same theme. The `dp-*` styling contract stays stable through the Serein rename. Existing demo storage keys stay stable too.
+
+The React package is now named `@serein-ui/react`; publication and scope ownership are not established by a source rename. Existing repository links continue to use the real GitHub repository until it is separately renamed.
+
+Keep visible labels, connected errors, keyboard operation, focus return, and semantic landmarks. Verify light/dark, narrow layouts, reduced motion, forced colours, and full user processes in the consuming app. Automated checks do not certify WCAG 2.2 AA or EAA conformance. See [accessibility guidance](ACCESSIBILITY.md) and [recorded evidence](ACCESSIBILITY-EVIDENCE.md).

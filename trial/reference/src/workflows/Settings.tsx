@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Checkbox, Select, TextField, useAsyncAction } from '@ritam-ui/react';
+import { Button, Checkbox, Select, TextField, useAsyncAction } from '@serein-ui/react';
 import Shell, { Recovery, focusId } from './Shell';
 import { defaults, parseSettings, pause, readRecord, saveRecord, timezones, validateName } from './model';
 export default function Settings() {

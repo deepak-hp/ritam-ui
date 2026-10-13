@@ -11,7 +11,7 @@
 .catalogue-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 3rem; border-top: 1px solid var(--dp-divider); padding-top: 2rem; }
 .catalogue-sidebar, .catalogue-content { min-width: 0; }
 .catalogue-filter { display: grid; gap: .4rem; margin-top: 1rem; font-weight: 650; font-size: .875rem; }
-.catalogue-filter select { width: 100%; min-height: 48px; border: 1px solid var(--dp-border); border-radius: 6px; padding: .65rem; color: var(--dp-text); background: var(--dp-canvas); }
+.catalogue-filter select { width: 100%; min-height: 48px; border: 1px solid var(--dp-border); border-radius: var(--dp-radius-control); padding: .65rem; color: var(--dp-text); background: var(--dp-field); }
 .catalogue-count, .catalogue-note { font-size: .8125rem; color: var(--dp-muted); }
 .catalogue-count { margin: 1rem 0; }
 .catalogue-component-list section { margin-bottom: 1.25rem; }
@@ -23,7 +23,7 @@
 .catalogue-component-heading h2 { font-size: 1.75rem; }
 .catalogue-component-heading p { color: var(--dp-muted); max-width: 65ch; margin: .5rem 0 1.5rem; }
 .catalogue-component-heading > a { padding: .3rem 0; }
-.catalogue-preview { min-height: 230px; display: flex; align-items: center; padding: 2rem; border: 1px solid var(--dp-divider); background: var(--dp-surface); border-radius: 8px; overflow-x: auto; }
+.catalogue-preview { min-height: 230px; min-width: 0; display: flex; align-items: center; padding: 2rem; background: var(--dp-surface); border-radius: var(--dp-radius-panel); }
 .catalogue-specimen { width: 100%; max-width: 580px; min-width: 0; display: grid; justify-items: start; gap: 1rem; }
 .catalogue-specimen > div { max-width: 100%; }
 .catalogue-specimen p { margin: 0; }

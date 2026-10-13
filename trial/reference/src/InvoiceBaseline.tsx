@@ -1,4 +1,4 @@
-import { Badge, Button, DataTable, Select, TextField, type DataTableColumn } from '@ritam-ui/react';
+import { Badge, Button, DataTable, Select, TextField, type DataTableColumn } from '@serein-ui/react';
 import { formatAmount, formatDue, type Invoice, type InvoiceFilter, type InvoiceViewProps } from './comparison-types';
 import './invoice-baseline.css';
 
@@ -95,7 +95,7 @@ export function InvoiceBaseline({
         <Button variant="secondary" onClick={onClear}>Clear filters</Button>
       </div>
 
-      <div className="invoice-baseline__table-region" role="region" aria-label="Version A invoice table. Scroll horizontally to compare all invoice fields." tabIndex={0}>
+      <div className="invoice-baseline__table-region">
         <DataTable
           caption="Studio invoices — Version A"
           rows={invoices}
